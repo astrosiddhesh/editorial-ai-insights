@@ -59,46 +59,47 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="w-72 bg-card border-2 border-gold/30 rounded-lg p-5 shadow-2xl backdrop-blur-sm"
+              className="w-80 md:w-96 bg-card border-2 border-gold/30 rounded-xl p-6 md:p-8 shadow-2xl backdrop-blur-sm relative"
               style={{
                 background: 'linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.1)',
+                minHeight: '320px',
               }}
             >
               {/* Card corner decoration */}
-              <div className="absolute top-2 left-2 text-gold/40 text-xs font-display">
+              <div className="absolute top-3 left-3 text-gold/50 text-sm font-display font-bold">
                 {String(index + 1).padStart(2, '0')}
               </div>
-              <div className="absolute bottom-2 right-2 text-gold/40 text-xs font-display rotate-180">
+              <div className="absolute bottom-3 right-3 text-gold/50 text-sm font-display font-bold rotate-180">
                 {String(index + 1).padStart(2, '0')}
               </div>
 
               {/* Project header */}
-              <div className="flex items-start justify-between gap-3 mb-3 mt-4">
-                <h3 className="font-display text-lg font-bold text-headline">
+              <div className="flex items-start justify-between gap-3 mb-4 mt-6">
+                <h3 className="font-display text-xl md:text-2xl font-bold text-headline">
                   {project.title}
                 </h3>
-                <span className="text-gold text-xl">❧</span>
+                <span className="text-gold text-2xl">❧</span>
               </div>
 
               {/* Description */}
-              <p className="text-xs text-muted-foreground font-body leading-relaxed mb-4 line-clamp-3">
+              <p className="text-sm text-muted-foreground font-body leading-relaxed mb-5">
                 {project.description}
               </p>
 
               {/* Technologies */}
-              <div className="flex flex-wrap gap-1 mb-4">
-                {project.technologies.slice(0, 3).map((tech) => (
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {project.technologies.slice(0, 4).map((tech) => (
                   <span
                     key={tech}
-                    className="text-[9px] px-1.5 py-0.5 bg-gold/10 text-gold border border-gold/20"
+                    className="text-[10px] md:text-xs px-2 py-1 bg-gold/10 text-gold border border-gold/20 rounded"
                   >
                     {tech}
                   </span>
                 ))}
-                {project.technologies.length > 3 && (
-                  <span className="text-[9px] px-1.5 py-0.5 text-muted-foreground">
-                    +{project.technologies.length - 3}
+                {project.technologies.length > 4 && (
+                  <span className="text-[10px] md:text-xs px-2 py-1 text-muted-foreground">
+                    +{project.technologies.length - 4}
                   </span>
                 )}
               </div>
@@ -108,10 +109,10 @@ const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-gold hover:underline underline-offset-2 font-medium"
+                className="inline-flex items-center gap-2 text-sm text-gold hover:underline underline-offset-2 font-medium"
               >
                 View Project
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-4 h-4" />
               </a>
 
               {/* Card suit decoration */}
