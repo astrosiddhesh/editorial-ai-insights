@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 const Projects = () => {
   const projects = [
     {
@@ -42,7 +44,7 @@ const Projects = () => {
         {/* Section heading */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
-            <span className="text-gold text-2xl">✦</span>
+            <span className="text-gold text-2xl hover-scale cursor-default">✦</span>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
           </div>
           <h2 className="section-heading">NOVA Projects</h2>
@@ -56,26 +58,34 @@ const Projects = () => {
           {projects.map((project, index) => (
             <article
               key={index}
-              className="group card-editorial flex flex-col h-full hover:border-gold/50 hover:-translate-y-1"
+              className="group card-editorial flex flex-col h-full hover:border-gold/50 hover-lift relative overflow-hidden"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/0 to-gold/0 group-hover:from-gold/5 group-hover:via-transparent group-hover:to-gold/3 transition-all duration-500 pointer-events-none" />
+              
               {/* Project header */}
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 className="font-display text-xl font-semibold text-headline group-hover:text-gold transition-colors">
+              <div className="flex items-start justify-between gap-4 mb-4 relative z-10">
+                <h3 className="font-display text-xl font-semibold text-headline group-hover:text-gold transition-colors duration-300">
                   {project.title}
                 </h3>
-                <span className="text-gold text-xl opacity-50 group-hover:opacity-100 transition-opacity">
+                <span className="text-gold text-xl opacity-30 group-hover:opacity-100 group-hover:rotate-12 transition-all duration-300">
                   ❧
                 </span>
               </div>
 
               {/* Description */}
-              <p className="body-text flex-grow mb-6 text-sm leading-relaxed">{project.description}</p>
+              <p className="body-text flex-grow mb-6 text-sm leading-relaxed relative z-10">{project.description}</p>
 
               {/* Technologies */}
-              <div className="mb-4">
+              <div className="mb-4 relative z-10">
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span key={tech} className="text-xs px-2 py-1 bg-gold/10 text-gold border border-gold/20">
+                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                    <span 
+                      key={tech} 
+                      className="text-xs px-2 py-1 bg-gold/10 text-gold border border-gold/20 hover:bg-gold/20 hover:border-gold/40 transition-all duration-200"
+                      style={{ animationDelay: `${techIndex * 0.05}s` }}
+                    >
                       {tech}
                     </span>
                   ))}
@@ -92,10 +102,10 @@ const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start mt-auto group/link"
+                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start mt-auto relative z-10 group/link"
               >
                 View Project
-                <span className="text-xs group-hover/link:translate-x-1 transition-transform">→</span>
+                <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200" />
               </a>
             </article>
           ))}
