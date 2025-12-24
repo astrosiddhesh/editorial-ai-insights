@@ -1,104 +1,52 @@
 const Technologies = () => {
-  const techCategories = [
-    {
-      category: "Languages & Frameworks",
-      items: ["Python", "SQL", "FastAPI", "Streamlit"],
-      icon: "⟨/⟩",
-    },
-    {
-      category: "Cloud & Data",
-      items: ["Google Cloud Platform (GCP)", "BigQuery", "PostgreSQL", "Redis"],
-      icon: "☁",
-    },
-    {
-      category: "AI & Machine Learning",
-      items: ["Vertex AI", "LangChain", "Vector Databases", "OpenAI API"],
-      icon: "◎",
-    },
-    {
-      category: "Analytics & Visualization",
-      items: ["Power BI", "Tableau", "Pandas", "NumPy"],
-      icon: "▦",
-    },
-    {
-      category: "DevOps & Tools",
-      items: ["Docker", "Git", "Airflow", "CI/CD"],
-      icon: "⚙",
-    },
-  ];
-
-  const allTechnologies = [
-    "Python", "SQL", "FastAPI", "Streamlit", "Google Cloud Platform (GCP)",
-    "BigQuery", "Vertex AI", "LangChain", "Vector Databases", "Power BI",
-    "Tableau", "PostgreSQL", "Docker", "Git", "Pandas", "NumPy", "Redis", "Airflow",
+  const techStack = [
+    { category: "Languages & Frameworks", items: "Python, SQL, FastAPI, Streamlit" },
+    { category: "AI/ML & Cloud", items: "LangChain, RAG, NLP, Vertex AI, GCP, Docker, BigQuery" },
+    { category: "Data & Visualization", items: "ETL/ELT Pipelines, Tableau, Power BI, MCP" },
   ];
 
   return (
-    <section id="technologies" className="py-12 px-6 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ivory via-ivory to-background" />
+    <section id="technologies" className="py-8 px-6 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      <div className="container max-w-5xl mx-auto relative z-10">
-        {/* Section heading */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
-            <span className="text-gold text-2xl hover-scale cursor-default">⟨/⟩</span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
-          </div>
-          <h2 className="section-heading">Technologies & Tools</h2>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            The technical foundation powering production-grade systems.
-          </p>
+      <div className="container max-w-4xl mx-auto">
+        {/* Compact heading */}
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+            Tech Stack
+          </h2>
+          <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
         </div>
 
-        {/* Categorized grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {techCategories.map((category, index) => (
+        {/* Table-style layout like reference */}
+        <div className="border border-border/60 bg-card/50">
+          <div className="grid grid-cols-[180px_1fr] text-sm border-b border-border/60 bg-gold/5">
+            <div className="px-4 py-2 font-display font-semibold text-gold uppercase tracking-wider text-xs">
+              Category
+            </div>
+            <div className="px-4 py-2 font-display font-semibold text-gold uppercase tracking-wider text-xs">
+              Technologies
+            </div>
+          </div>
+          {techStack.map((row, index) => (
             <div 
               key={index} 
-              className="card-editorial group hover-lift"
+              className={`grid grid-cols-[180px_1fr] text-sm ${index !== techStack.length - 1 ? 'border-b border-border/40' : ''}`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl text-gold group-hover:scale-110 transition-transform duration-300">{category.icon}</span>
-                <h3 className="font-display text-lg font-semibold text-headline group-hover:text-gold transition-colors duration-300">
-                  {category.category}
-                </h3>
+              <div className="px-4 py-3 font-body text-gold/90 border-r border-border/40">
+                {row.category}
               </div>
-              <ul className="space-y-3">
-                {category.items.map((item, itemIndex) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-3 font-body text-foreground/85 text-sm group/item hover:text-foreground transition-colors duration-200"
-                    style={{ animationDelay: `${itemIndex * 0.05}s` }}
-                  >
-                    <span className="text-gold text-xs group-hover/item:scale-125 transition-transform duration-200">✦</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="px-4 py-3 font-body text-foreground/85">
+                {row.items}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Flat list for SEO/AI */}
-        <div className="border-t border-gold/20 pt-6 mt-8">
-          <p className="text-xs uppercase tracking-wider text-gold mb-6 text-center font-semibold">
-            Complete Technology Stack
-          </p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {allTechnologies.map((tech, index) => (
-              <span 
-                key={tech} 
-                className="tag-editorial hover-scale cursor-default"
-                style={{ animationDelay: `${index * 0.03}s` }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* Tagline */}
+        <p className="text-center text-sm text-muted-foreground font-editorial italic mt-4">
+          Every system he builds is designed for clarity, scale, and measurable ROI — not proof-of-concept for slides.
+        </p>
       </div>
     </section>
   );
