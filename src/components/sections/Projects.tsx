@@ -1,113 +1,111 @@
 import { ExternalLink } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const Projects = () => {
   const projects = [
     {
       title: "RepoIntel",
-      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks. Features dual-LLM integration, workflow orchestration, and a React-based web interface.",
-      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker", "Cloud Run"],
+      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks.",
+      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker"],
       link: "https://siddheshphapale.live/nova/p1/repointel/",
     },
     {
       title: "Welfy",
-      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface. Features secure MCP integration, real-time portfolio analysis, and personalized financial recommendations.",
-      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React", "TypeScript"],
+      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface.",
+      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React"],
       link: "https://siddheshphapale.live/nova/p2/welfy/",
     },
     {
       title: "Hustlr",
-      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights and performance analysis. Chat naturally with your data to get coaching advice, track progress, and discover patterns in your workouts.",
-      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0", "Docker"],
+      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights.",
+      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0"],
       link: "https://siddheshphapale.live/nova/p3/hustlr/",
     },
     {
       title: "Epoquest",
-      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines. From ancient innovations to modern trends, it brings the story of progress to life with glass-morphism design.",
-      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS", "Docker"],
+      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines.",
+      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS"],
       link: "https://siddheshphapale.live/nova/p4/epoquest/",
     },
     {
       title: "AceSheet",
-      description: "Transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash. Engineered for rapid learning and sharp recall, it blends structured academic clarity with elegant Swiss-minimal design. Perfect for printing, prepping, and performing under pressure.",
+      description: "Transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash.",
       technologies: ["Gemini 2.5 Flash", "p5.js", "Cheat Sheets", "Docker"],
       link: "https://siddheshphapale.live/nova/p5/acesheet/",
     },
   ];
 
   return (
-    <section id="projects" className="py-12 px-6 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ivory via-background to-background" />
+    <section id="projects" className="py-10 px-6 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      <div className="container max-w-6xl mx-auto relative z-10">
+      <div className="container max-w-6xl mx-auto">
         {/* Section heading */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="text-gold text-2xl hover-scale cursor-default">✦</span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
+        <AnimatedSection animation="fade-up">
+          <div className="flex items-center gap-4 mb-6">
+            <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+              NOVA Projects
+            </h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
-          <h2 className="section-heading">NOVA Projects</h2>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-sm text-muted-foreground mb-6">
             A collection of AI-powered applications built with passion and purpose.
           </p>
-        </div>
+        </AnimatedSection>
 
-        {/* Projects grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Projects grid with 3D tilt */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <article
-              key={index}
-              className="group card-editorial flex flex-col h-full hover:border-gold/50 hover-lift relative overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/0 via-gold/0 to-gold/0 group-hover:from-gold/5 group-hover:via-transparent group-hover:to-gold/3 transition-all duration-500 pointer-events-none" />
-              
-              {/* Project header */}
-              <div className="flex items-start justify-between gap-4 mb-4 relative z-10">
-                <h3 className="font-display text-xl font-semibold text-headline group-hover:text-gold transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <span className="text-gold text-xl opacity-30 group-hover:opacity-100 group-hover:rotate-12 transition-all duration-300">
-                  ❧
-                </span>
-              </div>
+            <AnimatedSection key={index} animation="fade-up" delay={index * 80}>
+              <TiltCard 
+                className="group border border-border/50 bg-card/50 p-4 h-full flex flex-col hover:border-gold/40 transition-colors"
+                tiltAmount={8}
+              >
+                {/* Project header */}
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <h3 className="font-display text-lg font-semibold text-headline group-hover:text-gold transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <span className="text-gold text-lg opacity-30 group-hover:opacity-100 group-hover:rotate-12 transition-all duration-300">
+                    ❧
+                  </span>
+                </div>
 
-              {/* Description */}
-              <p className="body-text flex-grow mb-6 text-sm leading-relaxed relative z-10">{project.description}</p>
+                {/* Description */}
+                <p className="text-xs text-muted-foreground font-body leading-relaxed flex-grow mb-3">
+                  {project.description}
+                </p>
 
-              {/* Technologies */}
-              <div className="mb-4 relative z-10">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.technologies.slice(0, 4).map((tech) => (
                     <span 
                       key={tech} 
-                      className="text-xs px-2 py-1 bg-gold/10 text-gold border border-gold/20 hover:bg-gold/20 hover:border-gold/40 transition-all duration-200"
-                      style={{ animationDelay: `${techIndex * 0.05}s` }}
+                      className="text-[10px] px-2 py-0.5 bg-gold/10 text-gold border border-gold/20 hover:bg-gold/20 transition-colors"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="text-xs px-2 py-1 text-muted-foreground">
-                      +{project.technologies.length - 4} more
+                    <span className="text-[10px] px-2 py-0.5 text-muted-foreground">
+                      +{project.technologies.length - 4}
                     </span>
                   )}
                 </div>
-              </div>
 
-              {/* Link */}
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start mt-auto relative z-10 group/link"
-              >
-                View Project
-                <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200" />
-              </a>
-            </article>
+                {/* Link */}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-gold hover:underline underline-offset-2 group/link"
+                >
+                  View Project
+                  <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                </a>
+              </TiltCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>
