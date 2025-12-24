@@ -44,7 +44,7 @@ const Technologies = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
-            <span className="text-gold text-2xl">⟨/⟩</span>
+            <span className="text-gold text-2xl hover-scale cursor-default">⟨/⟩</span>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
           </div>
           <h2 className="section-heading">Technologies & Tools</h2>
@@ -56,20 +56,24 @@ const Technologies = () => {
         {/* Categorized grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {techCategories.map((category, index) => (
-            <div key={index} className="card-editorial group hover:-translate-y-1">
+            <div 
+              key={index} 
+              className="card-editorial group hover-lift"
+            >
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl text-gold">{category.icon}</span>
-                <h3 className="font-display text-lg font-semibold text-headline">
+                <span className="text-2xl text-gold group-hover:scale-110 transition-transform duration-300">{category.icon}</span>
+                <h3 className="font-display text-lg font-semibold text-headline group-hover:text-gold transition-colors duration-300">
                   {category.category}
                 </h3>
               </div>
               <ul className="space-y-3">
-                {category.items.map((item) => (
+                {category.items.map((item, itemIndex) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 font-body text-foreground/85 text-sm"
+                    className="flex items-center gap-3 font-body text-foreground/85 text-sm group/item hover:text-foreground transition-colors duration-200"
+                    style={{ animationDelay: `${itemIndex * 0.05}s` }}
                   >
-                    <span className="text-gold text-xs">✦</span>
+                    <span className="text-gold text-xs group-hover/item:scale-125 transition-transform duration-200">✦</span>
                     {item}
                   </li>
                 ))}
@@ -84,8 +88,12 @@ const Technologies = () => {
             Complete Technology Stack
           </p>
           <div className="flex flex-wrap justify-center gap-2">
-            {allTechnologies.map((tech) => (
-              <span key={tech} className="tag-editorial">
+            {allTechnologies.map((tech, index) => (
+              <span 
+                key={tech} 
+                className="tag-editorial hover-scale cursor-default"
+                style={{ animationDelay: `${index * 0.03}s` }}
+              >
                 {tech}
               </span>
             ))}
