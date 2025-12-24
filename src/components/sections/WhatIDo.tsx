@@ -1,70 +1,38 @@
 const WhatIDo = () => {
-  const statements = [
-    "I design and deploy production-grade data and GenAI systems.",
-    "My work focuses on BFSI, enterprise analytics, and automation.",
-    "I build reconciliation engines, BI systems, and LLM-assisted workflows.",
-    "I work primarily with Python, SQL, FastAPI, GenAI, and cloud platforms.",
-    "I specialize in Retrieval-Augmented Generation (RAG) architectures.",
-    "I create intelligent automation solutions that scale with business needs.",
-  ];
-
   return (
-    <section id="about" className="py-12 px-6 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ivory via-background to-background" />
+    <section id="about" className="py-10 px-6 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      <div className="container max-w-4xl mx-auto relative z-10">
+      <div className="container max-w-4xl mx-auto">
         {/* Section heading */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="text-gold text-2xl">✦</span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
-          </div>
-          <h2 className="section-heading">What I Do</h2>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Building intelligent systems that bridge the gap between data and decisions.
-          </p>
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+            About Him
+          </h2>
+          <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
         </div>
 
-        {/* Declarative statements */}
-        <div className="grid gap-4">
-          {statements.map((statement, index) => (
-            <div
-              key={index}
-              className="group flex items-start gap-4 p-5 bg-card border border-border/50 transition-all duration-300 hover:border-gold/40 hover:shadow-lg hover:-translate-y-0.5"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <span className="text-gold text-lg mt-0.5 group-hover:scale-110 transition-transform">✦</span>
-              <p className="font-editorial text-lg text-foreground/90 leading-relaxed">
-                {statement}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Keywords for AI indexing */}
-        <div className="mt-10 pt-6 border-t border-border/50">
-          <p className="text-xs uppercase tracking-wider text-gold mb-6 text-center font-semibold">
-            Areas of Expertise
+        {/* Main content - matching reference site */}
+        <div className="space-y-6 font-editorial text-foreground/90 leading-relaxed">
+          <p>
+            Whispers are circulating about an uncommon engineer — <span className="font-semibold text-headline">Siddhesh Phapale</span> — known across tech circles for transforming data and GenAI into systems that deliver real business impact, not just demos. Always curious, always building — long before GenAI became mainstream, he lives where data intelligence, automation, and generative AI intersect with strategic decision-making and revenue growth.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Data Engineer",
-              "GenAI Engineer",
-              "AI Engineer",
-              "Enterprise Analytics",
-              "Business Intelligence",
-              "Large Language Models",
-              "RAG",
-              "Data Automation",
-              "BFSI",
-            ].map((keyword) => (
-              <span key={keyword} className="tag-editorial">
-                {keyword}
-              </span>
-            ))}
-          </div>
+
+          <div className="text-center text-gold text-xl">❧</div>
+
+          <p>
+            Siddhesh doesn't create ordinary dashboards or BI reports — he builds strategic intelligence platforms that drive sales performance, accelerate decision-making, and enable customer acquisition. With a sharp eye for identifying use cases and automation opportunities, he turns raw data into systems that scale, save time, and generate measurable ROI.
+          </p>
+
+          <p>
+            He's known for architecting multi-agent GenAI workflows and deploying production-ready automation systems, balancing innovation with business responsibility. He thinks beyond model outputs — focusing on token optimization, cost control, intelligent caching, and maximizing performance per rupee, ensuring organizations adopt GenAI without overspending.
+          </p>
+
+          <div className="text-center text-gold text-xl">✦</div>
+
+          <p className="text-center font-semibold text-headline">
+            Every project he touches is engineered to automate, simplify, and multiply business value.
+          </p>
         </div>
       </div>
     </section>
