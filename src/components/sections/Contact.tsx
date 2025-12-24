@@ -14,7 +14,7 @@ const Contact = () => {
 
       <div className="container max-w-4xl mx-auto">
         {/* Compact heading */}
-        <div className="flex items-center gap-4 mb-6">
+        <div className="flex items-center gap-4 mb-4">
           <div className="flex-1 h-px bg-gradient-to-l from-gold/40 to-transparent" />
           <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
             Get in Touch
@@ -23,7 +23,7 @@ const Contact = () => {
         </div>
 
         {/* Inline contact links */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
           {contactLinks.map((link) => (
             <a
               key={link.label}
@@ -41,7 +41,7 @@ const Contact = () => {
         </div>
 
         {/* Simple CTA */}
-        <p className="text-center font-editorial text-foreground/85 mb-4">
+        <p className="text-center font-editorial text-foreground/85 text-sm mb-3">
           Open to discussing data engineering projects, GenAI solutions, or speaking opportunities.
         </p>
         <div className="text-center">
