@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface CardStackProps {
@@ -7,70 +7,122 @@ interface CardStackProps {
 }
 
 export const CardStack = ({ children, className }: CardStackProps) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalCards = children.length;
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect();
+      const containerHeight = container.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      
+      // How far into the section we've scrolled (0 to 1)
+      const scrollStart = viewportHeight - rect.top;
+      const scrollRange = containerHeight - viewportHeight;
+      const progress = Math.max(0, Math.min(1, scrollStart / scrollRange));
+      
+      // Map progress to card index
+      const newIndex = Math.min(
+        totalCards - 1,
+        Math.floor(progress * totalCards)
+      );
+      
+      setActiveIndex(newIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [totalCards]);
 
   return (
-    <div className={cn("relative", className)}>
-      {/* Scroll container with snap */}
-      <div
-        ref={scrollRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-6 px-6 md:-mx-12 md:px-12"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
-      >
-        {children.map((child, index) => (
-          <div
-            key={index}
-            className={cn(
-              "flex-shrink-0 snap-center",
-              "transition-transform duration-300 ease-out",
-              // Card width: almost full on mobile, with peek on sides
-              "w-[85vw] md:w-[75vw] lg:w-[60vw] max-w-2xl",
-              // Spacing between cards
-              index === 0 ? "ml-0" : "ml-4 md:ml-6"
-            )}
-          >
-            {child}
-          </div>
-        ))}
-        {/* Extra padding at end for last card peek */}
-        <div className="flex-shrink-0 w-[15vw] md:w-[12.5vw] lg:w-[20vw]" />
+    <div
+      ref={containerRef}
+      className={cn("relative", className)}
+      style={{
+        // Height = enough scroll room for all cards
+        height: `${totalCards * 100}vh`,
+      }}
+    >
+      {/* Sticky container that stays in view */}
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="relative w-full max-w-2xl aspect-[3/4] mx-auto">
+          {children.map((child, index) => {
+            const isActive = index === activeIndex;
+            const isPast = index < activeIndex;
+            const isFuture = index > activeIndex;
+            const offset = index - activeIndex;
+
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "absolute inset-0 transition-all duration-500 ease-out origin-bottom",
+                  isPast && "pointer-events-none",
+                  isFuture && "pointer-events-none"
+                )}
+                style={{
+                  // Stack: active card on top, future cards below with offset
+                  zIndex: totalCards - index,
+                  // Transform: past cards fly up-left, future cards stack below
+                  transform: isPast
+                    ? `translateY(-120%) translateX(-30%) rotate(-15deg) scale(0.9)`
+                    : isActive
+                      ? `translateY(0) translateX(0) rotate(0deg) scale(1)`
+                      : `translateY(${offset * 20}px) translateX(${offset * 10}px) rotate(${offset * 2}deg) scale(${1 - offset * 0.05})`,
+                  opacity: isPast ? 0 : isActive ? 1 : Math.max(0.4, 1 - offset * 0.2),
+                }}
+                aria-hidden={!isActive}
+              >
+                {child}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-6">
+      {/* Progress dots - fixed on the side */}
+      <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
         {children.map((_, index) => (
           <button
             key={index}
             type="button"
             onClick={() => {
-              const container = scrollRef.current;
+              // Scroll to position for this card
+              const container = containerRef.current;
               if (!container) return;
-              const cards = container.querySelectorAll(":scope > div");
-              const card = cards[index] as HTMLElement;
-              if (card) {
-                card.scrollIntoView({
-                  behavior: "smooth",
-                  inline: "center",
-                  block: "nearest",
-                });
-              }
+              const containerTop = container.offsetTop;
+              const containerHeight = container.offsetHeight;
+              const viewportHeight = window.innerHeight;
+              const scrollRange = containerHeight - viewportHeight;
+              const targetProgress = index / totalCards;
+              const targetScroll = containerTop + targetProgress * scrollRange;
+              window.scrollTo({ top: targetScroll, behavior: "smooth" });
             }}
             className={cn(
-              "w-2 h-2 rounded-full transition-all duration-300",
-              "bg-gold/30 hover:bg-gold/60"
+              "w-2.5 h-2.5 rounded-full transition-all duration-300",
+              index === activeIndex
+                ? "bg-gold scale-125"
+                : index < activeIndex
+                  ? "bg-gold/60"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
             )}
             aria-label={`Go to card ${index + 1}`}
           />
         ))}
       </div>
 
-      {/* Scroll hint on mobile */}
-      <p className="text-center text-xs text-muted-foreground mt-4 md:hidden">
-        ← Swipe to see more →
-      </p>
+      {/* Scroll hint */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 text-center pointer-events-none">
+        <p className="text-xs text-muted-foreground/60 animate-pulse">
+          Scroll to reveal cards
+        </p>
+      </div>
     </div>
   );
 };
