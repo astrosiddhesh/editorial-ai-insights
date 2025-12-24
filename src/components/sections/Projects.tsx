@@ -1,32 +1,34 @@
 const Projects = () => {
   const projects = [
     {
-      title: "Enterprise Reconciliation Engine",
-      problem: "Manual reconciliation of financial transactions was time-consuming and error-prone, requiring significant human effort.",
-      solution: "Built an automated reconciliation engine using Python and SQL that matches transactions across multiple data sources with intelligent exception handling.",
-      outcome: "Reduced manual reconciliation effort by 80% and improved accuracy to 99.5%.",
-      technologies: ["Python", "SQL", "FastAPI", "PostgreSQL", "Pandas"],
+      title: "RepoIntel",
+      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks. Features dual-LLM integration, workflow orchestration, and a React-based web interface.",
+      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker", "Cloud Run"],
+      link: "https://siddheshphapale.live/nova/p1/repointel/",
     },
     {
-      title: "GenAI Document Q&A System",
-      problem: "Enterprise teams spent hours searching through documentation to find relevant information for client queries.",
-      solution: "Developed a RAG-based document Q&A system using LangChain, vector databases, and Vertex AI to provide instant, accurate answers from internal knowledge bases.",
-      outcome: "Reduced query resolution time from hours to seconds, processing 500+ queries daily.",
-      technologies: ["LangChain", "Vertex AI", "ChromaDB", "FastAPI", "Streamlit"],
+      title: "Welfy",
+      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface. Features secure MCP integration, real-time portfolio analysis, and personalized financial recommendations.",
+      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React", "TypeScript"],
+      link: "https://siddheshphapale.live/nova/p2/welfy/",
     },
     {
-      title: "Real-time Analytics Dashboard",
-      problem: "Business stakeholders lacked visibility into key metrics, leading to delayed decision-making.",
-      solution: "Created a real-time BI dashboard with automated data pipelines from multiple sources, featuring interactive visualizations and automated alerts.",
-      outcome: "Improved reporting turnaround time by 12 hours and enabled data-driven decisions.",
-      technologies: ["BigQuery", "Power BI", "Python", "Airflow", "GCP"],
+      title: "Hustlr",
+      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights and performance analysis. Chat naturally with your data to get coaching advice, track progress, and discover patterns in your workouts.",
+      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0", "Docker"],
+      link: "https://siddheshphapale.live/nova/p3/hustlr/",
     },
     {
-      title: "Intelligent Workflow Automation",
-      problem: "Repetitive manual processes in financial operations consumed team bandwidth and introduced errors.",
-      solution: "Designed and implemented LLM-assisted workflow automation that handles document processing, data extraction, and routing decisions.",
-      outcome: "Automated 70% of manual workflows, processing 10,000+ documents monthly.",
-      technologies: ["Python", "OpenAI API", "FastAPI", "Redis", "Docker"],
+      title: "Epoquest",
+      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines. From ancient innovations to modern trends, it brings the story of progress to life with glass-morphism design.",
+      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS", "Docker"],
+      link: "https://siddheshphapale.live/nova/p4/epoquest/",
+    },
+    {
+      title: "AceSheet",
+      description: "Transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash. Engineered for rapid learning and sharp recall, it blends structured academic clarity with elegant Swiss-minimal design. Perfect for printing, prepping, and performing under pressure.",
+      technologies: ["Gemini 2.5 Flash", "p5.js", "Cheat Sheets", "Docker"],
+      link: "https://siddheshphapale.live/nova/p5/acesheet/",
     },
   ];
 
@@ -36,21 +38,21 @@ const Projects = () => {
         {/* Section heading */}
         <div className="text-center mb-16">
           <div className="editorial-rule-double w-32 mx-auto mb-8" />
-          <h2 className="section-heading">Selected Projects</h2>
+          <h2 className="section-heading">NOVA Projects</h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Production-grade systems delivering measurable impact.
+            A collection of AI-powered applications built with passion and purpose.
           </p>
         </div>
 
         {/* Projects grid */}
-        <div className="grid gap-8">
+        <div className="grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
             <article
               key={index}
-              className="card-editorial group hover:border-primary/40 transition-all duration-300"
+              className="card-editorial group hover:border-primary/40 transition-all duration-300 flex flex-col"
             >
               {/* Project header */}
-              <div className="flex items-start justify-between gap-4 mb-6">
+              <div className="flex items-start justify-between gap-4 mb-4">
                 <h3 className="subsection-heading mb-0 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
@@ -59,44 +61,30 @@ const Projects = () => {
                 </span>
               </div>
 
-              {/* Structured content */}
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-body">
-                    Problem
-                  </p>
-                  <p className="body-text">{project.problem}</p>
-                </div>
+              {/* Description */}
+              <p className="body-text flex-grow mb-4">{project.description}</p>
 
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-body">
-                    Solution
-                  </p>
-                  <p className="body-text">{project.solution}</p>
-                </div>
-
-                <div className="bg-secondary/50 p-4 border-l-2 border-primary">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-body">
-                    Outcome
-                  </p>
-                  <p className="font-editorial text-base font-medium text-foreground">
-                    {project.outcome}
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 font-body">
-                    Technologies Used
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="tag-editorial">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              {/* Technologies */}
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="tag-editorial text-xs">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
+
+              {/* Link */}
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start"
+              >
+                View Project
+                <span className="text-xs">→</span>
+              </a>
             </article>
           ))}
         </div>
