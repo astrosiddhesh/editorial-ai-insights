@@ -57,7 +57,7 @@ const Projects = () => {
         </AnimatedSection>
 
         {/* Playing card stack */}
-        <CardStack>
+        <CardStack stepVh={80} stickyTopPx={96}>
           {projects.map((project, index) => (
             <article
               key={index}
