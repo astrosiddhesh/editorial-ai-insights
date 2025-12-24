@@ -40,14 +40,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 relative overflow-hidden">
+    <section id="faq" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-b from-ivory via-ivory to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-3xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-6">
             <span className="text-gold text-2xl">?</span>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />

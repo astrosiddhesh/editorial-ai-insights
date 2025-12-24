@@ -6,13 +6,13 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-6 relative overflow-hidden">
+    <section id="experience" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-ivory/50" />
 
       <div className="container max-w-5xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
             <span className="text-gold text-2xl">❧</span>
@@ -22,7 +22,7 @@ const Experience = () => {
         </div>
 
         {/* Metrics row */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-3 gap-4 mb-10">
           {highlights.map((item, index) => (
             <div
               key={index}

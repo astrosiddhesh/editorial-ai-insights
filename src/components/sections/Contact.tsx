@@ -29,7 +29,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden">
+    <section id="contact" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-t from-ivory to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -37,7 +37,7 @@ const Contact = () => {
 
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
             <span className="text-gold text-2xl hover-scale cursor-default">✦</span>
@@ -51,7 +51,7 @@ const Contact = () => {
         </div>
 
         {/* Contact cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {contactLinks.map((link, index) => (
             <a
               key={link.label}
