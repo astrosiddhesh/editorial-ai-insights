@@ -9,14 +9,14 @@ const WhatIDo = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 relative overflow-hidden">
+    <section id="about" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-b from-ivory via-background to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-6">
             <span className="text-gold text-2xl">✦</span>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
@@ -44,7 +44,7 @@ const WhatIDo = () => {
         </div>
 
         {/* Keywords for AI indexing */}
-        <div className="mt-16 pt-8 border-t border-border/50">
+        <div className="mt-10 pt-6 border-t border-border/50">
           <p className="text-xs uppercase tracking-wider text-gold mb-6 text-center font-semibold">
             Areas of Expertise
           </p>

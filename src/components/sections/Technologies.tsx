@@ -34,14 +34,14 @@ const Technologies = () => {
   ];
 
   return (
-    <section id="technologies" className="py-24 px-6 relative overflow-hidden">
+    <section id="technologies" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-b from-ivory via-ivory to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-5xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
             <span className="text-gold text-2xl hover-scale cursor-default">⟨/⟩</span>
@@ -83,7 +83,7 @@ const Technologies = () => {
         </div>
 
         {/* Flat list for SEO/AI */}
-        <div className="border-t border-gold/20 pt-10">
+        <div className="border-t border-gold/20 pt-6 mt-8">
           <p className="text-xs uppercase tracking-wider text-gold mb-6 text-center font-semibold">
             Complete Technology Stack
           </p>

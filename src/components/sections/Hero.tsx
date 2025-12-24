@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-6 overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
     >
       {/* Decorative background elements - more subtle */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

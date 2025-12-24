@@ -35,14 +35,14 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-6 relative overflow-hidden">
+    <section id="projects" className="py-12 px-6 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 bg-gradient-to-b from-ivory via-background to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-6xl mx-auto relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 mb-6">
             <span className="text-gold text-2xl hover-scale cursor-default">✦</span>
             <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
