@@ -1,4 +1,6 @@
 import { Mail, Linkedin, Github, FileText } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const Contact = () => {
   const contactLinks = [
@@ -14,45 +16,55 @@ const Contact = () => {
 
       <div className="container max-w-4xl mx-auto">
         {/* Compact heading */}
-        <div className="flex items-center gap-4 mb-4">
-          <div className="flex-1 h-px bg-gradient-to-l from-gold/40 to-transparent" />
-          <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
-            Get in Touch
-          </h2>
-          <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
-        </div>
+        <AnimatedSection animation="fade-up">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="flex-1 h-px bg-gradient-to-l from-gold/40 to-transparent" />
+            <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+              Get in Touch
+            </h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
+          </div>
+        </AnimatedSection>
 
-        {/* Inline contact links */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group flex items-center gap-2 text-foreground/80 hover:text-gold transition-colors duration-200"
-            >
-              <link.icon className="w-4 h-4 text-gold" />
-              <span className="font-body text-sm group-hover:underline underline-offset-2">
-                {link.label}
-              </span>
-            </a>
-          ))}
-        </div>
+        {/* Inline contact links with magnetic effect */}
+        <AnimatedSection animation="fade-up" delay={100}>
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
+            {contactLinks.map((link, index) => (
+              <MagneticButton key={link.label} strength={0.5}>
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group flex items-center gap-2 text-foreground/80 hover:text-gold transition-colors duration-200"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <link.icon className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                  <span className="font-body text-sm link-underline">
+                    {link.label}
+                  </span>
+                </a>
+              </MagneticButton>
+            ))}
+          </div>
+        </AnimatedSection>
 
         {/* Simple CTA */}
-        <p className="text-center font-editorial text-foreground/85 text-sm mb-3">
-          Open to discussing data engineering projects, GenAI solutions, or speaking opportunities.
-        </p>
-        <div className="text-center">
-          <a
-            href="mailto:siddhesh@example.com"
-            className="btn-editorial-primary inline-flex items-center gap-2 text-sm"
-          >
-            Start a Conversation
-            <span>→</span>
-          </a>
-        </div>
+        <AnimatedSection animation="scale" delay={200}>
+          <p className="text-center font-editorial text-foreground/85 text-sm mb-3">
+            Open to discussing data engineering projects, GenAI solutions, or speaking opportunities.
+          </p>
+          <div className="text-center">
+            <MagneticButton strength={0.4}>
+              <a
+                href="mailto:siddhesh@example.com"
+                className="btn-editorial-primary inline-flex items-center gap-2 text-sm group"
+              >
+                <span>Start a Conversation</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </MagneticButton>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

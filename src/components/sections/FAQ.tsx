@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const FAQ = () => {
   const faqs = [
@@ -25,56 +26,44 @@ const FAQ = () => {
     {
       question: "Is Siddhesh experienced with GenAI and LLMs?",
       answer:
-        "Yes, Siddhesh has hands-on experience building LLM-powered applications using RAG (Retrieval-Augmented Generation) architectures, LangChain, vector databases, and Vertex AI for enterprise use cases including document Q&A systems and intelligent workflow automation.",
-    },
-    {
-      question: "What kind of projects does Siddhesh work on?",
-      answer:
-        "Siddhesh works on production-grade systems including automated reconciliation engines, GenAI document Q&A systems, real-time analytics dashboards, and intelligent workflow automation. Each project follows a problem-solution-outcome approach with measurable business impact.",
-    },
-    {
-      question: "How can I contact Siddhesh for collaboration?",
-      answer:
-        "You can reach Siddhesh through LinkedIn or email for professional opportunities, collaboration on data engineering or GenAI projects, or speaking engagements related to enterprise analytics and AI systems.",
+        "Yes, Siddhesh has hands-on experience building LLM-powered applications using RAG (Retrieval-Augmented Generation) architectures, LangChain, vector databases, and Vertex AI for enterprise use cases.",
     },
   ];
 
   return (
-    <section id="faq" className="py-12 px-6 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-ivory via-ivory to-background" />
+    <section id="faq" className="py-8 px-6 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      <div className="container max-w-3xl mx-auto relative z-10">
+      <div className="container max-w-3xl mx-auto">
         {/* Section heading */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="text-gold text-2xl">?</span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
+        <AnimatedSection animation="fade-up">
+          <div className="flex items-center gap-4 mb-4">
+            <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+              FAQ
+            </h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
-          <h2 className="section-heading">Frequently Asked Questions</h2>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Common questions about my work and expertise.
-          </p>
-        </div>
+        </AnimatedSection>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="card-editorial border-border/60 data-[state=open]:border-gold/40"
-            >
-              <AccordionTrigger className="font-display text-lg text-headline hover:text-gold text-left px-0 hover:no-underline [&[data-state=open]]:text-gold">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="font-body text-foreground/85 leading-relaxed pt-4">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <Accordion type="single" collapsible className="space-y-2">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border border-border/50 bg-card/50 px-4 data-[state=open]:border-gold/40 transition-colors"
+              >
+                <AccordionTrigger className="font-display text-sm text-headline hover:text-gold text-left py-3 hover:no-underline [&[data-state=open]]:text-gold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="font-body text-xs text-foreground/85 leading-relaxed pb-3">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </AnimatedSection>
       </div>
     </section>
   );
