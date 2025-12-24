@@ -8,7 +8,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
       const sections = ["hero", "about", "projects", "technologies", "experience", "faq", "contact"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -46,17 +45,17 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+          ? "bg-background/98 backdrop-blur-md border-b border-gold/20 shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <div className="container max-w-5xl mx-auto px-6">
+      <div className="container max-w-6xl mx-auto px-6">
         <nav className="flex items-center justify-between h-16 md:h-20">
           <button
             onClick={() => scrollToSection("hero")}
-            className="font-display text-lg md:text-xl font-semibold text-headline hover:text-primary transition-colors"
+            className="font-display text-lg md:text-xl font-bold text-headline hover:text-gold transition-colors"
           >
-            S. Phapale
+            <span className="text-gold">S.</span> Phapale
           </button>
 
           <ul className="hidden md:flex items-center gap-8">
@@ -64,10 +63,10 @@ const Header = () => {
               <li key={item.id}>
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className={`font-body text-sm uppercase tracking-wider transition-colors ${
+                  className={`font-body text-sm uppercase tracking-wider transition-all ${
                     activeSection === item.id
-                      ? "text-primary font-medium"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "text-gold font-semibold"
+                      : "text-muted-foreground hover:text-gold"
                   }`}
                 >
                   {item.label}
@@ -78,7 +77,7 @@ const Header = () => {
 
           <button
             onClick={() => scrollToSection("contact")}
-            className="btn-editorial text-xs px-4 py-2"
+            className="btn-editorial-secondary text-xs px-5 py-2.5"
           >
             Get in Touch
           </button>

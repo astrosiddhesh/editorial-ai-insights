@@ -55,6 +55,10 @@ export default {
         charcoal: "hsl(var(--charcoal))",
         gold: "hsl(var(--gold))",
         "gold-light": "hsl(var(--gold-light))",
+        "gold-dark": "hsl(var(--gold-dark))",
+        amber: "hsl(var(--amber))",
+        copper: "hsl(var(--copper))",
+        ink: "hsl(var(--ink))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
