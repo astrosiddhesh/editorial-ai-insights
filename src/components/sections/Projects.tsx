@@ -33,11 +33,18 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="container max-w-5xl mx-auto">
+    <section id="projects" className="py-24 px-6 relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ivory via-background to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+      <div className="container max-w-6xl mx-auto relative z-10">
         {/* Section heading */}
         <div className="text-center mb-16">
-          <div className="editorial-rule-double w-32 mx-auto mb-8" />
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="text-gold text-2xl">✦</span>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
+          </div>
           <h2 className="section-heading">NOVA Projects</h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
             A collection of AI-powered applications built with passion and purpose.
@@ -45,33 +52,38 @@ const Projects = () => {
         </div>
 
         {/* Projects grid */}
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <article
               key={index}
-              className="card-editorial group hover:border-primary/40 transition-all duration-300 flex flex-col"
+              className="group card-editorial flex flex-col h-full hover:border-gold/50 hover:-translate-y-1"
             >
               {/* Project header */}
               <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 className="subsection-heading mb-0 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-xl font-semibold text-headline group-hover:text-gold transition-colors">
                   {project.title}
                 </h3>
-                <span className="ornament text-xl opacity-50 group-hover:opacity-100 transition-opacity">
+                <span className="text-gold text-xl opacity-50 group-hover:opacity-100 transition-opacity">
                   ❧
                 </span>
               </div>
 
               {/* Description */}
-              <p className="body-text flex-grow mb-4">{project.description}</p>
+              <p className="body-text flex-grow mb-6 text-sm leading-relaxed">{project.description}</p>
 
               {/* Technologies */}
               <div className="mb-4">
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="tag-editorial text-xs">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-gold/10 text-gold border border-gold/20">
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 4 && (
+                    <span className="text-xs px-2 py-1 text-muted-foreground">
+                      +{project.technologies.length - 4} more
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -80,10 +92,10 @@ const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start"
+                className="btn-editorial-secondary text-sm inline-flex items-center gap-2 self-start mt-auto group/link"
               >
                 View Project
-                <span className="text-xs">→</span>
+                <span className="text-xs group-hover/link:translate-x-1 transition-transform">→</span>
               </a>
             </article>
           ))}

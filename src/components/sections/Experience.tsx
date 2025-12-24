@@ -1,76 +1,105 @@
 const Experience = () => {
+  const highlights = [
+    { metric: "40K+", label: "Hits/Day", description: "BI systems used at scale" },
+    { metric: "100s", label: "Hours Saved", description: "Monthly automation impact" },
+    { metric: "60%+", label: "Cost Reduction", description: "GenAI optimization" },
+  ];
+
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="container max-w-4xl mx-auto">
+    <section id="experience" className="py-24 px-6 relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-ivory/50" />
+
+      <div className="container max-w-5xl mx-auto relative z-10">
         {/* Section heading */}
         <div className="text-center mb-16">
-          <div className="editorial-rule-double w-32 mx-auto mb-8" />
-          <h2 className="section-heading">Professional Experience Summary</h2>
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-16 h-0.5 bg-gradient-to-l from-gold to-transparent" />
+            <span className="text-gold text-2xl">❧</span>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-gold to-transparent" />
+          </div>
+          <h2 className="section-heading">Career Highlights</h2>
+        </div>
+
+        {/* Metrics row */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {highlights.map((item, index) => (
+            <div
+              key={index}
+              className="metric-card group"
+            >
+              <p className="font-display text-4xl md:text-5xl font-bold bg-gradient-to-r from-gold to-amber bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform">
+                {item.metric}
+              </p>
+              <p className="text-sm uppercase tracking-wider text-gold font-semibold mb-2">
+                {item.label}
+              </p>
+              <p className="text-sm text-muted-foreground font-body">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Experience summary block */}
         <div className="card-editorial max-w-3xl mx-auto">
           <div className="flex items-center gap-4 mb-6">
-            <span className="ornament text-3xl">❧</span>
-            <div className="editorial-rule flex-1" />
+            <span className="text-gold text-3xl">❧</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-gold/50 to-transparent" />
           </div>
 
-          <p className="font-editorial text-xl md:text-2xl text-headline leading-relaxed mb-8">
-            Over 3 years of experience building data and GenAI systems for BFSI and 
+          <h3 className="font-display text-xl font-semibold text-headline mb-4">
+            Professional Experience Summary
+          </h3>
+
+          <p className="font-editorial text-lg md:text-xl text-foreground/90 leading-relaxed mb-8">
+            Over <span className="text-gold font-semibold">3 years of experience</span> building data and GenAI systems for BFSI and 
             enterprise teams, working on high-volume analytics, automation, and 
             AI-assisted decision systems.
           </p>
 
-          {/* Key metrics */}
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            <div className="text-center p-4 bg-secondary/50">
-              <p className="font-display text-3xl font-bold text-primary mb-1">3+</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-body">
-                Years Experience
-              </p>
-            </div>
-            <div className="text-center p-4 bg-secondary/50">
-              <p className="font-display text-3xl font-bold text-primary mb-1">10+</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-body">
-                Production Systems
-              </p>
-            </div>
-            <div className="text-center p-4 bg-secondary/50">
-              <p className="font-display text-3xl font-bold text-primary mb-1">BFSI</p>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground font-body">
-                Primary Domain
-              </p>
-            </div>
+          {/* Key capabilities */}
+          <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            {[
+              "Multi-Agent GenAI Applications",
+              "Enterprise BI Systems",
+              "LLM Workflow Orchestration",
+              "Token & Cost Optimization",
+              "Production-Ready AI Pipelines",
+              "Use Case Identification",
+            ].map((capability) => (
+              <div
+                key={capability}
+                className="flex items-center gap-3 p-3 bg-gold/5 border border-gold/20 transition-colors hover:bg-gold/10"
+              >
+                <span className="text-gold text-sm">✦</span>
+                <span className="font-body text-sm text-foreground/85">{capability}</span>
+              </div>
+            ))}
           </div>
 
           {/* Domain expertise */}
-          <div className="space-y-4">
-            <h3 className="font-display text-lg font-medium text-headline">
+          <div className="highlight-box">
+            <p className="text-xs uppercase tracking-wider text-gold font-semibold mb-3">
               Domain Expertise
-            </h3>
-            <ul className="grid sm:grid-cols-2 gap-3">
+            </p>
+            <div className="flex flex-wrap gap-2">
               {[
-                "Banking & Financial Services (BFSI)",
-                "Enterprise Analytics & Reporting",
-                "Fintech & Payment Systems",
+                "Banking & Financial Services",
+                "Enterprise Analytics",
+                "Fintech",
                 "Data Pipeline Architecture",
-                "GenAI & LLM Applications",
-                "Business Intelligence Systems",
               ].map((domain) => (
-                <li
-                  key={domain}
-                  className="flex items-center gap-3 font-body text-foreground/80"
-                >
-                  <span className="ornament text-sm">✦</span>
+                <span key={domain} className="tag-editorial">
                   {domain}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div className="flex items-center gap-4 mt-8">
-            <div className="editorial-rule flex-1" />
-            <span className="ornament text-3xl">❧</span>
+            <div className="flex-1 h-px bg-gradient-to-l from-gold/50 to-transparent" />
+            <span className="text-gold text-3xl">❧</span>
           </div>
         </div>
       </div>
