@@ -8,7 +8,10 @@ interface CardStackProps {
 
 export const CardStack = ({ children, className }: CardStackProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const totalCards = children.length;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -18,74 +21,91 @@ export const CardStack = ({ children, className }: CardStackProps) => {
       const rect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate how far we've scrolled through this section
-      const start = windowHeight * 0.8;
-      const end = -rect.height * 0.5;
-      const current = rect.top;
+      // Start when section enters, end when it leaves
+      const sectionHeight = rect.height;
+      const scrollStart = windowHeight * 0.3;
+      const scrollEnd = -(sectionHeight - windowHeight * 0.7);
       
-      const progress = Math.max(0, Math.min(1, (start - current) / (start - end)));
+      const progress = Math.max(0, Math.min(1, (scrollStart - rect.top) / (scrollStart - scrollEnd)));
       setScrollProgress(progress);
+      
+      // Calculate which card should be active
+      const cardIndex = Math.min(totalCards - 1, Math.floor(progress * totalCards));
+      setActiveIndex(cardIndex);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const totalCards = children.length;
+  }, [totalCards]);
 
   return (
     <div 
       ref={containerRef}
       className={cn("relative", className)}
       style={{ 
-        height: `${Math.max(600, totalCards * 120 + 400)}px`,
+        height: `${totalCards * 100 + 50}vh`,
       }}
     >
-      <div className="sticky top-1/4 flex justify-center items-center">
-        <div className="relative w-full max-w-md h-[400px]">
+      <div className="sticky top-[15vh] flex justify-center items-start py-8">
+        <div className="relative w-full flex justify-center" style={{ height: '70vh' }}>
           {children.map((child, index) => {
-            // Calculate individual card progress
-            const cardStart = index / totalCards;
-            const cardEnd = (index + 1.5) / totalCards;
-            const cardProgress = Math.max(0, Math.min(1, (scrollProgress - cardStart) / (cardEnd - cardStart)));
+            const isActive = index === activeIndex;
+            const isPast = index < activeIndex;
+            const isFuture = index > activeIndex;
             
-            // Fan out effect - cards spread as you scroll
-            const baseRotation = -15 + (index * 8);
-            const targetRotation = -30 + (index * 15);
-            const rotation = baseRotation + (targetRotation - baseRotation) * cardProgress;
+            // Cards that have passed fan out to the left
+            // Active card is centered
+            // Future cards stack on the right
             
-            // Horizontal spread
-            const baseX = index * 5;
-            const targetX = -150 + (index * 80);
-            const translateX = baseX + (targetX - baseX) * cardProgress;
-            
-            // Vertical offset for stacking
-            const baseY = index * -3;
-            const targetY = index * -10;
-            const translateY = baseY + (targetY - baseY) * cardProgress;
-            
-            // Z-index and scale
-            const baseScale = 1 - (index * 0.02);
-            const targetScale = 0.95 + (index * 0.02);
-            const scale = baseScale + (targetScale - baseScale) * cardProgress;
-            
-            // Opacity reveal
-            const opacity = Math.min(1, 0.4 + cardProgress * 0.6);
+            let rotation = 0;
+            let translateX = 0;
+            let translateY = 0;
+            let scale = 1;
+            let opacity = 1;
+            let zIndex = totalCards - index;
+
+            if (isPast) {
+              // Fan out to the left
+              const pastOffset = activeIndex - index;
+              rotation = -15 - (pastOffset * 5);
+              translateX = -350 - (pastOffset * 60);
+              translateY = pastOffset * 20;
+              scale = 0.85 - (pastOffset * 0.05);
+              opacity = Math.max(0.3, 1 - pastOffset * 0.2);
+              zIndex = index;
+            } else if (isActive) {
+              // Active card - front and center
+              rotation = -5;
+              translateX = 0;
+              translateY = 0;
+              scale = 1;
+              opacity = 1;
+              zIndex = totalCards + 1;
+            } else if (isFuture) {
+              // Stack on the right
+              const futureOffset = index - activeIndex;
+              rotation = 5 + (futureOffset * 3);
+              translateX = 50 + (futureOffset * 30);
+              translateY = futureOffset * -8;
+              scale = 1 - (futureOffset * 0.03);
+              opacity = Math.max(0.4, 1 - futureOffset * 0.15);
+              zIndex = totalCards - futureOffset;
+            }
 
             return (
               <div
                 key={index}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-none"
+                className="absolute left-1/2 transition-all duration-500 ease-out cursor-pointer"
                 style={{
                   transform: `
                     translateX(calc(-50% + ${translateX}px)) 
-                    translateY(calc(-50% + ${translateY}px)) 
+                    translateY(${translateY}px) 
                     rotate(${rotation}deg) 
                     scale(${scale})
                   `,
-                  zIndex: totalCards - index + Math.floor(cardProgress * 10),
+                  zIndex,
                   opacity,
                   transformOrigin: 'center bottom',
                 }}
@@ -95,6 +115,23 @@ export const CardStack = ({ children, className }: CardStackProps) => {
             );
           })}
         </div>
+      </div>
+      
+      {/* Progress indicator */}
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-50">
+        {children.map((_, index) => (
+          <div
+            key={index}
+            className={cn(
+              "w-2 h-2 rounded-full transition-all duration-300",
+              index === activeIndex 
+                ? "bg-gold scale-125" 
+                : index < activeIndex 
+                  ? "bg-gold/50" 
+                  : "bg-muted-foreground/30"
+            )}
+          />
+        ))}
       </div>
     </div>
   );
