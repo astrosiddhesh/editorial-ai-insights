@@ -52,7 +52,7 @@ const Projects = () => {
             <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
           <p className="font-body text-sm text-muted-foreground mb-6 text-center">
-            Scroll to fan through the deck — each card reveals a project.
+            The project box stays fixed — scroll to reveal the next card.
           </p>
         </AnimatedSection>
 
