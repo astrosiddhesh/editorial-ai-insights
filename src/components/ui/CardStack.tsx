@@ -13,8 +13,8 @@ interface CardStackProps {
 export const CardStack = ({
   children,
   className,
-  stepVh = 100,
-  stickyTopPx = 0,
+  stepVh = 80,
+  stickyTopPx = 88,
 }: CardStackProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -62,16 +62,17 @@ export const CardStack = ({
     if (!container) return;
 
     const onScroll = () => {
-      const rect = container.getBoundingClientRect();
-      const viewportH = window.innerHeight;
       const containerH = container.offsetHeight;
+      const viewportH = window.innerHeight;
+      const containerTop = container.offsetTop;
 
       // progress 0..1 while scrolling through this section
-      const start = viewportH - rect.top;
+      const start = window.scrollY - containerTop;
       const range = Math.max(1, containerH - viewportH);
       const progress = Math.max(0, Math.min(1, start / range));
 
-      const idx = total <= 1 ? 0 : Math.round(progress * (total - 1));
+      // Discrete steps: 0..(total-1)
+      const idx = total <= 1 ? 0 : Math.min(total - 1, Math.floor(progress * total));
       setActiveIndex(idx);
     };
 
@@ -168,31 +169,33 @@ export const CardStack = ({
       style={{ height: `${sectionHeightVh}vh` }}
     >
       {/* Static/sticky viewport (the "box" stays put) */}
-      <div
-        className="sticky flex h-screen items-center justify-center overflow-hidden"
-        style={{ top: stickyTopPx }}
-      >
-        <div className="relative w-full max-w-6xl px-6">
-          {/* The frame/box */}
-          <div className="relative mx-auto w-[min(92vw,46rem)] h-[min(72vh,36rem)]">
-            {children.map((child, index) => {
-              const t = transforms[index];
-              return (
-                <div
-                  key={index}
-                  className="absolute inset-0 transition-transform duration-500 ease-out will-change-transform"
-                  style={{
-                    transform: t.transform,
-                    opacity: t.opacity,
-                    zIndex: t.zIndex,
-                    pointerEvents: t.pointerEvents,
-                  }}
-                  aria-hidden={index !== activeIndex}
-                >
-                  {child}
-                </div>
-              );
-            })}
+      <div className="sticky overflow-hidden" style={{ top: stickyTopPx }}>
+        <div
+          className="flex items-start justify-center"
+          style={{ minHeight: `calc(100vh - ${stickyTopPx}px)` }}
+        >
+          <div className="relative w-full max-w-6xl px-6 pt-8 pb-10">
+            {/* The frame/box */}
+            <div className="relative mx-auto w-[min(92vw,46rem)] h-[min(72vh,36rem)]">
+              {children.map((child, index) => {
+                const t = transforms[index];
+                return (
+                  <div
+                    key={index}
+                    className="absolute inset-0 transition-transform duration-500 ease-out will-change-transform"
+                    style={{
+                      transform: t.transform,
+                      opacity: t.opacity,
+                      zIndex: t.zIndex,
+                      pointerEvents: t.pointerEvents,
+                    }}
+                    aria-hidden={index !== activeIndex}
+                  >
+                    {child}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
