@@ -57,10 +57,40 @@ const Header = () => {
         <nav className="flex items-center justify-between h-12 md:h-14">
           <button
             onClick={() => scrollToSection("hero")}
-            className="font-display text-lg md:text-xl font-bold text-headline group"
+            className="flex items-center gap-2 font-display text-lg md:text-xl font-bold text-headline group"
           >
-            <span className="text-gold group-hover:text-amber transition-colors duration-300">Siddhesh</span> 
-            <span className="group-hover:text-gold transition-colors duration-300">P.</span>
+            {/* Logo SVG */}
+            <svg 
+              className="w-8 h-8 text-gold group-hover:text-amber transition-colors duration-300" 
+              viewBox="0 0 40 40" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="2" y="2" width="36" height="36" rx="4" stroke="currentColor" strokeWidth="2.5" />
+              <path 
+                d="M12 28C12 28 14 24 20 24C26 24 28 28 28 28" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round"
+              />
+              <path 
+                d="M10 16L16 12L16 20" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+              <path 
+                d="M24 12H30M24 16H30M24 20H28" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="hidden sm:inline">
+              <span className="text-gold group-hover:text-amber transition-colors duration-300">Siddhesh</span>
+              <span className="group-hover:text-gold transition-colors duration-300">P.</span>
+            </span>
           </button>
 
           {/* Desktop Nav */}

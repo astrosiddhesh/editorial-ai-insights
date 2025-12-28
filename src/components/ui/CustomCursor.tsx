@@ -50,35 +50,20 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Outer glow ring */}
+      {/* Emoji cursor */}
       <div
-        className={`fixed pointer-events-none z-[9999] rounded-full transition-all duration-300 ease-out ${
+        className={`fixed pointer-events-none z-[9999] transition-all duration-150 ease-out ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
         style={{
           left: position.x,
           top: position.y,
-          width: isHovering ? 60 : 40,
-          height: isHovering ? 60 : 40,
           transform: "translate(-50%, -50%)",
-          background: `radial-gradient(circle, hsl(var(--gold) / 0.15) 0%, transparent 70%)`,
-          mixBlendMode: "screen",
+          fontSize: isHovering ? "28px" : "20px",
         }}
-      />
-      {/* Inner dot */}
-      <div
-        className={`fixed pointer-events-none z-[9999] rounded-full transition-all duration-150 ease-out ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-        style={{
-          left: position.x,
-          top: position.y,
-          width: isHovering ? 8 : 6,
-          height: isHovering ? 8 : 6,
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "hsl(var(--gold))",
-        }}
-      />
+      >
+        👾
+      </div>
     </>
   );
 };
