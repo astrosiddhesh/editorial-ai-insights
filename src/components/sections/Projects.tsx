@@ -51,9 +51,6 @@ const Projects = () => {
             </h2>
             <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
-          <p className="font-body text-sm text-muted-foreground mb-6 text-center">
-            Scroll down to see the cards stack on top of each other
-          </p>
         </AnimatedSection>
       </div>
 

@@ -3,7 +3,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const Technologies = () => {
   const techStack = [
     { category: "Languages & Frameworks", items: "Python, SQL, FastAPI, Streamlit" },
-    { category: "AI/ML & Cloud", items: "LangChain, RAG, NLP, Vector DBs, Vertex AI, GCP, Docker, BigQuery" },
+    { category: "AI/ML & Cloud", items: "LangChain, RAG, NLP, Vector DBs, Vertex AI, GCP, Docker, BigQuery, AWS Lambda, AWS Bedrock" },
     { category: "Data & Visualization", items: "ETL/ELT Pipelines, Tableau, Power BI, MCP" },
   ];
 
