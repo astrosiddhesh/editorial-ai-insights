@@ -54,15 +54,13 @@ const Contact = () => {
             Open to data, BI, and GenAI projects, collaborations, or speaking opportunities.
           </p>
           <div className="text-center">
-            <MagneticButton strength={0.4}>
-              <a
-                href="mailto:siddhesh.phapale11@gmail.com"
-                className="btn-editorial-primary inline-flex items-center gap-2 text-sm group"
-              >
-                <span>Start a Conversation</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </MagneticButton>
+            <a
+              href="mailto:siddhesh.phapale11@gmail.com"
+              className="btn-editorial-primary inline-flex items-center gap-2 text-sm"
+            >
+              <span>Start a Conversation</span>
+              <span>→</span>
+            </a>
           </div>
         </AnimatedSection>
       </div>
