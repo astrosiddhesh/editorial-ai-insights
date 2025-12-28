@@ -5,6 +5,7 @@ import WhatIDo from "@/components/sections/WhatIDo";
 import Projects from "@/components/sections/Projects";
 import Technologies from "@/components/sections/Technologies";
 import Experience from "@/components/sections/Experience";
+import CurrentlyOnDesk from "@/components/sections/CurrentlyOnDesk";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 
@@ -18,6 +19,7 @@ const Index = () => {
         <Projects />
         <Technologies />
         <Experience />
+        <CurrentlyOnDesk />
         <FAQ />
         <Contact />
       </main>
