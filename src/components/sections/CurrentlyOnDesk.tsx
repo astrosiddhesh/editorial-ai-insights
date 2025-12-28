@@ -67,9 +67,9 @@ const CurrentlyOnDesk = () => {
                 </div>
                 <div className="space-y-4">
                   {readings.map((book, index) => (
-                    <TiltCard
+                    <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 hover:border-gold/30 transition-colors"
+                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
                     >
                       <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-1">
                         {book.title}
@@ -86,7 +86,7 @@ const CurrentlyOnDesk = () => {
                         Buy on Amazon
                         <ExternalLink className="w-3 h-3" />
                       </a>
-                    </TiltCard>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -145,9 +145,9 @@ const CurrentlyOnDesk = () => {
                 </div>
                 <div className="space-y-4">
                   {problemSpaces.map((space, index) => (
-                    <TiltCard
+                    <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 hover:border-gold/30 transition-colors"
+                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
                     >
                       <h4 className="font-display text-lg font-semibold text-gold mb-2">
                         {space.title}
@@ -166,7 +166,7 @@ const CurrentlyOnDesk = () => {
                           <ExternalLink className="w-3 h-3" />
                         </a>
                       )}
-                    </TiltCard>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -181,14 +181,14 @@ const CurrentlyOnDesk = () => {
                     Reader Reviews
                   </h3>
                 </div>
-                <TiltCard className="p-6 border border-dashed border-gold/40 bg-transparent hover:border-gold/60 transition-colors">
+                <div className="p-6 border border-dashed border-gold/40 bg-transparent rounded-lg">
                   <p className="font-display text-base italic text-muted-foreground text-center">
                     Letters to the Editor — Share your thoughts on this chronicle
                   </p>
                   <p className="text-xs text-center text-gold/60 mt-2 uppercase tracking-wider">
-                    this section is coming soon
+                    Coming Soon
                   </p>
-                </TiltCard>
+                </div>
               </div>
             </AnimatedSection>
           </div>
