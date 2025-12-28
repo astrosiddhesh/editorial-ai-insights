@@ -20,33 +20,29 @@ const WhatIDo = () => {
         <div className="space-y-6 font-editorial text-foreground/90 leading-relaxed">
           <AnimatedSection animation="fade-up" delay={100}>
             <p>
-              Whispers are circulating about an uncommon engineer — <span className="font-semibold text-headline hover:text-gold transition-colors duration-300 cursor-default">Siddhesh Phapale</span> — known across tech circles for transforming data and GenAI into systems that deliver real business impact, not just demos. Always curious, always building — long before GenAI became mainstream, he lives where data intelligence, automation, and generative AI intersect with strategic decision-making and revenue growth.
+              <span className="font-semibold text-headline">Siddhesh</span> is a Data / BI Analyst & GenAI Engineer with experience building enterprise-grade analytics, automation, and AI systems in regulated, high-volume environments, primarily across BFSI and enterprise operations.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection animation="scale" delay={200}>
-            <div className="text-center text-gold text-xl hover:scale-125 transition-transform duration-300 cursor-default">❧</div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={300}>
+          <AnimatedSection animation="fade-up" delay={200}>
             <p>
-              Siddhesh doesn't create ordinary dashboards or BI reports — he builds <span className="text-gold font-medium">strategic intelligence platforms</span> that drive sales performance, accelerate decision-making, and enable customer acquisition. With a sharp eye for identifying use cases and automation opportunities, he turns raw data into systems that scale, save time, and generate measurable ROI.
+              His work sits at the intersection of <span className="text-gold font-medium">business intelligence, data engineering, and GenAI</span> — designing reconciliation engines, analytics platforms, and LLM-assisted workflows that replace manual reporting and decision bottlenecks with actionable, trustworthy insights.
             </p>
+          </AnimatedSection>
+
+          <AnimatedSection animation="scale" delay={300}>
+            <div className="text-center text-gold text-xl hover:scale-125 transition-transform duration-300 cursor-default">✦</div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={400}>
             <p>
-              He's known for architecting <span className="text-gold font-medium">multi-agent GenAI workflows</span> and deploying production-ready automation systems, balancing innovation with business responsibility. He thinks beyond model outputs — focusing on token optimization, cost control, intelligent caching, and maximizing performance per rupee, ensuring organizations adopt GenAI without overspending.
+              Rather than treating GenAI as a novelty, Siddhesh applies it practically and selectively, combining deterministic BI pipelines with LLM reasoning to maintain accuracy, explainability, and cost control. He focuses on performance, scalability, and measurable outcomes, ensuring AI solutions deliver value beyond proofs of concept.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection animation="scale" delay={500}>
-            <div className="text-center text-gold text-xl hover:rotate-180 transition-transform duration-500 cursor-default">✦</div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="blur" delay={600}>
-            <p className="text-center font-semibold text-headline text-lg">
-              Every project he touches is engineered to automate, simplify, and multiply business value.
+          <AnimatedSection animation="blur" delay={500}>
+            <p className="text-center font-semibold text-headline text-lg border-l-2 border-gold pl-4 py-2 bg-gold/5 rounded-r">
+              If it doesn't improve decisions, reduce effort, or create measurable impact — it doesn't belong in production.
             </p>
           </AnimatedSection>
         </div>

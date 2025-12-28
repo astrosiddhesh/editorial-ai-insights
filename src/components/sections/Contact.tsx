@@ -51,7 +51,7 @@ const Contact = () => {
         {/* Simple CTA */}
         <AnimatedSection animation="scale" delay={200}>
           <p className="text-center font-editorial text-foreground/85 text-sm mb-3">
-            Open to discussing data engineering projects, GenAI solutions, or speaking opportunities.
+            Open to data, BI, and GenAI projects, collaborations, or speaking opportunities.
           </p>
           <div className="text-center">
             <MagneticButton strength={0.4}>
