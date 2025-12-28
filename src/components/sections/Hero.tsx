@@ -27,7 +27,7 @@ const Hero = () => {
 
         {/* Role */}
         <p className="font-body text-lg md:text-xl text-gold mb-6 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "0.3s" }}>
-          Data / BI Analyst & GenAI Engineer
+          Data Analyst | BI | MLE | GenAI Engineer
         </p>
 
         {/* Primary tagline */}
