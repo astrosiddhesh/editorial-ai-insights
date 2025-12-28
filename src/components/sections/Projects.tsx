@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { CardStack } from "@/components/ui/CardStack";
+import { StackingCards, StackingCardItem } from "@/components/ui/StackingCards";
 import { cn } from "@/lib/utils";
 
 
@@ -39,11 +39,11 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-10 px-6 relative">
+    <section id="projects" className="relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      <div className="container max-w-6xl mx-auto">
-        {/* Section heading */}
+      {/* Section heading - outside the stacking container */}
+      <div className="container max-w-6xl mx-auto py-10 px-6">
         <AnimatedSection animation="fade-up">
           <div className="flex items-center gap-4 mb-6">
             <h2 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
@@ -52,15 +52,24 @@ const Projects = () => {
             <div className="flex-1 h-px bg-gradient-to-r from-gold/40 to-transparent" />
           </div>
           <p className="font-body text-sm text-muted-foreground mb-6 text-center">
-            The project box stays fixed — scroll to reveal the next card.
+            Scroll down to see the cards stack on top of each other
           </p>
         </AnimatedSection>
+      </div>
 
-        {/* Playing card stack */}
-        <CardStack stepVh={80} stickyTopPx={96}>
-          {projects.map((project, index) => (
+      {/* Stacking cards container */}
+      <StackingCards 
+        totalCards={projects.length} 
+        scaleMultiplier={0.04}
+        className="pb-[50vh]"
+      >
+        {projects.map((project, index) => (
+          <StackingCardItem 
+            key={index} 
+            index={index}
+            topPosition={`calc(80px + ${index * 24}px)`}
+          >
             <article
-              key={index}
               className={cn(
                 "relative",
                 "w-[min(92vw,42rem)]",
@@ -128,9 +137,9 @@ const Projects = () => {
                 <span className="text-[11rem] text-gold">♠</span>
               </div>
             </article>
-          ))}
-        </CardStack>
-      </div>
+          </StackingCardItem>
+        ))}
+      </StackingCards>
     </section>
   );
 };
