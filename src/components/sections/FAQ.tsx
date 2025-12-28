@@ -9,24 +9,24 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const FAQ = () => {
   const faqs = [
     {
-      question: "What does Siddhesh Phapale do?",
+      question: "So, what does Siddhesh actually do?",
       answer:
-        "Siddhesh Phapale designs and deploys production-grade data and GenAI systems for BFSI and enterprise teams. His work focuses on building reconciliation engines, business intelligence systems, and LLM-assisted workflows that automate complex business processes.",
+        "Siddhesh builds production-grade data and GenAI systems used by real enterprise teams. His work spans reconciliation engines, business intelligence platforms, and LLM-assisted workflows that replace manual, error-prone processes with reliable automation.",
     },
     {
-      question: "What technologies does Siddhesh specialize in?",
+      question: "What tech does Siddhesh work with day-to-day?",
       answer:
-        "Siddhesh specializes in Python, SQL, FastAPI, Streamlit, Google Cloud Platform (GCP), BigQuery, Vertex AI, LangChain, Vector Databases, Power BI, and Tableau. He has deep expertise in data engineering tools and GenAI frameworks.",
+        "Mostly Python and SQL at the core, layered with FastAPI, Streamlit, and cloud data platforms. On the GenAI side, he works with LLMs, RAG architectures, vector databases, and NL2SQL systems, along with Power BI and Tableau for decision-ready analytics.",
     },
     {
-      question: "What industries has Siddhesh worked in?",
+      question: "Which industries has Siddhesh worked in?",
       answer:
-        "Siddhesh has extensive experience in BFSI (Banking, Financial Services, and Insurance), fintech, and enterprise analytics domains. He has built systems handling high-volume financial data and complex regulatory requirements.",
+        "Primarily BFSI (Banking, Financial Services, and Insurance) — environments where data accuracy, explainability, and scale actually matter. Most systems he's built run in regulated, high-volume enterprise setups.",
     },
     {
-      question: "Is Siddhesh experienced with GenAI and LLMs?",
+      question: "Does Siddhesh really work with GenAI and LLMs, or just demos?",
       answer:
-        "Yes, Siddhesh has hands-on experience building LLM-powered applications using RAG (Retrieval-Augmented Generation) architectures, LangChain, vector databases, and Vertex AI for enterprise use cases.",
+        "Yes — in production, not just prototypes. Siddhesh has designed LLM-powered enterprise assistants, AI-driven reconciliation workflows, and decision-support systems, combining deterministic pipelines with LLM reasoning to keep things trustworthy and auditable.",
     },
   ];
 
