@@ -1,13 +1,13 @@
-import { Mail, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, Linkedin, Github, Instagram } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const Contact = () => {
   const contactLinks = [
-    { label: "Email", href: "mailto:siddhesh@example.com", icon: Mail },
-    { label: "LinkedIn", href: "https://linkedin.com/in/siddheshphapale", icon: Linkedin },
-    { label: "GitHub", href: "https://github.com/siddheshphapale", icon: Github },
-    { label: "Resume", href: "#", icon: FileText },
+    { label: "Email", href: "mailto:siddhesh.phapale11@gmail.com", icon: Mail },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/siddhesh-phapale1106/", icon: Linkedin },
+    { label: "GitHub", href: "https://github.com/rawsid11", icon: Github },
+    { label: "Instagram", href: "https://www.instagram.com/the__june_boy__/", icon: Instagram },
   ];
 
   return (
@@ -56,7 +56,7 @@ const Contact = () => {
           <div className="text-center">
             <MagneticButton strength={0.4}>
               <a
-                href="mailto:siddhesh@example.com"
+                href="mailto:siddhesh.phapale11@gmail.com"
                 className="btn-editorial-primary inline-flex items-center gap-2 text-sm group"
               >
                 <span>Start a Conversation</span>

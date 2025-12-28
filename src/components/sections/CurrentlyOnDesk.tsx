@@ -7,12 +7,12 @@ const CurrentlyOnDesk = () => {
     {
       title: "Bulls, Bears and Other Beasts",
       author: "Santosh Nair",
-      link: "https://www.amazon.in/Bulls-Bears-Other-Beasts-Santosh/dp/9380658532",
+      link: "https://amzn.in/d/ciV4b1c",
     },
     {
       title: "India, That is Bharat: Coloniality, Civilisation, Constitution",
       author: "J. Sai Deepak",
-      link: "https://www.amazon.in/India-That-Bharat-Coloniality-Civilisation/dp/9389648793",
+      link: "https://amzn.in/d/8VvA0fp",
     },
   ];
 
@@ -21,7 +21,7 @@ const CurrentlyOnDesk = () => {
       title: "On the Biology of a Large Language Model",
       source: "Transformer Circuits Research Collective",
       description: "Understanding attribution graphs & internal structure of LLM reasoning",
-      link: "https://transformer-circuits.pub/",
+      link: "https://transformer-circuits.pub/2025/attribution-graphs/biology.html",
     },
   ];
 
@@ -47,7 +47,7 @@ const CurrentlyOnDesk = () => {
           <div className="text-center mb-12">
             <span className="text-gold font-display text-lg">§</span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-headline mt-2 mb-2">
-              Currently on My Desk
+              Currently on <span className="text-gold">His Desk</span>
             </h2>
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
           </div>
