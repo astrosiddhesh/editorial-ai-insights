@@ -8,32 +8,32 @@ const Projects = () => {
   const projects = [
     {
       title: "RepoIntel",
-      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks.",
-      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker"],
+      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks. Features dual-LLM integration, workflow orchestration, and a React-based web interface.",
+      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker", "Cloud Run"],
       link: "https://siddheshphapale.live/nova/p1/repointel/",
     },
     {
       title: "Welfy",
-      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface.",
-      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React"],
+      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface. Features secure MCP integration, real-time portfolio analysis, and personalized financial recommendations.",
+      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React", "TypeScript"],
       link: "https://siddheshphapale.live/nova/p2/welfy/",
     },
     {
       title: "Hustlr",
-      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights.",
-      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0"],
+      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights and performance analysis. Chat naturally with your data to get coaching advice, track progress, and discover patterns in your workouts.",
+      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0", "Docker"],
       link: "https://siddheshphapale.live/nova/p3/hustlr/",
     },
     {
       title: "Epoquest",
-      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines.",
-      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS"],
+      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines. From ancient innovations to modern trends, it brings the story of progress to life with glass-morphism design.",
+      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS", "Docker"],
       link: "https://siddheshphapale.live/nova/p4/epoquest/",
     },
     {
       title: "AceSheet",
-      description: "Transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash.",
-      technologies: ["Gemini 2.5 Flash", "p5.js", "Cheat Sheets", "Docker"],
+      description: "AceSheet transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash. Engineered for rapid learning and sharp recall, it blends structured academic clarity with elegant Swiss-minimal design. Perfect for printing, prepping, and performing under pressure.",
+      technologies: ["Gemini 2.5 Flash", "p5.js"],
       link: "https://siddheshphapale.live/nova/p5/acesheet/",
     },
   ];
