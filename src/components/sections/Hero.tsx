@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="container max-w-4xl mx-auto text-center relative z-10">
         {/* Main headline */}
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "0.1s" }}>
-          <span className="text-headline inline-block hover:tracking-wider transition-all duration-500">Siddhesh</span>
+          <span className="text-headline inline-block hover:tracking-wider transition-all duration-500">Siddhesh Phapale</span>
         </h1>
 
         {/* Role */}
