@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import FloatingParticles from "@/components/ui/FloatingParticles";
 
 const Hero = () => {
   return (
@@ -7,6 +8,9 @@ const Hero = () => {
       id="hero"
       className="relative min-h-[80vh] flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
     >
+      {/* Floating particles */}
+      <FloatingParticles />
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-gold/8 to-transparent rounded-full blur-3xl animate-float" />

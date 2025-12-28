@@ -8,10 +8,15 @@ import Experience from "@/components/sections/Experience";
 import CurrentlyOnDesk from "@/components/sections/CurrentlyOnDesk";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import CustomCursor from "@/components/ui/CustomCursor";
+import BackToTop from "@/components/ui/BackToTop";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
+      <CustomCursor />
       <Header />
       <main>
         <Hero />
@@ -24,6 +29,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
