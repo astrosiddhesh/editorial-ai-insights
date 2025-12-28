@@ -30,6 +30,11 @@ const CurrentlyOnDesk = () => {
       title: "AI-native SEO",
       description: "Researching how organizations can be found through ChatGPT, Gemini & Perplexity as traditional search declines.",
     },
+    {
+      title: "Multi-Agent ETF Trading",
+      description: "Building a team of AI agents that collaborate to trade ETFs—inspired by competitive LLM trading arenas like Nof1.ai's Alpha Arena.",
+      link: "https://nof1.ai/",
+    },
   ];
 
   return (
@@ -147,9 +152,20 @@ const CurrentlyOnDesk = () => {
                       <h4 className="font-display text-lg font-semibold text-gold mb-2">
                         {space.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                      <p className="text-sm text-muted-foreground font-body leading-relaxed mb-3">
                         {space.description}
                       </p>
+                      {space.link && (
+                        <a
+                          href={space.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gold hover:text-amber transition-colors"
+                        >
+                          View Inspiration
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
                     </TiltCard>
                   ))}
                 </div>
