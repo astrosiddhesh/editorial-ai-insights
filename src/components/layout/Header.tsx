@@ -59,8 +59,8 @@ const Header = () => {
             onClick={() => scrollToSection("hero")}
             className="font-display text-lg md:text-xl font-bold text-headline group"
           >
-            <span className="text-gold group-hover:text-amber transition-colors duration-300">S.</span> 
-            <span className="group-hover:text-gold transition-colors duration-300">Phapale</span>
+            <span className="text-gold group-hover:text-amber transition-colors duration-300">Siddhesh</span> 
+            <span className="group-hover:text-gold transition-colors duration-300">P.</span>
           </button>
 
           {/* Desktop Nav */}
