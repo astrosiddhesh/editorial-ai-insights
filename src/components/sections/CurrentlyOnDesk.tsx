@@ -1,8 +1,28 @@
+import { useState } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { TiltCard } from "@/components/ui/TiltCard";
-import { BookOpen, FileText, Lightbulb, ExternalLink, MessageSquare } from "lucide-react";
+import { BookOpen, FileText, Lightbulb, ExternalLink, MessageSquare, Send } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const CurrentlyOnDesk = () => {
+  const { toast } = useToast();
+  const [reviewForm, setReviewForm] = useState({ name: "", review: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmitReview = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!reviewForm.name.trim() || !reviewForm.review.trim()) {
+      toast({ title: "Please fill in all fields", variant: "destructive" });
+      return;
+    }
+    setIsSubmitting(true);
+    await new Promise(resolve => setTimeout(resolve, 800));
+    toast({ title: "Review submitted!", description: "Thank you for sharing your thoughts." });
+    setReviewForm({ name: "", review: "" });
+    setIsSubmitting(false);
+  };
   const readings = [
     {
       title: "Bulls, Bears and Other Beasts",
@@ -172,23 +192,42 @@ const CurrentlyOnDesk = () => {
               </div>
             </AnimatedSection>
 
-            {/* Letters to the Editor */}
+            {/* Drop Your Review */}
             <AnimatedSection animation="fade-up" delay={400}>
               <div className="mt-8">
                 <div className="flex items-center gap-2 mb-4">
                   <MessageSquare className="w-5 h-5 text-gold" />
                   <h3 className="font-display text-lg font-semibold text-headline uppercase tracking-wider">
-                    Reader Reviews
+                    Drop Your Review
                   </h3>
                 </div>
-                <div className="p-6 border border-dashed border-gold/40 bg-transparent rounded-lg">
-                  <p className="font-display text-base italic text-muted-foreground text-center">
-                    Letters to the Editor — Share your thoughts on this chronicle
+                <form onSubmit={handleSubmitReview} className="p-5 border border-border/50 bg-card/80 rounded-lg space-y-4">
+                  <p className="text-sm text-muted-foreground font-body">
+                    Share your thoughts, feedback, or just say hello!
                   </p>
-                  <p className="text-xs text-center text-gold/60 mt-2 uppercase tracking-wider">
-                    Coming Soon
-                  </p>
-                </div>
+                  <Input
+                    placeholder="Your name"
+                    value={reviewForm.name}
+                    onChange={(e) => setReviewForm(prev => ({ ...prev, name: e.target.value }))}
+                    className="bg-background/50 border-border/50 focus:border-gold/50"
+                    maxLength={100}
+                  />
+                  <Textarea
+                    placeholder="Write your review or message..."
+                    value={reviewForm.review}
+                    onChange={(e) => setReviewForm(prev => ({ ...prev, review: e.target.value }))}
+                    className="bg-background/50 border-border/50 focus:border-gold/50 min-h-[100px] resize-none"
+                    maxLength={1000}
+                  />
+                  <Button type="submit" disabled={isSubmitting} className="w-full">
+                    {isSubmitting ? "Submitting..." : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Submit Review
+                      </>
+                    )}
+                  </Button>
+                </form>
               </div>
             </AnimatedSection>
           </div>
