@@ -23,7 +23,7 @@ const Technologies = () => {
         </AnimatedSection>
 
         {/* Table-style layout with row animations */}
-        <AnimatedSection animation="fade-up" delay={100}>
+        <AnimatedSection animation="reveal" delay={100}>
           <div className="border border-border/60 bg-card/50 overflow-hidden">
             <div className="grid grid-cols-[160px_1fr] md:grid-cols-[200px_1fr] text-sm border-b border-border/60 bg-gold/5">
               <div className="px-4 py-2 font-display font-semibold text-gold uppercase tracking-wider text-xs">
@@ -50,7 +50,7 @@ const Technologies = () => {
         </AnimatedSection>
 
         {/* Tagline */}
-        <AnimatedSection animation="blur" delay={200}>
+        <AnimatedSection animation="blur" delay={250}>
           <p className="text-center text-sm text-muted-foreground font-editorial italic mt-4">
             Every system he builds is designed for clarity, scale, and measurable ROI — not proof-of-concept for slides.
           </p>

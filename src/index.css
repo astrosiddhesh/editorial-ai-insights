@@ -392,4 +392,89 @@
   .animate-particle {
     animation: particle-float ease-in-out infinite;
   }
+
+  /* Section transition overlays */
+  .section-transition {
+    position: relative;
+  }
+  
+  .section-transition::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, hsl(var(--background)), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Smooth reveal mask animation */
+  @keyframes reveal-up {
+    from {
+      clip-path: inset(100% 0 0 0);
+      opacity: 0;
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-reveal {
+    from {
+      transform: translateY(60px) scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes blur-reveal {
+    from {
+      filter: blur(20px);
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    to {
+      filter: blur(0);
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-reveal-up {
+    animation: reveal-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-reveal {
+    animation: slide-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-blur-reveal {
+    animation: blur-reveal 1s ease-out forwards;
+  }
+
+  /* Duration utilities */
+  .duration-600 {
+    transition-duration: 600ms;
+  }
+  
+  .duration-800 {
+    transition-duration: 800ms;
+  }
+  
+  .duration-1000 {
+    transition-duration: 1000ms;
+  }
+
+  /* Scale utilities */
+  .scale-98 {
+    --tw-scale-x: 0.98;
+    --tw-scale-y: 0.98;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
 }

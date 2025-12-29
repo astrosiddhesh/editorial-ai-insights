@@ -27,7 +27,7 @@ const Contact = () => {
         </AnimatedSection>
 
         {/* Inline contact links with magnetic effect */}
-        <AnimatedSection animation="fade-up" delay={100}>
+        <AnimatedSection animation="reveal" delay={100}>
           <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
             {contactLinks.map((link, index) => (
               <MagneticButton key={link.label} strength={0.5}>
@@ -49,7 +49,7 @@ const Contact = () => {
         </AnimatedSection>
 
         {/* Simple CTA */}
-        <AnimatedSection animation="scale" delay={200}>
+        <AnimatedSection animation="blur" delay={250}>
           <p className="text-center font-editorial text-foreground/85 text-sm mb-3">
             Open to data, BI, and GenAI projects, collaborations, or speaking opportunities.
           </p>
