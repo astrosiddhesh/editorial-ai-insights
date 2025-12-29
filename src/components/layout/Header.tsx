@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,7 +124,6 @@ const Header = () => {
           </button>
 
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
             <button
               onClick={() => scrollToSection("contact")}
               className="btn-editorial-secondary text-xs px-5 py-2.5 hover-glow"
