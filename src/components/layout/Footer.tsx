@@ -17,7 +17,7 @@ const Footer = () => {
             <span className="text-gold">Siddhesh</span> Phapale
           </p>
           <p className="font-editorial text-base text-foreground/80">
-            Data BI ML GenAI Enthu
+            Data | BI | ML | GenAI | Enthu
           </p>
           <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground">
             <span className="px-2 py-0.5 bg-gold/10 border border-gold/20 text-gold text-xs">BFSI</span>
