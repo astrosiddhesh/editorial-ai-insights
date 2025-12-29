@@ -48,8 +48,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-background/98 backdrop-blur-md border-b border-gold/20 shadow-sm py-2"
+        isScrolled || isMobileMenuOpen
+          ? "bg-background backdrop-blur-md border-b border-gold/20 shadow-sm py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -145,11 +145,11 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div 
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          className={`md:hidden overflow-hidden transition-all duration-300 bg-background ${
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <ul className="py-4 space-y-2 border-t border-gold/10">
+          <ul className="py-4 space-y-2 border-t border-gold/10 bg-background">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
