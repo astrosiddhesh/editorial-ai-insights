@@ -59,7 +59,7 @@ const Experience = () => {
         {/* Animated counter cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-4">
           {highlights.map((item, index) => (
-            <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+            <AnimatedSection key={index} animation="reveal" delay={index * 120}>
               <TiltCard className="p-4 border border-border/50 bg-card/50 hover:border-gold/30 transition-colors h-full">
                 <div className="flex items-baseline gap-1 mb-2">
                   <AnimatedCounter 
@@ -79,7 +79,7 @@ const Experience = () => {
         {/* Text highlight cards */}
         <div className="grid md:grid-cols-2 gap-4">
           {textHighlights.map((item, index) => (
-            <AnimatedSection key={index} animation="fade-left" delay={300 + index * 100}>
+            <AnimatedSection key={index} animation="slide-up" delay={400 + index * 120}>
               <TiltCard className="p-4 border border-border/50 bg-card/50 hover:border-gold/30 transition-colors">
                 <div className="flex items-baseline gap-2 mb-2">
                   <span className="font-display text-lg font-bold text-gold">{item.title}</span>
