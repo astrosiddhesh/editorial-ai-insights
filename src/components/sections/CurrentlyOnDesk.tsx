@@ -103,9 +103,9 @@ const CurrentlyOnDesk = () => {
                 </div>
                 <div className="space-y-4">
                   {research.map((paper, index) => (
-                    <TiltCard
+                    <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 hover:border-gold/30 transition-colors"
+                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
                     >
                       <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-1">
                         {paper.title}
@@ -125,7 +125,7 @@ const CurrentlyOnDesk = () => {
                         Read Paper
                         <ExternalLink className="w-3 h-3" />
                       </a>
-                    </TiltCard>
+                    </div>
                   ))}
                 </div>
               </div>
