@@ -59,40 +59,32 @@ const Header = () => {
             onClick={() => scrollToSection("hero")}
             className="flex items-center gap-2 font-display text-lg md:text-xl font-bold text-headline group"
           >
-            {/* Logo SVG - Stacked Data Layers */}
+            {/* Logo SVG - Geometric Triangle */}
             <svg 
               className="w-8 h-8 text-gold group-hover:text-amber transition-colors duration-300 animate-[spin_40s_linear_infinite]" 
-              viewBox="0 0 40 40" 
+              viewBox="0 0 32 32" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Bottom layer */}
+              {/* Main triangle outline */}
               <path 
-                d="M6 28L20 34L34 28L20 22L6 28Z" 
-                fill="currentColor" 
-                fillOpacity="0.3"
+                d="M16 4 L28 26 L4 26 Z" 
                 stroke="currentColor" 
-                strokeWidth="1.5" 
+                strokeWidth="2" 
                 strokeLinejoin="round"
+                fill="none"
               />
-              {/* Middle layer */}
+              {/* Inner triangle */}
               <path 
-                d="M6 20L20 26L34 20L20 14L6 20Z" 
-                fill="currentColor" 
-                fillOpacity="0.5"
+                d="M16 10 L22 22 L10 22 Z" 
                 stroke="currentColor" 
-                strokeWidth="1.5" 
+                strokeWidth="1.2" 
                 strokeLinejoin="round"
+                fill="none"
+                strokeOpacity="0.6"
               />
-              {/* Top layer */}
-              <path 
-                d="M6 12L20 18L34 12L20 6L6 12Z" 
-                fill="currentColor" 
-                fillOpacity="0.8"
-                stroke="currentColor" 
-                strokeWidth="1.5" 
-                strokeLinejoin="round"
-              />
+              {/* Center dot */}
+              <circle cx="16" cy="18" r="1.5" fill="currentColor"/>
             </svg>
             <span className="hidden sm:inline">
               <span className="text-gold group-hover:text-amber transition-colors duration-300">Siddhesh</span>
