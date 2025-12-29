@@ -1,0 +1,29 @@
+<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bottom layer -->
+  <path 
+    d="M6 28L20 34L34 28L20 22L6 28Z" 
+    fill="#D4A418" 
+    fill-opacity="0.3"
+    stroke="#D4A418" 
+    stroke-width="1.5" 
+    stroke-linejoin="round"
+  />
+  <!-- Middle layer -->
+  <path 
+    d="M6 20L20 26L34 20L20 14L6 20Z" 
+    fill="#D4A418" 
+    fill-opacity="0.5"
+    stroke="#D4A418" 
+    stroke-width="1.5" 
+    stroke-linejoin="round"
+  />
+  <!-- Top layer -->
+  <path 
+    d="M6 12L20 18L34 12L20 6L6 12Z" 
+    fill="#D4A418" 
+    fill-opacity="0.8"
+    stroke="#D4A418" 
+    stroke-width="1.5" 
+    stroke-linejoin="round"
+  />
+</svg>
