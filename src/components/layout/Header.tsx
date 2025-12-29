@@ -61,7 +61,7 @@ const Header = () => {
           >
             {/* Logo SVG - Stacked Data Layers */}
             <svg 
-              className="w-8 h-8 text-gold group-hover:text-amber transition-colors duration-300 animate-[spin_8s_linear_infinite]" 
+              className="w-8 h-8 text-gold group-hover:text-amber transition-colors duration-300 animate-[spin_20s_linear_infinite]" 
               viewBox="0 0 40 40" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
