@@ -20,28 +20,38 @@ const Hero = () => {
 
       <div className="container max-w-4xl mx-auto text-center relative z-10">
         {/* Main headline */}
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "0.1s" }}>
-          <span className="text-headline inline-block">Siddhesh</span>{" "}
-          <span className="text-gold inline-block">Phapale</span>
+        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
+          <span 
+            className="text-headline inline-block opacity-0 animate-fade-in [animation-fill-mode:forwards] hover:text-gold/80 transition-colors duration-300" 
+            style={{ animationDelay: "1.3s" }}
+          >
+            Siddhesh
+          </span>{" "}
+          <span 
+            className="text-gold inline-block opacity-0 animate-fade-in [animation-fill-mode:forwards] hover:text-amber transition-colors duration-300" 
+            style={{ animationDelay: "1.5s" }}
+          >
+            Phapale
+          </span>
         </h1>
 
         {/* Role */}
-        <p className="font-body text-lg md:text-xl text-gold mb-6 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "0.3s" }}>
+        <p className="font-body text-lg md:text-xl text-gold mb-6 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "1.7s" }}>
           Data | BI | ML | GenAI | Enthu
         </p>
 
         {/* Primary tagline */}
-        <p className="font-editorial text-xl md:text-2xl text-foreground/90 mb-4 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-3xl mx-auto" style={{ animationDelay: "0.5s" }}>
+        <p className="font-editorial text-xl md:text-2xl text-foreground/90 mb-4 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-3xl mx-auto" style={{ animationDelay: "1.9s" }}>
           Building production-grade analytics and GenAI systems that turn data into automation and business impact.
         </p>
 
         {/* Secondary tagline */}
-        <p className="font-editorial text-base md:text-lg text-muted-foreground mb-8 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-2xl mx-auto" style={{ animationDelay: "0.7s" }}>
+        <p className="font-editorial text-base md:text-lg text-muted-foreground mb-8 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-2xl mx-auto" style={{ animationDelay: "2.1s" }}>
           Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale — not vanity dashboards or AI demos, but systems that are used by real teams in production.
         </p>
 
         {/* CTAs - Primary: Start a Conversation, Secondary: View Projects */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "0.9s" }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "2.3s" }}>
           <a href="#contact" className="btn-editorial-primary">
             <span>Start a Conversation</span>
             <span className="ml-2">→</span>
@@ -56,7 +66,7 @@ const Hero = () => {
       <a 
         href="#about" 
         className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in [animation-fill-mode:forwards] group cursor-pointer" 
-        style={{ animationDelay: "1.2s" }}
+        style={{ animationDelay: "2.5s" }}
       >
         <div className="flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-widest text-gold/60 group-hover:text-gold transition-colors">Scroll</span>
