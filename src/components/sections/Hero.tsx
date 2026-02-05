@@ -1,6 +1,8 @@
-import { ChevronDown } from "lucide-react";
-import { MagneticButton } from "@/components/ui/MagneticButton";
+ import { ChevronDown } from "lucide-react";
+ import { motion } from "framer-motion";
 import FloatingParticles from "@/components/ui/FloatingParticles";
+ import AnimatedGridBackground from "@/components/ui/AnimatedGridBackground";
+ import { TextReveal, LineReveal } from "@/components/ui/TextReveal";
 
 const Hero = () => {
   return (
@@ -8,6 +10,9 @@ const Hero = () => {
       id="hero"
       className="relative min-h-[80vh] flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
     >
+       {/* Animated constellation grid */}
+       <AnimatedGridBackground />
+ 
       {/* Floating particles */}
       <FloatingParticles />
       
@@ -20,59 +25,91 @@ const Hero = () => {
 
       <div className="container max-w-4xl mx-auto text-center relative z-10">
         {/* Main headline */}
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
-          <span 
-            className="text-headline inline-block opacity-0 animate-fade-in [animation-fill-mode:forwards] hover:text-gold/80 transition-colors duration-300" 
-            style={{ animationDelay: "1.3s" }}
-          >
-            Siddhesh
-          </span>{" "}
-          <span 
-            className="text-gold inline-block opacity-0 animate-fade-in [animation-fill-mode:forwards] hover:text-amber transition-colors duration-300" 
-            style={{ animationDelay: "1.5s" }}
-          >
-            Phapale
-          </span>
+         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
+           <LineReveal delay={0.2}>
+             <span className="text-headline hover:text-gold/80 transition-colors duration-300">
+               Siddhesh
+             </span>{" "}
+             <span className="text-gold hover:text-amber transition-colors duration-300">
+               Phapale
+             </span>
+           </LineReveal>
         </h1>
 
         {/* Role */}
-        <p className="font-body text-lg md:text-xl text-gold mb-6 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "1.7s" }}>
-          Data | BI | ML | GenAI | Enthu
-        </p>
+         <motion.p 
+           className="font-body text-lg md:text-xl text-gold mb-6"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.4, duration: 0.6 }}
+         >
+           <TextReveal delay={0.5} staggerDelay={0.1}>
+             Data | BI | ML | GenAI | Enthu
+           </TextReveal>
+         </motion.p>
 
         {/* Primary tagline */}
-        <p className="font-editorial text-xl md:text-2xl text-foreground/90 mb-4 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-3xl mx-auto" style={{ animationDelay: "1.9s" }}>
-          Building production-grade analytics and GenAI systems that turn data into automation and business impact.
-        </p>
+         <motion.p 
+           className="font-editorial text-xl md:text-2xl text-foreground/90 mb-4 max-w-3xl mx-auto"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.7, duration: 0.6 }}
+         >
+           <TextReveal delay={0.8}>
+             Building production-grade analytics and GenAI systems that turn data into automation and business impact.
+           </TextReveal>
+         </motion.p>
 
         {/* Secondary tagline */}
-        <p className="font-editorial text-base md:text-lg text-muted-foreground mb-8 opacity-0 animate-fade-in [animation-fill-mode:forwards] max-w-2xl mx-auto" style={{ animationDelay: "2.1s" }}>
-          Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale — not vanity dashboards or AI demos, but systems that are used by real teams in production.
-        </p>
+         <motion.p 
+           className="font-editorial text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 1, duration: 0.6 }}
+         >
+           Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale — not vanity dashboards or AI demos, but systems that are used by real teams in production.
+         </motion.p>
 
         {/* CTAs - Primary: Start a Conversation, Secondary: View Projects */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in [animation-fill-mode:forwards]" style={{ animationDelay: "2.3s" }}>
-          <a href="#contact" className="btn-editorial-primary">
+         <motion.div 
+           className="flex flex-col sm:flex-row items-center justify-center gap-4"
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 1.2, duration: 0.6 }}
+         >
+           <motion.a 
+             href="#contact" 
+             className="btn-editorial-primary"
+             whileHover={{ scale: 1.02, y: -2 }}
+             whileTap={{ scale: 0.98 }}
+           >
             <span>Start a Conversation</span>
             <span className="ml-2">→</span>
-          </a>
-          <a href="#projects" className="btn-editorial">
+           </motion.a>
+           <motion.a 
+             href="#projects" 
+             className="btn-editorial"
+             whileHover={{ scale: 1.02 }}
+             whileTap={{ scale: 0.98 }}
+           >
             <span>View Projects</span>
-          </a>
-        </div>
+           </motion.a>
+         </motion.div>
       </div>
 
       {/* Scroll indicator with bounce */}
-      <a 
+       <motion.a 
         href="#about" 
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in [animation-fill-mode:forwards] group cursor-pointer" 
-        style={{ animationDelay: "2.5s" }}
+         className="absolute bottom-6 left-1/2 -translate-x-1/2 group cursor-pointer"
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         transition={{ delay: 1.5 }}
       >
         <div className="flex flex-col items-center gap-1">
           <span className="text-[10px] uppercase tracking-widest text-gold/60 group-hover:text-gold transition-colors">Scroll</span>
           <ChevronDown className="w-5 h-5 text-gold/50 group-hover:text-gold animate-scroll-bounce transition-colors" />
         </div>
-      </a>
+       </motion.a>
     </section>
   );
 };
