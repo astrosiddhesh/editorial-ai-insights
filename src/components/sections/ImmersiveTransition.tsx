@@ -25,19 +25,25 @@
    const contentY = useTransform(scrollYProgress, [0.1, 0.3], [40, 0]);
  
    const bgColors = {
-     ink: 'bg-ink',
-     gold: 'bg-gradient-to-b from-gold-dark to-ink',
-     deep: 'bg-gradient-to-b from-[hsl(220,35%,8%)] to-ink',
+   ink: '',
+   gold: '',
+   deep: '',
    };
  
+  const bgStyles: Record<string, React.CSSProperties> = {
+    ink: { backgroundColor: "hsl(220, 100%, 23%)" },
+    gold: { background: "linear-gradient(to bottom, hsl(220, 100%, 18%), hsl(220, 100%, 23%))" },
+    deep: { background: "linear-gradient(to bottom, hsl(220, 80%, 15%), hsl(220, 100%, 23%))" },
+  };
+
    return (
      <section 
        ref={containerRef}
        className={cn(
          "relative min-h-[80vh] overflow-hidden",
-         bgColors[variant],
          className
        )}
+     style={bgStyles[variant]}
      >
        {/* Curved top divider */}
        <div className="absolute top-0 left-0 w-full h-24 md:h-32 overflow-hidden z-10">
@@ -48,7 +54,7 @@
          >
            <path
              d="M0,0 L0,80 Q360,120 720,80 Q1080,40 1440,80 L1440,0 Z"
-             fill="hsl(45, 30%, 96%)"
+             fill="hsl(45, 70%, 91%)"
            />
          </svg>
        </div>
@@ -70,7 +76,7 @@
          >
            <path
              d="M0,120 L0,40 Q360,0 720,40 Q1080,80 1440,40 L1440,120 Z"
-             fill="hsl(45, 30%, 96%)"
+             fill="hsl(45, 70%, 91%)"
            />
          </svg>
        </div>

@@ -17,7 +17,8 @@
    return (
      <section 
        ref={containerRef}
-       className="relative min-h-[120vh] bg-ink overflow-hidden"
+       className="relative min-h-[120vh] overflow-hidden"
+       style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
      >
        {/* Curved top transition from cream */}
        <div className="absolute top-0 left-0 w-full h-32 overflow-hidden">
@@ -29,7 +30,7 @@
          >
            <path
              d="M0,0 L0,60 Q720,120 1440,60 L1440,0 Z"
-             fill="hsl(45, 30%, 96%)"
+             fill="hsl(45, 70%, 91%)"
            />
          </motion.svg>
        </div>
@@ -37,7 +38,7 @@
        {/* Floating decorative elements */}
        <div className="absolute inset-0 pointer-events-none overflow-hidden">
          <motion.div
-           className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-gold/40"
+         className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-cream/40"
            animate={{ 
              y: [0, -20, 0],
              opacity: [0.3, 0.6, 0.3]
@@ -53,7 +54,7 @@
            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
          />
          <motion.div
-           className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-gold/30"
+         className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-cream/30"
            animate={{ 
              y: [0, -25, 0],
              opacity: [0.3, 0.5, 0.3]
@@ -75,14 +76,14 @@
            viewport={{ once: true }}
            transition={{ duration: 0.6 }}
          >
-           <div className="w-20 h-20 rounded-full border border-gold/30 flex items-center justify-center">
-             <span className="font-display text-xl text-gold">02</span>
-           </div>
-         </motion.div>
+         <div className="w-20 h-20 rounded-full border border-cream/30 flex items-center justify-center">
+           <span className="font-display text-xl text-cream">02</span>
+         </div>
+       </motion.div>
  
          {/* Label */}
          <motion.p 
-           className="text-xs uppercase tracking-[0.4em] text-gold/70 mb-10"
+         className="text-xs uppercase tracking-[0.4em] text-cream/60 mb-10"
            initial={{ opacity: 0 }}
            whileInView={{ opacity: 1 }}
            viewport={{ once: true }}
@@ -100,8 +101,8 @@
            transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
          >
            Rather than treating GenAI as a novelty, apply it{' '}
-           <span className="text-gold italic">practically</span> and{' '}
-           <span className="text-gold italic">selectively</span>.
+         <span className="italic" style={{ color: "hsl(45, 70%, 75%)" }}>practically</span> and{' '}
+         <span className="italic" style={{ color: "hsl(45, 70%, 75%)" }}>selectively</span>.
          </motion.h2>
  
          {/* Supporting text */}
@@ -117,7 +118,7 @@
  
          {/* Decorative line */}
          <motion.div 
-           className="mt-16 w-px h-24 bg-gradient-to-b from-gold/50 to-transparent"
+         className="mt-16 w-px h-24 bg-gradient-to-b from-cream/40 to-transparent"
            initial={{ scaleY: 0 }}
            whileInView={{ scaleY: 1 }}
            viewport={{ once: true }}
@@ -135,7 +136,7 @@
          >
            <path
              d="M0,120 L0,60 Q720,0 1440,60 L1440,120 Z"
-             fill="hsl(45, 30%, 96%)"
+             fill="hsl(45, 70%, 91%)"
            />
          </svg>
        </div>

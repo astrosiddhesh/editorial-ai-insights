@@ -59,6 +59,9 @@ export default {
         amber: "hsl(var(--amber))",
         copper: "hsl(var(--copper))",
         ink: "hsl(var(--ink))",
+        "royal-blue": "hsl(var(--royal-blue))",
+        "bright-blue": "hsl(var(--bright-blue))",
+        "deep-blue": "hsl(var(--deep-blue))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -71,8 +74,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        editorial: ["Source Serif 4", "Playfair Display", "serif"],
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        editorial: ["Spectral", "Cormorant Garamond", "serif"],
         body: ["Inter", "sans-serif"],
       },
       borderRadius: {

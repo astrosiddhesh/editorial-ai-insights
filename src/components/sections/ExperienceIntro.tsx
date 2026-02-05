@@ -18,14 +18,14 @@
          viewport={{ once: true }}
          transition={{ duration: 0.6 }}
        >
-         <div className="w-20 h-20 rounded-full border border-gold/30 flex items-center justify-center">
-           <span className="font-display text-xl text-gold">04</span>
+         <div className="w-20 h-20 rounded-full border border-cream/30 flex items-center justify-center">
+           <span className="font-display text-xl text-cream">04</span>
          </div>
        </motion.div>
  
        {/* Label */}
        <motion.p 
-         className="text-xs uppercase tracking-[0.4em] text-gold/60 mb-10"
+         className="text-xs uppercase tracking-[0.4em] text-cream/60 mb-10"
          initial={{ opacity: 0 }}
          whileInView={{ opacity: 1 }}
          viewport={{ once: true }}
@@ -43,7 +43,7 @@
          transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
        >
          Delivering{' '}
-         <span className="text-gold italic">measurable</span>{' '}
+         <span className="italic" style={{ color: "hsl(45, 70%, 75%)" }}>measurable</span>{' '}
          results at enterprise scale.
        </motion.h2>
  
@@ -64,7 +64,7 @@
              viewport={{ once: true }}
              transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
            >
-             <div className="font-display text-4xl md:text-5xl text-gold mb-2">
+             <div className="font-display text-4xl md:text-5xl text-cream mb-2">
                {stat.value}
              </div>
              <div className="text-xs uppercase tracking-[0.2em] text-cream/50">
@@ -82,9 +82,9 @@
          viewport={{ once: true }}
          transition={{ delay: 0.8 }}
        >
-         <div className="w-12 h-px bg-gold/30" />
-         <div className="w-2 h-2 rounded-full bg-gold/40" />
-         <div className="w-12 h-px bg-gold/30" />
+         <div className="w-12 h-px bg-cream/30" />
+         <div className="w-2 h-2 rounded-full bg-cream/40" />
+         <div className="w-12 h-px bg-cream/30" />
        </motion.div>
      </ImmersiveTransition>
    );
