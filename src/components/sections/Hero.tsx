@@ -1,117 +1,107 @@
  import { ChevronDown } from "lucide-react";
  import { motion } from "framer-motion";
-import FloatingParticles from "@/components/ui/FloatingParticles";
- import AnimatedGridBackground from "@/components/ui/AnimatedGridBackground";
- import { TextReveal, LineReveal } from "@/components/ui/TextReveal";
-
-const Hero = () => {
-  return (
-    <section
-      id="hero"
-      className="relative min-h-[80vh] flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
-    >
-       {/* Animated constellation grid */}
-       <AnimatedGridBackground />
+ import FloatingParticles from "@/components/ui/FloatingParticles";
+ import { LineReveal } from "@/components/ui/TextReveal";
  
-      {/* Floating particles */}
-      <FloatingParticles />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-gold/8 to-transparent rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-32 right-16 w-80 h-80 bg-gradient-to-tl from-amber/6 to-transparent rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-gold/3 to-transparent rounded-full blur-3xl" />
-      </div>
-
-      <div className="container max-w-4xl mx-auto text-center relative z-10">
-        {/* Main headline */}
-         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
+ const Hero = () => {
+   return (
+     <section
+       id="hero"
+       className="relative min-h-[85vh] flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
+     >
+       {/* Subtle floating particles */}
+       <FloatingParticles />
+       
+       {/* Minimal background elements */}
+       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-gold/5 to-transparent rounded-full blur-3xl" />
+       </div>
+ 
+       <div className="container max-w-3xl mx-auto text-center relative z-10">
+         {/* Main headline - cleaner, more editorial */}
+         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
            <LineReveal delay={0.2}>
-             <span className="text-headline hover:text-gold/80 transition-colors duration-300">
-               Siddhesh
-             </span>{" "}
-             <span className="text-gold hover:text-amber transition-colors duration-300">
-               Phapale
-             </span>
+             <span className="text-headline">Siddhesh</span>{" "}
+             <span className="text-gold">Phapale</span>
            </LineReveal>
-        </h1>
-
-        {/* Role */}
+         </h1>
+ 
+         {/* Role - simpler */}
          <motion.p 
-           className="font-body text-lg md:text-xl text-gold mb-6"
+           className="font-body text-sm md:text-base uppercase tracking-[0.3em] text-gold/80 mb-10"
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ delay: 0.5, duration: 0.8 }}
+         >
+           Data · BI · ML · GenAI
+         </motion.p>
+ 
+         {/* Primary tagline - editorial style */}
+         <motion.p 
+           className="font-editorial text-lg md:text-xl text-foreground/80 mb-6 max-w-2xl mx-auto leading-relaxed"
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 0.4, duration: 0.6 }}
+           transition={{ delay: 0.7, duration: 0.8 }}
          >
-           <TextReveal delay={0.5} staggerDelay={0.1}>
-             Data | BI | ML | GenAI | Enthu
-           </TextReveal>
+           Building production-grade analytics and GenAI systems that turn data into automation and business impact.
          </motion.p>
-
-        {/* Primary tagline */}
+ 
+         {/* Secondary tagline */}
          <motion.p 
-           className="font-editorial text-xl md:text-2xl text-foreground/90 mb-4 max-w-3xl mx-auto"
+           className="font-editorial text-sm md:text-base text-muted-foreground mb-14 max-w-xl mx-auto leading-relaxed"
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 0.7, duration: 0.6 }}
+           transition={{ delay: 0.9, duration: 0.8 }}
          >
-           <TextReveal delay={0.8}>
-             Building production-grade analytics and GenAI systems that turn data into automation and business impact.
-           </TextReveal>
+           Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale.
          </motion.p>
-
-        {/* Secondary tagline */}
-         <motion.p 
-           className="font-editorial text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 1, duration: 0.6 }}
-         >
-           Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale — not vanity dashboards or AI demos, but systems that are used by real teams in production.
-         </motion.p>
-
-        {/* CTAs - Primary: Start a Conversation, Secondary: View Projects */}
+ 
+         {/* CTAs - minimal, elegant */}
          <motion.div 
-           className="flex flex-col sm:flex-row items-center justify-center gap-4"
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 1.2, duration: 0.6 }}
+           className="flex flex-col sm:flex-row items-center justify-center gap-8"
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ delay: 1.1, duration: 0.8 }}
          >
            <motion.a 
              href="#contact" 
-             className="btn-editorial-primary"
-             whileHover={{ scale: 1.02, y: -2 }}
-             whileTap={{ scale: 0.98 }}
+             className="group inline-flex items-center gap-3 font-body text-sm uppercase tracking-[0.2em] text-gold hover:text-amber transition-colors duration-300"
+             whileHover={{ x: 5 }}
            >
-            <span>Start a Conversation</span>
-            <span className="ml-2">→</span>
+             <span>Start a Conversation</span>
+             <span className="text-lg">→</span>
            </motion.a>
            <motion.a 
              href="#projects" 
-             className="btn-editorial"
-             whileHover={{ scale: 1.02 }}
-             whileTap={{ scale: 0.98 }}
+             className="font-body text-sm uppercase tracking-[0.2em] text-muted-foreground hover:text-headline transition-colors duration-300"
            >
-            <span>View Projects</span>
+             View Projects
            </motion.a>
          </motion.div>
-      </div>
-
-      {/* Scroll indicator with bounce */}
+       </div>
+ 
+       {/* Scroll indicator - minimal */}
        <motion.a 
-        href="#about" 
-         className="absolute bottom-6 left-1/2 -translate-x-1/2 group cursor-pointer"
+         href="#about" 
+         className="absolute bottom-8 left-1/2 -translate-x-1/2 group cursor-pointer"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ delay: 1.5 }}
-      >
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-[10px] uppercase tracking-widest text-gold/60 group-hover:text-gold transition-colors">Scroll</span>
-          <ChevronDown className="w-5 h-5 text-gold/50 group-hover:text-gold animate-scroll-bounce transition-colors" />
-        </div>
+       >
+         <div className="flex flex-col items-center gap-2">
+           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60 group-hover:text-gold transition-colors duration-300">
+             Scroll
+           </span>
+           <motion.div
+             animate={{ y: [0, 6, 0] }}
+             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+           >
+             <ChevronDown className="w-4 h-4 text-muted-foreground/40 group-hover:text-gold transition-colors duration-300" />
+           </motion.div>
+         </div>
        </motion.a>
-    </section>
-  );
-};
-
-export default Hero;
+     </section>
+   );
+ };
+ 
+ export default Hero;
