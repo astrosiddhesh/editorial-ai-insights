@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import WhatIDo from "@/components/sections/WhatIDo";
+ import ImmersiveIntro from "@/components/sections/ImmersiveIntro";
 import Projects from "@/components/sections/Projects";
 import Technologies from "@/components/sections/Technologies";
 import Experience from "@/components/sections/Experience";
@@ -37,6 +38,7 @@ const Index = () => {
         <main>
           <Hero />
           <WhatIDo />
+          <ImmersiveIntro />
           <Projects />
           <Technologies />
           <Experience />
