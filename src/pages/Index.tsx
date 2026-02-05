@@ -4,11 +4,14 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import WhatIDo from "@/components/sections/WhatIDo";
  import ImmersiveIntro from "@/components/sections/ImmersiveIntro";
+ import ProjectsIntro from "@/components/sections/ProjectsIntro";
 import Projects from "@/components/sections/Projects";
 import Technologies from "@/components/sections/Technologies";
+ import ExperienceIntro from "@/components/sections/ExperienceIntro";
 import Experience from "@/components/sections/Experience";
 import CurrentlyOnDesk from "@/components/sections/CurrentlyOnDesk";
 import FAQ from "@/components/sections/FAQ";
+ import ClosingStatement from "@/components/sections/ClosingStatement";
 import Contact from "@/components/sections/Contact";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -39,11 +42,14 @@ const Index = () => {
           <Hero />
           <WhatIDo />
           <ImmersiveIntro />
+          <ProjectsIntro />
           <Projects />
           <Technologies />
+          <ExperienceIntro />
           <Experience />
           <CurrentlyOnDesk />
           <FAQ />
+          <ClosingStatement />
           <Contact />
         </main>
         <Footer />
