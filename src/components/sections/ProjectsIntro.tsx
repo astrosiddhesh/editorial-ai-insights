@@ -13,14 +13,14 @@
          viewport={{ once: true }}
          transition={{ duration: 0.6 }}
        >
-         <div className="w-20 h-20 rounded-full border border-gold/30 flex items-center justify-center">
-           <span className="font-display text-xl text-gold">03</span>
+         <div className="w-20 h-20 rounded-full border border-cream/30 flex items-center justify-center">
+           <span className="font-display text-xl text-cream">03</span>
          </div>
        </motion.div>
  
        {/* Label */}
        <motion.p 
-         className="text-xs uppercase tracking-[0.4em] text-gold/60 mb-10"
+         className="text-xs uppercase tracking-[0.4em] text-cream/60 mb-10"
          initial={{ opacity: 0 }}
          whileInView={{ opacity: 1 }}
          viewport={{ once: true }}
@@ -38,7 +38,7 @@
          transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
        >
          Building{' '}
-         <span className="text-gold italic">production-grade</span>{' '}
+         <span className="italic" style={{ color: "hsl(45, 70%, 75%)" }}>production-grade</span>{' '}
          systems that create real impact.
        </motion.h2>
  
@@ -62,7 +62,7 @@
          transition={{ delay: 0.7 }}
        >
          <motion.div
-           className="w-px h-16 bg-gradient-to-b from-gold/40 to-transparent mx-auto"
+           className="w-px h-16 bg-gradient-to-b from-cream/40 to-transparent mx-auto"
            animate={{ scaleY: [1, 0.6, 1] }}
            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
          />

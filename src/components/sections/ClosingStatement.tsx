@@ -15,7 +15,8 @@
    return (
      <section 
        ref={containerRef}
-       className="relative min-h-[70vh] bg-ink overflow-hidden"
+     className="relative min-h-[70vh] overflow-hidden"
+     style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
      >
        {/* Curved top divider */}
        <div className="absolute top-0 left-0 w-full h-24 md:h-32 overflow-hidden z-10">
@@ -26,7 +27,7 @@
          >
            <path
              d="M0,0 L0,60 Q720,120 1440,60 L1440,0 Z"
-             fill="hsl(45, 30%, 96%)"
+           fill="hsl(45, 70%, 91%)"
            />
          </svg>
        </div>
@@ -37,7 +38,7 @@
          style={{ y }}
        >
          {/* Large gradient orb */}
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-gold/10 to-transparent blur-3xl" />
+       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-cream/10 to-transparent blur-3xl" />
          
          {/* Floating stars */}
          <motion.div
@@ -49,7 +50,7 @@
            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
          />
          <motion.div
-           className="absolute top-[30%] right-[25%] w-1.5 h-1.5 rounded-full bg-gold/50"
+         className="absolute top-[30%] right-[25%] w-1.5 h-1.5 rounded-full bg-cream/50"
            animate={{ 
              opacity: [0.4, 0.9, 0.4],
              scale: [1, 1.3, 1]
@@ -64,7 +65,7 @@
            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
          />
          <motion.div
-           className="absolute top-[45%] right-[15%] w-0.5 h-0.5 rounded-full bg-gold/70"
+         className="absolute top-[45%] right-[15%] w-0.5 h-0.5 rounded-full bg-cream/70"
            animate={{ 
              opacity: [0.5, 1, 0.5],
            }}
@@ -85,10 +86,10 @@
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
          >
-           <div className="w-24 h-24 rounded-full border border-gold/30 flex items-center justify-center">
-             <span className="font-display text-3xl text-gold">∞</span>
-           </div>
-         </motion.div>
+         <div className="w-24 h-24 rounded-full border border-cream/30 flex items-center justify-center">
+           <span className="font-display text-3xl text-cream">∞</span>
+         </div>
+       </motion.div>
  
          {/* Quote */}
          <motion.blockquote 
@@ -100,17 +101,17 @@
          >
            <p className="font-display text-2xl md:text-4xl lg:text-5xl text-cream leading-relaxed mb-8">
              The best systems are{' '}
-             <span className="text-gold italic">invisible</span>
+             <span className="italic" style={{ color: "hsl(45, 70%, 75%)" }}>invisible</span>
              {' '}— they just work.
            </p>
-           <footer className="text-sm uppercase tracking-[0.3em] text-gold/60">
+           <footer className="text-sm uppercase tracking-[0.3em] text-cream/50">
              — Design Philosophy
            </footer>
          </motion.blockquote>
  
          {/* Decorative line */}
          <motion.div 
-           className="mt-12 w-px h-20 bg-gradient-to-b from-gold/40 to-transparent"
+           className="mt-12 w-px h-20 bg-gradient-to-b from-cream/40 to-transparent"
            initial={{ scaleY: 0 }}
            whileInView={{ scaleY: 1 }}
            viewport={{ once: true }}
@@ -128,7 +129,7 @@
          >
            <path
              d="M0,120 L0,60 Q720,0 1440,60 L1440,120 Z"
-             fill="hsl(45, 30%, 96%)"
+           fill="hsl(45, 70%, 91%)"
            />
          </svg>
        </div>

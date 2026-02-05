@@ -28,7 +28,7 @@
            }}
            transition={{ duration: 1.2, ease: [0.25, 0.4, 0.25, 1] }}
            className="fixed inset-0 z-[100] flex items-center justify-center cursor-pointer"
-           style={{ backgroundColor: "hsl(45, 30%, 96%)" }}
+           style={{ backgroundColor: "hsl(45, 70%, 91%)" }}
            onClick={handleEnter}
            onMouseEnter={() => setIsHovered(true)}
            onMouseLeave={() => setIsHovered(false)}
@@ -52,7 +52,7 @@
                {/* Oval border */}
                <motion.div 
                  className="w-24 h-28 rounded-[50%] border flex items-center justify-center mx-auto"
-                 style={{ borderColor: "hsl(28, 85%, 42%)" }}
+               style={{ borderColor: "hsl(220, 100%, 23%)" }}
                  animate={{ 
                    scale: isHovered ? 1.05 : 1,
                    borderWidth: isHovered ? 2 : 1
@@ -65,7 +65,7 @@
                    viewBox="0 0 40 40"
                    fill="none"
                    xmlns="http://www.w3.org/2000/svg"
-                   style={{ color: "hsl(28, 85%, 42%)" }}
+                 style={{ color: "hsl(220, 100%, 23%)" }}
                    initial={{ opacity: 0 }}
                    animate={{ opacity: 1 }}
                    transition={{ delay: 0.5, duration: 0.8 }}
@@ -85,7 +85,7 @@
              {/* Enter Site text */}
              <motion.p
                className="font-display text-base tracking-[0.15em] cursor-pointer"
-               style={{ color: "hsl(28, 85%, 42%)" }}
+             style={{ color: "hsl(220, 100%, 23%)" }}
                initial={{ opacity: 0, y: 10 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.8, duration: 0.6 }}
@@ -97,7 +97,7 @@
              {/* Subtle hint */}
              <motion.p
                className="font-body text-[10px] tracking-[0.2em] uppercase mt-4"
-               style={{ color: "hsl(28, 85%, 42%, 0.5)" }}
+             style={{ color: "hsl(220, 100%, 23%, 0.5)" }}
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ delay: 1.2, duration: 0.6 }}
