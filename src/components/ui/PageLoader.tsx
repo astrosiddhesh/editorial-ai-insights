@@ -13,194 +13,75 @@
      setIsExiting(true);
      setTimeout(() => {
        onEnter?.();
-     }, 800);
+     }, 1000);
    };
  
    return (
      <AnimatePresence>
-       {isLoading && !isExiting && (
+       {isLoading && (
          <motion.div
            initial={{ opacity: 1 }}
-           exit={{ opacity: 0 }}
-           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-           className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden"
+           animate={{ opacity: isExiting ? 0 : 1 }}
+           transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
+           className="fixed inset-0 z-[100] flex items-center justify-center cursor-pointer"
+           style={{ backgroundColor: "hsl(45, 30%, 96%)" }}
+           onClick={handleEnter}
          >
-           {/* Animated background lines */}
-           <div className="absolute inset-0 overflow-hidden">
-             {[...Array(20)].map((_, i) => (
-               <motion.div
-                 key={i}
-                 className="absolute h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"
-                 style={{
-                   top: `${(i + 1) * 5}%`,
-                   left: 0,
-                   right: 0,
-                 }}
-                 initial={{ scaleX: 0, opacity: 0 }}
-                 animate={{ scaleX: 1, opacity: 1 }}
-                 transition={{
-                   duration: 1.5,
-                   delay: i * 0.05,
-                   ease: [0.25, 0.4, 0.25, 1],
-                 }}
-               />
-             ))}
-           </div>
- 
-           <div className="text-center relative z-10">
-             {/* Animated logo - larger and more dramatic */}
+           <div className="text-center">
+             {/* Oval border with logo icon - Sleep Well style */}
              <motion.div
-               initial={{ scale: 0, rotate: -180 }}
-               animate={{ scale: 1, rotate: 0 }}
-               transition={{
-                 duration: 1.2,
-                 ease: [0.25, 0.4, 0.25, 1],
-               }}
-               className="relative mb-12"
+               className="relative mx-auto mb-8"
+               initial={{ opacity: 0, scale: 0.8 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
              >
-               {/* Glowing ring behind logo */}
-               <motion.div
-                 className="absolute inset-0 rounded-full"
-                 style={{
-                   background: "radial-gradient(circle, hsla(28, 85%, 42%, 0.3) 0%, transparent 70%)",
-                   transform: "scale(3)",
-                 }}
-                 animate={{
-                   opacity: [0.3, 0.6, 0.3],
-                   scale: [3, 3.5, 3],
-                 }}
-                 transition={{
-                   duration: 2,
-                   repeat: Infinity,
-                   ease: "easeInOut",
-                 }}
-               />
-               
-               <motion.svg
-                 className="w-24 h-24 text-gold mx-auto relative z-10"
-                 viewBox="0 0 40 40"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg"
-                 animate={{ rotate: 360 }}
-                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+               {/* Oval border */}
+               <div 
+                 className="w-20 h-24 rounded-[50%] border-2 flex items-center justify-center mx-auto"
+                 style={{ borderColor: "hsl(28, 85%, 42%)" }}
                >
-                 {/* Bottom layer */}
-                 <motion.path
-                   d="M6 28L20 34L34 28L20 22L6 28Z"
-                   fill="currentColor"
-                   fillOpacity={0.3}
-                   stroke="currentColor"
-                   strokeWidth="1.5"
-                   strokeLinejoin="round"
-                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                   transition={{ delay: 0.3, duration: 0.6 }}
-                 />
-                 {/* Middle layer */}
-                 <motion.path
-                   d="M6 20L20 26L34 20L20 14L6 20Z"
-                   fill="currentColor"
-                   fillOpacity={0.5}
-                   stroke="currentColor"
-                   strokeWidth="1.5"
-                   strokeLinejoin="round"
-                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                   transition={{ delay: 0.5, duration: 0.6 }}
-                 />
-                 {/* Top layer */}
-                 <motion.path
-                   d="M6 12L20 18L34 12L20 6L6 12Z"
-                   fill="currentColor"
-                   fillOpacity={0.9}
-                   stroke="currentColor"
-                   strokeWidth="1.5"
-                   strokeLinejoin="round"
-                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                   transition={{ delay: 0.7, duration: 0.6 }}
-                 />
-               </motion.svg>
+                 {/* Geometric logo inside */}
+                 <motion.svg
+                   className="w-10 h-10"
+                   viewBox="0 0 40 40"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                   style={{ color: "hsl(28, 85%, 42%)" }}
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 1 }}
+                   transition={{ delay: 0.5, duration: 0.8 }}
+                 >
+                   {/* Simplified geometric shape */}
+                   <path
+                     d="M20 6L34 20L20 34L6 20L20 6Z"
+                     fill="currentColor"
+                     fillOpacity={0.15}
+                     stroke="currentColor"
+                     strokeWidth="1.5"
+                   />
+                   <path
+                     d="M20 12L28 20L20 28L12 20L20 12Z"
+                     fill="currentColor"
+                     fillOpacity={0.4}
+                     stroke="currentColor"
+                     strokeWidth="1"
+                   />
+                 </motion.svg>
+               </div>
              </motion.div>
  
-             {/* Name reveal */}
-             <div className="overflow-hidden mb-4">
-               <motion.h1
-                 className="font-display text-4xl md:text-5xl font-bold text-headline"
-                 initial={{ y: "100%" }}
-                 animate={{ y: 0 }}
-                 transition={{ delay: 0.8, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-               >
-                 Siddhesh <span className="text-gold">Phapale</span>
-               </motion.h1>
-             </div>
- 
-             {/* Tagline reveal */}
-             <div className="overflow-hidden mb-12">
-               <motion.p
-                 className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground"
-                 initial={{ y: "100%" }}
-                 animate={{ y: 0 }}
-                 transition={{ delay: 1, duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-               >
-                 Data • BI • ML • GenAI
-               </motion.p>
-             </div>
- 
-             {/* Enter Site Button */}
-             <motion.button
-               onClick={handleEnter}
-               className="group relative px-12 py-4 font-body text-sm uppercase tracking-[0.2em] text-gold border border-gold/50 hover:border-gold transition-all duration-500 overflow-hidden"
-               initial={{ opacity: 0, y: 20 }}
+             {/* Enter Site text */}
+             <motion.p
+               className="font-display text-lg tracking-wide cursor-pointer"
+               style={{ color: "hsl(28, 85%, 42%)" }}
+               initial={{ opacity: 0, y: 10 }}
                animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 1.3, duration: 0.6 }}
-               whileHover={{ scale: 1.02 }}
-               whileTap={{ scale: 0.98 }}
+               transition={{ delay: 0.8, duration: 0.6 }}
+               whileHover={{ letterSpacing: "0.15em" }}
              >
-               {/* Hover fill effect */}
-               <motion.span
-                 className="absolute inset-0 bg-gold"
-                 initial={{ x: "-100%" }}
-                 whileHover={{ x: 0 }}
-                 transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-               />
-               <span className="relative z-10 group-hover:text-background transition-colors duration-300">
-                 Enter Site
-               </span>
-             </motion.button>
- 
-             {/* Scroll hint */}
-             <motion.div
-               className="absolute -bottom-32 left-1/2 -translate-x-1/2"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 1.8 }}
-             >
-               <motion.div
-                 className="w-px h-12 bg-gradient-to-b from-gold/50 to-transparent mx-auto"
-                 animate={{ scaleY: [0, 1, 0] }}
-                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-               />
-             </motion.div>
+               Enter Site
+             </motion.p>
            </div>
-         </motion.div>
-       )}
- 
-       {/* Exit animation overlay */}
-       {isExiting && (
-         <motion.div
-           className="fixed inset-0 z-[100] pointer-events-none"
-           initial={{ opacity: 1 }}
-           animate={{ opacity: 0 }}
-           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-         >
-           {/* Curtain reveal effect */}
-           <motion.div
-             className="absolute inset-0 bg-background"
-             initial={{ y: 0 }}
-             animate={{ y: "-100%" }}
-             transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-           />
          </motion.div>
        )}
      </AnimatePresence>
