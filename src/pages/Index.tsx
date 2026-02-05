@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+ import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -13,23 +13,24 @@ import ScrollProgress from "@/components/ui/ScrollProgress";
 import CustomCursor from "@/components/ui/CustomCursor";
 import BackToTop from "@/components/ui/BackToTop";
 import PageLoader from "@/components/ui/PageLoader";
+ import GrainOverlay from "@/components/ui/GrainOverlay";
+ import useLenis from "@/hooks/useLenis";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulate initial load
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
+   // Initialize smooth scroll
+   useLenis();
+ 
+   const handleEnterSite = () => {
+     setIsLoading(false);
+   };
 
   return (
     <>
-      <PageLoader isLoading={isLoading} />
-      <div className="min-h-screen bg-background">
+       <PageLoader isLoading={isLoading} onEnter={handleEnterSite} />
+       <GrainOverlay />
+       <div className={`min-h-screen bg-background transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <ScrollProgress />
         <CustomCursor />
         <Header />
