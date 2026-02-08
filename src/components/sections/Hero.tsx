@@ -1,129 +1,137 @@
- import { ChevronDown } from "lucide-react";
- import { useRef } from "react";
- import { motion, useScroll, useTransform } from "framer-motion";
- import FloatingParticles from "@/components/ui/FloatingParticles";
- import { LineReveal } from "@/components/ui/TextReveal";
- 
- const Hero = () => {
-   const containerRef = useRef<HTMLDivElement>(null);
-   
-   const { scrollYProgress } = useScroll({
-     target: containerRef,
-     offset: ["start start", "end start"],
-   });
- 
-   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-   const scale = useTransform(scrollYProgress, [0, 0.6], [1, 0.92]);
- 
-   return (
-     <section
-       ref={containerRef}
-       id="hero"
-       className="relative min-h-screen flex items-center justify-center pt-20 pb-12 px-6 overflow-hidden"
-     >
-       {/* Subtle floating particles */}
-       <FloatingParticles />
-       
-       {/* Minimal background elements */}
-       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl" />
-       </div>
- 
-       <motion.div 
-         className="container max-w-3xl mx-auto text-center relative z-10"
-         style={{ y, opacity, scale }}
-       >
-         {/* Main headline - cleaner, more editorial */}
-         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-           <LineReveal delay={0.2}>
-             <span className="text-headline">Siddhesh</span>{" "}
-             <span className="text-primary">Phapale</span>
-           </LineReveal>
-         </h1>
- 
-         {/* Role - simpler */}
-         <motion.p 
-           className="font-body text-xs md:text-sm uppercase tracking-[0.4em] text-primary/80 mb-12"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 0.5, duration: 0.8 }}
-         >
-           Data  ·  BI  ·  ML  ·  GenAI
-         </motion.p>
- 
-         {/* Primary tagline - editorial style */}
-         <motion.p 
-           className="font-editorial text-xl md:text-2xl lg:text-3xl text-foreground/85 mb-8 max-w-2xl mx-auto leading-relaxed"
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 0.7, duration: 0.8 }}
-         >
-           Building production-grade analytics and GenAI systems that turn data into automation and business impact.
-         </motion.p>
- 
-         {/* Secondary tagline */}
-         <motion.p 
-           className="font-editorial text-sm md:text-base text-muted-foreground mb-16 max-w-xl mx-auto leading-relaxed"
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 0.9, duration: 0.8 }}
-         >
-           Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale.
-         </motion.p>
- 
-         {/* CTAs - minimal, elegant */}
-         <motion.div 
-           className="flex flex-col sm:flex-row items-center justify-center gap-10"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 1.1, duration: 0.8 }}
-         >
-           <motion.a 
-             href="#contact" 
-           className="group inline-flex items-center gap-3 font-body text-xs uppercase tracking-[0.25em] text-primary hover:text-bright-blue transition-colors duration-300"
-             whileHover={{ x: 5 }}
-           >
-             <span>Start a Conversation</span>
-             <motion.span 
-               className="text-lg"
-               animate={{ x: [0, 4, 0] }}
-               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-             >
-               →
-             </motion.span>
-           </motion.a>
-           <motion.a 
-             href="#projects" 
-             className="font-body text-xs uppercase tracking-[0.25em] text-muted-foreground hover:text-headline transition-colors duration-300"
-           >
-             View Projects
-           </motion.a>
-         </motion.div>
-       </motion.div>
- 
-       {/* Scroll indicator - minimal */}
-       <motion.a 
-         href="#about" 
-         className="absolute bottom-12 left-1/2 -translate-x-1/2 group cursor-pointer"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         transition={{ delay: 1.5 }}
-       >
-         <div className="flex flex-col items-center gap-2">
-           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60 group-hover:text-primary transition-colors duration-300">
-             Scroll
-           </span>
-           <motion.div
-             animate={{ y: [0, 6, 0] }}
-             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-           >
-             <ChevronDown className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary transition-colors duration-300" />
-           </motion.div>
-         </div>
-       </motion.a>
-     </section>
-   );
- };
- 
- export default Hero;
+import { ChevronDown } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import FloatingParticles from "@/components/ui/FloatingParticles";
+
+const Hero = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+
+  return (
+    <section
+      ref={containerRef}
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Subtle floating particles */}
+      <FloatingParticles />
+      
+      {/* Radial glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-primary/[0.07] to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-gradient-radial from-primary/[0.04] to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <motion.div 
+        className="container max-w-5xl mx-auto text-center relative z-10 px-6"
+        style={{ y, opacity, scale }}
+      >
+        {/* Overline */}
+        <motion.div 
+          className="flex items-center justify-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <div className="w-12 h-px bg-primary/30" />
+          <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.5em] text-primary/70">
+            Data  ·  BI  ·  ML  ·  GenAI
+          </p>
+          <div className="w-12 h-px bg-primary/30" />
+        </motion.div>
+
+        {/* Main headline — MASSIVE */}
+        <motion.h1 
+          className="font-display font-bold leading-[0.9] mb-10"
+          style={{ fontSize: 'clamp(3.5rem, 12vw, 10rem)' }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-headline block">Siddhesh</span>
+          <span className="text-primary block italic" style={{ fontSize: '0.85em' }}>Phapale</span>
+        </motion.h1>
+
+        {/* Primary tagline — editorial */}
+        <motion.p 
+          className="font-editorial text-lg md:text-2xl lg:text-3xl text-foreground/80 mb-6 max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          Building production-grade analytics and GenAI systems that turn data into automation and business impact.
+        </motion.p>
+
+        {/* Secondary tagline */}
+        <motion.p 
+          className="font-body text-sm md:text-base text-muted-foreground mb-20 max-w-xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center justify-center gap-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
+          <motion.a 
+            href="#contact" 
+            className="group inline-flex items-center gap-3 font-body text-xs uppercase tracking-[0.3em] text-primary hover:text-bright-blue transition-colors duration-300"
+            whileHover={{ x: 5 }}
+          >
+            <span>Start a Conversation</span>
+            <motion.span 
+              className="text-lg"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              →
+            </motion.span>
+          </motion.a>
+          <motion.a 
+            href="#projects" 
+            className="font-body text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-headline transition-colors duration-300"
+          >
+            View Projects
+          </motion.a>
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.a 
+        href="#about" 
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 group cursor-pointer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8 }}
+      >
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50 group-hover:text-primary transition-colors duration-300">
+            Scroll
+          </span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary transition-colors duration-300" />
+          </motion.div>
+        </div>
+      </motion.a>
+    </section>
+  );
+};
+
+export default Hero;

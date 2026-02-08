@@ -24,6 +24,7 @@ const CurrentlyOnDesk = () => {
     setReviewForm({ name: "", review: "" });
     setIsSubmitting(false);
   };
+
   const readings = [
     {
       title: "Bulls, Bears and Other Beasts",
@@ -59,31 +60,31 @@ const CurrentlyOnDesk = () => {
   ];
 
   return (
-    <section id="currently-on-desk" className="py-16 px-6 relative bg-ivory/50">
+    <section id="currently-on-desk" className="py-28 px-6 relative bg-ivory/30">
       <SectionNumber current={5} total={6} />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-5xl mx-auto">
         {/* Section heading */}
         <AnimatedSection animation="fade-up">
-          <div className="text-center mb-12">
-            <span className="text-gold font-display text-lg">§</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-headline mt-2 mb-2">
-              Currently on <span className="text-gold">His Desk</span>
+          <div className="text-center mb-16">
+            <p className="font-body text-[10px] uppercase tracking-[0.5em] text-primary/50 mb-4">Interests & Curiosity</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-headline">
+              Currently on <span className="text-primary italic">His Desk</span>
             </h2>
-            <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
+            <div className="w-20 h-px bg-gold/40 mx-auto mt-6" />
           </div>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-10">
           {/* Left Column - Reading */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Now Reading */}
             <AnimatedSection animation="fade-up" delay={100}>
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <BookOpen className="w-5 h-5 text-gold" />
-                  <h3 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <BookOpen className="w-5 h-5 text-primary/70" />
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-headline">
                     Now Reading
                   </h3>
                 </div>
@@ -91,19 +92,19 @@ const CurrentlyOnDesk = () => {
                   {readings.map((book, index) => (
                     <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
+                      className="p-6 border border-border/40 bg-card/60 rounded-sm hover:border-primary/20 transition-all duration-300"
                     >
-                      <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-1">
+                      <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-2">
                         {book.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground font-body mb-3">
+                      <p className="text-sm text-muted-foreground font-body mb-4">
                         — {book.author}
                       </p>
                       <a
                         href={book.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gold hover:text-amber transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-primary/70 hover:text-primary transition-colors"
                       >
                         Buy on Amazon
                         <ExternalLink className="w-3 h-3" />
@@ -117,9 +118,9 @@ const CurrentlyOnDesk = () => {
             {/* Research & Papers */}
             <AnimatedSection animation="fade-up" delay={200}>
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <FileText className="w-5 h-5 text-gold" />
-                  <h3 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+                <div className="flex items-center gap-3 mb-6">
+                  <FileText className="w-5 h-5 text-primary/70" />
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-headline">
                     Research & Papers
                   </h3>
                 </div>
@@ -127,22 +128,22 @@ const CurrentlyOnDesk = () => {
                   {research.map((paper, index) => (
                     <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
+                      className="p-6 border border-border/40 bg-card/60 rounded-sm hover:border-primary/20 transition-all duration-300"
                     >
-                      <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-1">
+                      <h4 className="font-display text-lg font-semibold text-headline leading-tight mb-2">
                         {paper.title}
                       </h4>
-                      <p className="text-sm text-gold font-body mb-2">
+                      <p className="text-sm text-primary/70 font-body mb-2">
                         — {paper.source}
                       </p>
-                      <p className="text-sm text-muted-foreground font-body mb-3">
+                      <p className="text-sm text-muted-foreground font-body mb-4">
                         {paper.description}
                       </p>
                       <a
                         href={paper.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gold hover:text-amber transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-primary/70 hover:text-primary transition-colors"
                       >
                         Read Paper
                         <ExternalLink className="w-3 h-3" />
@@ -155,13 +156,13 @@ const CurrentlyOnDesk = () => {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Problem Spaces */}
             <AnimatedSection animation="fade-up" delay={300}>
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Lightbulb className="w-5 h-5 text-gold" />
-                  <h3 className="font-display text-xl font-semibold text-headline uppercase tracking-wider">
+                <div className="flex items-center gap-3 mb-6">
+                  <Lightbulb className="w-5 h-5 text-primary/70" />
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-headline">
                     Problem Spaces He's Exploring
                   </h3>
                 </div>
@@ -169,12 +170,12 @@ const CurrentlyOnDesk = () => {
                   {problemSpaces.map((space, index) => (
                     <div
                       key={index}
-                      className="p-5 border border-border/50 bg-card/80 rounded-lg"
+                      className="p-6 border border-border/40 bg-card/60 rounded-sm hover:border-primary/20 transition-all duration-300"
                     >
-                      <h4 className="font-display text-lg font-semibold text-gold mb-2">
+                      <h4 className="font-display text-lg font-semibold text-primary mb-3">
                         {space.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground font-body leading-relaxed mb-3">
+                      <p className="text-sm text-muted-foreground font-body leading-relaxed mb-4">
                         {space.description}
                       </p>
                       {space.link && (
@@ -182,7 +183,7 @@ const CurrentlyOnDesk = () => {
                           href={space.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-gold hover:text-amber transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-primary/70 hover:text-primary transition-colors"
                         >
                           View Inspiration
                           <ExternalLink className="w-3 h-3" />
@@ -196,14 +197,14 @@ const CurrentlyOnDesk = () => {
 
             {/* Drop Your Review */}
             <AnimatedSection animation="fade-up" delay={400}>
-              <div className="mt-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <MessageSquare className="w-5 h-5 text-gold" />
-                  <h3 className="font-display text-lg font-semibold text-headline uppercase tracking-wider">
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <MessageSquare className="w-5 h-5 text-primary/70" />
+                  <h3 className="font-display text-xl md:text-2xl font-semibold text-headline">
                     Drop Your Review
                   </h3>
                 </div>
-                <form onSubmit={handleSubmitReview} className="p-5 border border-border/50 bg-card/80 rounded-lg space-y-4">
+                <form onSubmit={handleSubmitReview} className="p-6 border border-border/40 bg-card/60 rounded-sm space-y-4">
                   <p className="text-sm text-muted-foreground font-body">
                     Share your thoughts, feedback, or just say hello!
                   </p>
@@ -211,14 +212,14 @@ const CurrentlyOnDesk = () => {
                     placeholder="Your name"
                     value={reviewForm.name}
                     onChange={(e) => setReviewForm(prev => ({ ...prev, name: e.target.value }))}
-                    className="bg-background/50 border-border/50 focus:border-gold/50"
+                    className="bg-background/50 border-border/40 focus:border-primary/40"
                     maxLength={100}
                   />
                   <Textarea
                     placeholder="Write your review or message..."
                     value={reviewForm.review}
                     onChange={(e) => setReviewForm(prev => ({ ...prev, review: e.target.value }))}
-                    className="bg-background/50 border-border/50 focus:border-gold/50 min-h-[100px] resize-none"
+                    className="bg-background/50 border-border/40 focus:border-primary/40 min-h-[120px] resize-none"
                     maxLength={1000}
                   />
                   <Button type="submit" disabled={isSubmitting} className="w-full">

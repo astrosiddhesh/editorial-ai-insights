@@ -46,67 +46,63 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled || isMobileMenuOpen
-          ? "bg-background backdrop-blur-md border-b border-gold/20 shadow-sm py-2"
-          : "bg-transparent py-4"
+          ? "bg-background/95 backdrop-blur-md border-b border-primary/10 shadow-sm py-3"
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container max-w-6xl mx-auto px-6">
         <nav className="flex items-center justify-between h-12 md:h-14">
           <button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-2 font-display text-lg md:text-xl font-bold text-headline group"
+            className="flex items-center gap-3 font-display text-lg md:text-xl font-bold text-headline group"
           >
-            {/* Logo SVG - Geometric Triangle */}
+            {/* Logo SVG */}
             <svg 
-              className="w-8 h-8 text-gold group-hover:text-amber transition-colors duration-300 animate-[spin_40s_linear_infinite]" 
+              className="w-7 h-7 text-primary group-hover:text-bright-blue transition-colors duration-500 animate-[spin_40s_linear_infinite]" 
               viewBox="0 0 32 32" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Main triangle outline */}
               <path 
                 d="M16 4 L28 26 L4 26 Z" 
                 stroke="currentColor" 
-                strokeWidth="2" 
+                strokeWidth="1.5" 
                 strokeLinejoin="round"
                 fill="none"
               />
-              {/* Inner triangle */}
               <path 
                 d="M16 10 L22 22 L10 22 Z" 
                 stroke="currentColor" 
-                strokeWidth="1.2" 
+                strokeWidth="1" 
                 strokeLinejoin="round"
                 fill="none"
-                strokeOpacity="0.6"
+                strokeOpacity="0.5"
               />
-              {/* Center dot */}
-              <circle cx="16" cy="18" r="1.5" fill="currentColor"/>
+              <circle cx="16" cy="18" r="1.2" fill="currentColor"/>
             </svg>
             <span className="hidden sm:inline">
-              <span className="text-gold group-hover:text-amber transition-colors duration-300">Siddhesh</span>
-              <span className="group-hover:text-gold transition-colors duration-300">P.</span>
+              <span className="text-primary group-hover:text-bright-blue transition-colors duration-500">Siddhesh</span>
+              <span className="text-headline/70 group-hover:text-primary transition-colors duration-500">P.</span>
             </span>
           </button>
 
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className={`font-body text-sm uppercase tracking-wider transition-all duration-300 relative ${
+                  className={`font-body text-[11px] uppercase tracking-[0.2em] transition-all duration-300 relative ${
                     activeSection === item.id
-                      ? "text-gold font-semibold"
-                      : "text-muted-foreground hover:text-gold"
+                      ? "text-primary"
+                      : "text-muted-foreground/70 hover:text-primary"
                   }`}
                 >
                   {item.label}
-                  {/* Active indicator */}
                   <span 
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ${
+                    className={`absolute -bottom-1.5 left-0 h-px bg-primary transition-all duration-300 ${
                       activeSection === item.id ? "w-full" : "w-0"
                     }`} 
                   />
@@ -118,7 +114,7 @@ const Header = () => {
           {/* Mobile menu toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-headline hover:text-gold transition-colors"
+            className="md:hidden p-2 text-headline hover:text-primary transition-colors"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -131,15 +127,15 @@ const Header = () => {
             isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <ul className="py-4 space-y-2 border-t border-gold/10 bg-background">
+          <ul className="py-6 space-y-1 border-t border-primary/10 bg-background">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className={`w-full text-left px-4 py-2 font-body text-sm uppercase tracking-wider transition-all duration-200 ${
+                  className={`w-full text-left px-4 py-3 font-body text-sm uppercase tracking-wider transition-all duration-200 ${
                     activeSection === item.id
-                      ? "text-gold font-semibold bg-gold/5"
-                      : "text-muted-foreground hover:text-gold hover:bg-gold/5"
+                      ? "text-primary bg-primary/5"
+                      : "text-muted-foreground hover:text-primary hover:bg-primary/5"
                   }`}
                 >
                   {item.label}
