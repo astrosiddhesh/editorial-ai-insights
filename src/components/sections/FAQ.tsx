@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import SectionNumber from "@/components/ui/SectionNumber";
 
 const FAQ = () => {
   const faqs = [
@@ -32,6 +33,7 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-8 px-6 relative">
+      <SectionNumber current={5} total={6} />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-3xl mx-auto">
