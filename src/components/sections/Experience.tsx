@@ -1,6 +1,7 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { TiltCard } from "@/components/ui/TiltCard";
+import SectionNumber from "@/components/ui/SectionNumber";
 
 const Experience = () => {
   const highlights = [
@@ -42,10 +43,10 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-10 px-6 relative">
+      <SectionNumber current={4} total={6} />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-5xl mx-auto">
-        {/* Section heading */}
         <AnimatedSection animation="fade-up">
           <div className="flex items-center gap-4 mb-6">
             <div className="flex-1 h-px bg-gradient-to-l from-gold/40 to-transparent" />
@@ -56,7 +57,6 @@ const Experience = () => {
           </div>
         </AnimatedSection>
 
-        {/* Animated counter cards */}
         <div className="grid md:grid-cols-3 gap-4 mb-4">
           {highlights.map((item, index) => (
             <AnimatedSection key={index} animation="reveal" delay={index * 120}>
@@ -76,7 +76,6 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* Text highlight cards */}
         <div className="grid md:grid-cols-2 gap-4">
           {textHighlights.map((item, index) => (
             <AnimatedSection key={index} animation="slide-up" delay={400 + index * 120}>

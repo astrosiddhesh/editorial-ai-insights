@@ -2,7 +2,7 @@ import { ExternalLink } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { StackingCards, StackingCardItem } from "@/components/ui/StackingCards";
 import { cn } from "@/lib/utils";
-
+import SectionNumber from "@/components/ui/SectionNumber";
 
 const Projects = () => {
   const projects = [
@@ -40,9 +40,12 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative">
+      {/* Section number */}
+      <SectionNumber current={3} total={6} />
+
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      {/* Section heading - outside the stacking container */}
+      {/* Section heading */}
       <div className="container max-w-6xl mx-auto py-10 px-6">
         <AnimatedSection animation="fade-up">
           <div className="flex items-center gap-4 mb-6">
@@ -54,7 +57,7 @@ const Projects = () => {
         </AnimatedSection>
       </div>
 
-      {/* Stacking cards container */}
+      {/* Stacking cards */}
       <StackingCards 
         totalCards={projects.length} 
         scaleMultiplier={0.04}
