@@ -51,18 +51,18 @@ const HorizontalShowcase = () => {
         <SectionNumber current={2} total={6} />
 
         {/* Progress bar */}
-        <div className="absolute bottom-8 left-8 right-8 z-20">
+        <div className="absolute bottom-12 left-12 right-12 z-20">
           <div className="h-px bg-primary/10 w-full">
             <motion.div 
               className="h-full bg-primary/60"
               style={{ width: progressWidth }}
             />
           </div>
-          <div className="flex justify-between mt-3">
-            <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+          <div className="flex justify-between mt-4">
+            <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70">
               The Approach
             </span>
-            <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            <span className="font-body text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70">
               Scroll →
             </span>
           </div>
@@ -78,31 +78,32 @@ const HorizontalShowcase = () => {
               key={index}
               className="w-screen h-full flex-shrink-0 flex items-center justify-center px-8 md:px-16 lg:px-24"
             >
-              <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 md:gap-24 items-center">
+              <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 md:gap-32 items-center">
                 {/* Left — Number + Title */}
                 <div>
                   <motion.span 
-                    className="font-display text-[8rem] md:text-[12rem] leading-none text-primary/[0.06] block"
-                    style={{ fontWeight: 700 }}
+                    className="font-display leading-none text-primary/[0.05] block"
+                    style={{ fontSize: 'clamp(8rem, 18vw, 16rem)', fontWeight: 700 }}
                   >
                     {panel.number}
                   </motion.span>
                   <h3 
-                    className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-headline -mt-12 md:-mt-20"
+                    className="font-display font-bold text-headline"
+                    style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', marginTop: '-0.3em' }}
                   >
                     {panel.title}
                   </h3>
                 </div>
 
                 {/* Right — Description */}
-                <div className="space-y-6">
-                  <p className="font-body text-xs uppercase tracking-[0.3em] text-primary/60">
+                <div className="space-y-8">
+                  <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.4em] text-primary/50">
                     {panel.subtitle}
                   </p>
-                  <p className="font-editorial text-lg md:text-xl text-foreground/80 leading-relaxed">
+                  <p className="font-editorial text-lg md:text-xl lg:text-2xl text-foreground/75 leading-relaxed">
                     {panel.detail}
                   </p>
-                  <div className="w-16 h-px bg-primary/30" />
+                  <div className="w-20 h-px bg-primary/20" />
                 </div>
               </div>
             </div>

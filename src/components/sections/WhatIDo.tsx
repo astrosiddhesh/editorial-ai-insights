@@ -21,13 +21,13 @@ const WhatIDo = () => {
       </ScrollParagraph>
       
       {/* Hidden message Easter egg */}
-      <div className="flex justify-center py-2">
+      <div className="flex justify-center py-6">
         <HiddenMessage message="hover to reveal a hidden thought" />
       </div>
 
       {/* Decorative divider */}
       <motion.div 
-        className="flex justify-center py-4"
+        className="flex justify-center py-6"
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -41,20 +41,20 @@ const WhatIDo = () => {
         His work sits at the intersection of business intelligence, data engineering, and GenAI — designing reconciliation engines, analytics platforms, and LLM-assisted workflows.
       </ScrollParagraph>
       
-      {/* Quote section */}
-      <div className="min-h-[50vh] flex items-center justify-center px-6 py-16">
+      {/* Quote section — generous height */}
+      <div className="min-h-[70vh] flex items-center justify-center px-6 py-24">
         <motion.blockquote 
-          className="text-center max-w-2xl"
+          className="text-center max-w-3xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
         >
-          <p className="font-editorial text-xl md:text-2xl text-headline italic leading-relaxed">
+          <p className="font-editorial text-2xl md:text-3xl lg:text-4xl text-headline italic leading-relaxed">
             "If it doesn't improve decisions, reduce effort, or create measurable impact — it doesn't belong in production."
           </p>
           <motion.div 
-            className="mt-6 w-12 h-px bg-gold/60 mx-auto"
+            className="mt-8 w-16 h-px bg-gold/60 mx-auto"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
