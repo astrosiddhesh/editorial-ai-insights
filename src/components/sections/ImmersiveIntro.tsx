@@ -2,6 +2,7 @@ import { useRef, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
+import illustrationMoonwalker from '@/assets/illustration-moonwalker.png';
 
 const ShaderBlob = lazy(() => import("@/components/3d/ShaderBlob"));
 
@@ -16,11 +17,13 @@ const ImmersiveIntro = () => {
   const curveY = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
   const contentOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
   const contentY = useTransform(scrollYProgress, [0.1, 0.4], [60, 0]);
+  const illustrationScale = useTransform(scrollYProgress, [0.2, 0.5], [0.8, 1]);
+  const illustrationY = useTransform(scrollYProgress, [0.2, 0.6], [40, -20]);
 
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[120vh] overflow-hidden"
+      className="relative min-h-[140vh] overflow-hidden"
       style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
     >
       {/* Curved top transition */}
@@ -49,23 +52,27 @@ const ImmersiveIntro = () => {
         position={{ bottom: '30%', left: '18%' }}
       />
 
-      {/* Floating particles */}
+      {/* Scattered star dots — like the reference */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-cream/40"
-          animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/3 w-1 h-1 rounded-full bg-cream/30"
-          animate={{ y: [0, -15, 0], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-cream/30"
-          animate={{ y: [0, -25, 0], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
+        {Array.from({ length: 40 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-cream/40"
+            style={{
+              width: Math.random() * 4 + 1,
+              height: Math.random() * 4 + 1,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{ opacity: [0.2, 0.7, 0.2] }}
+            transition={{
+              duration: 2 + Math.random() * 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 3,
+            }}
+          />
+        ))}
       </div>
 
       {/* 3D Shader Blob */}
@@ -126,6 +133,22 @@ const ImmersiveIntro = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.8 }}
           style={{ transformOrigin: 'top' }}
+        />
+      </motion.div>
+
+      {/* Editorial illustration — moonwalker */}
+      <motion.div 
+        className="relative z-10 flex justify-center px-6 pb-32 -mt-8"
+        style={{ scale: illustrationScale, y: illustrationY }}
+      >
+        <motion.img
+          src={illustrationMoonwalker}
+          alt="Figure standing on crescent moon gazing at data constellations"
+          className="w-72 md:w-96 h-auto rounded-full opacity-80"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 0.8, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
         />
       </motion.div>
 
