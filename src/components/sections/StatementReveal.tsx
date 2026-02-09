@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
+
+const WireframeIcosahedron = lazy(() => import("@/components/3d/WireframeIcosahedron"));
 
 interface StatementRevealProps {
   text: string;
@@ -91,18 +93,23 @@ const StatementReveal = ({
 
       {/* Floating accent for dark variant */}
       {variant === 'dark' && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div
-            className="absolute top-1/3 left-[10%] w-64 h-64 rounded-full bg-cream/[0.04] blur-3xl"
-            animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-1/3 right-[15%] w-48 h-48 rounded-full bg-cream/[0.03] blur-2xl"
-            animate={{ y: [0, 15, 0], opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          />
-        </div>
+        <>
+          <Suspense fallback={null}>
+            <WireframeIcosahedron />
+          </Suspense>
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <motion.div
+              className="absolute top-1/3 left-[10%] w-64 h-64 rounded-full bg-cream/[0.04] blur-3xl"
+              animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute bottom-1/3 right-[15%] w-48 h-48 rounded-full bg-cream/[0.03] blur-2xl"
+              animate={{ y: [0, 15, 0], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+          </div>
+        </>
       )}
     </section>
   );

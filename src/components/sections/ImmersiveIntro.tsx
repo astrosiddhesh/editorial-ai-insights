@@ -1,7 +1,9 @@
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
+
+const MorphingSphere = lazy(() => import("@/components/3d/MorphingSphere"));
 
 const ImmersiveIntro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,13 +66,12 @@ const ImmersiveIntro = () => {
           animate={{ y: [0, -25, 0], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
-        {/* Geometric accent */}
-        <motion.div
-          className="absolute top-[40%] right-[20%] w-16 h-16 border border-cream/10 rotate-45"
-          animate={{ rotate: [45, 90, 45] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
       </div>
+
+      {/* 3D Morphing Sphere */}
+      <Suspense fallback={null}>
+        <MorphingSphere />
+      </Suspense>
 
       {/* Main content */}
       <motion.div 

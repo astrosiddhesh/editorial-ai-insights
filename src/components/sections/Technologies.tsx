@@ -1,5 +1,8 @@
+import { lazy, Suspense } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import SectionNumber from "@/components/ui/SectionNumber";
+
+const ParticleField = lazy(() => import("@/components/3d/ParticleField"));
 
 const Technologies = () => {
   const techStack = [
@@ -9,7 +12,10 @@ const Technologies = () => {
   ];
 
   return (
-    <section id="technologies" className="py-24 px-6 relative">
+    <section id="technologies" className="py-24 px-6 relative overflow-hidden">
+      <Suspense fallback={null}>
+        <ParticleField />
+      </Suspense>
       <SectionNumber current={3} total={6} />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
