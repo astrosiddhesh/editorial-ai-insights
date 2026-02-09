@@ -1,7 +1,9 @@
 import { ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useRef, lazy, Suspense } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FloatingParticles from "@/components/ui/FloatingParticles";
+
+const HeroTorusKnot = lazy(() => import("@/components/3d/HeroTorusKnot"));
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +25,11 @@ const Hero = () => {
     >
       {/* Subtle floating particles */}
       <FloatingParticles />
+
+      {/* 3D Torus Knot */}
+      <Suspense fallback={null}>
+        <HeroTorusKnot />
+      </Suspense>
       
       {/* Radial glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
