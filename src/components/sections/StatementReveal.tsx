@@ -97,7 +97,27 @@ const StatementReveal = ({
           <Suspense fallback={null}>
             <WireframeIcosahedron />
           </Suspense>
+          {/* Scattered star dots like Sleep Well reference */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {Array.from({ length: 25 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-cream/30"
+                style={{
+                  width: Math.random() * 3 + 1,
+                  height: Math.random() * 3 + 1,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                }}
+                animate={{ opacity: [0.1, 0.6, 0.1] }}
+                transition={{
+                  duration: 2 + Math.random() * 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: Math.random() * 3,
+                }}
+              />
+            ))}
             <motion.div
               className="absolute top-1/3 left-[10%] w-64 h-64 rounded-full bg-cream/[0.04] blur-3xl"
               animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
+import illustrationRelease from '@/assets/illustration-release.png';
 
 const ClosingStatement = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,7 @@ const ClosingStatement = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[70vh] overflow-hidden"
+      className="relative min-h-[90vh] overflow-hidden"
       style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
     >
       {/* Curved top divider */}
@@ -37,34 +38,37 @@ const ClosingStatement = () => {
         position={{ top: '25%', right: '12%' }}
       />
 
+      {/* Scattered star dots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {Array.from({ length: 30 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-cream/30"
+            style={{
+              width: Math.random() * 3 + 1,
+              height: Math.random() * 3 + 1,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{ opacity: [0.1, 0.5, 0.1] }}
+            transition={{
+              duration: 3 + Math.random() * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Parallax background elements */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-radial from-cream/10 to-transparent blur-3xl" />
-        <motion.div
-          className="absolute top-[20%] left-[20%] w-1 h-1 rounded-full bg-cream/60"
-          animate={{ opacity: [0.3, 0.8, 0.3], scale: [1, 1.5, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-[30%] right-[25%] w-1.5 h-1.5 rounded-full bg-cream/50"
-          animate={{ opacity: [0.4, 0.9, 0.4], scale: [1, 1.3, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute bottom-[35%] left-[30%] w-1 h-1 rounded-full bg-cream/40"
-          animate={{ opacity: [0.2, 0.6, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        />
-        <motion.div
-          className="absolute top-[45%] right-[15%] w-0.5 h-0.5 rounded-full bg-cream/70"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
       </motion.div>
 
       {/* Content */}
       <motion.div 
-        className="relative z-20 flex flex-col items-center justify-center min-h-[70vh] px-6 py-32"
+        className="relative z-20 flex flex-col items-center justify-center min-h-[90vh] px-6 py-32"
         style={{ opacity }}
       >
         {/* Infinity symbol */}
@@ -94,6 +98,21 @@ const ClosingStatement = () => {
         >
           — Design Philosophy
         </motion.footer>
+
+        {/* Editorial illustration — hands releasing */}
+        <motion.div
+          className="mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 0.75, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          <img
+            src={illustrationRelease}
+            alt="Hands releasing glowing lanterns into the night sky"
+            className="w-full max-w-lg h-auto rounded-2xl"
+          />
+        </motion.div>
 
         {/* Decorative line */}
         <motion.div 

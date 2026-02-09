@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ImmersiveTransition } from './ImmersiveTransition';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
+import illustrationStargazer from '@/assets/illustration-stargazer.png';
 
 const ProjectsIntro = () => {
   return (
@@ -39,6 +40,21 @@ const ProjectsIntro = () => {
       >
         The Work
       </motion.p>
+
+      {/* Illustration — stargazer */}
+      <motion.div 
+        className="mb-10"
+        initial={{ opacity: 0, y: 30, scale: 0.9 }}
+        whileInView={{ opacity: 0.85, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        <img
+          src={illustrationStargazer}
+          alt="Figure gazing through telescope at data constellation"
+          className="w-56 md:w-72 h-auto mx-auto rounded-2xl"
+        />
+      </motion.div>
 
       {/* Scroll-linked word reveal */}
       <DarkScrollReveal highlightWords={["production-grade"]}>

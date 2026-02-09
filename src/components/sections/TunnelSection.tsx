@@ -43,9 +43,16 @@ const TunnelSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative h-[200vh] overflow-hidden"
-      style={{ backgroundColor: "hsl(220, 100%, 10%)" }}
+      className="relative h-[250vh] overflow-hidden"
+      style={{ backgroundColor: "hsl(220, 100%, 15%)" }}
     >
+      {/* Curved top transition */}
+      <div className="absolute top-0 left-0 w-full h-32 overflow-hidden z-30">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="absolute top-0 w-full h-full">
+          <path d="M0,0 L0,60 Q720,120 1440,60 L1440,0 Z" fill="hsl(45, 70%, 91%)" />
+        </svg>
+      </div>
+
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         <TunnelCanvas getProgress={() => progressRef.current} />
 
@@ -58,17 +65,25 @@ const TunnelSection = () => {
           </p>
           <h2
             className="font-display text-cream leading-[1.05] mb-6"
-            style={{ fontSize: 'clamp(2rem, 5vw, 5rem)' }}
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
           >
-            Into the System
+            Entering<br />the System
           </h2>
           <p className="font-editorial text-cream/50 text-lg max-w-xl mx-auto leading-relaxed">
             Every pipeline, every model, every dashboard — engineered to move through complexity with clarity.
           </p>
         </motion.div>
 
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[hsl(220,100%,10%)] to-transparent z-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[hsl(220,100%,10%)] to-transparent z-20 pointer-events-none" />
+        {/* Vignette overlays */}
+        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[hsl(220,100%,15%)] to-transparent z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[hsl(220,100%,15%)] to-transparent z-20 pointer-events-none" />
+      </div>
+
+      {/* Curved bottom transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 overflow-hidden z-30">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full">
+          <path d="M0,120 L0,60 Q720,0 1440,60 L1440,120 Z" fill="hsl(45, 70%, 91%)" />
+        </svg>
       </div>
     </section>
   );

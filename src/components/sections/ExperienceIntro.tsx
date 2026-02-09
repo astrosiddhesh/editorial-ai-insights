@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ImmersiveTransition } from './ImmersiveTransition';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
+import illustrationCosmos from '@/assets/illustration-data-cosmos.png';
 
 const ScrollTransitionScene = lazy(() => import("@/components/3d/ScrollTransitionScene"));
 
@@ -41,6 +42,7 @@ const ExperienceIntro = () => {
       <Suspense fallback={null}>
         <ScrollTransitionScene scrollProgress={sceneProgress} />
       </Suspense>
+      
       {/* Interactive insights */}
       <GlowingInsight 
         text="Scale is earned, not assumed" 
@@ -74,6 +76,21 @@ const ExperienceIntro = () => {
       >
         Track Record
       </motion.p>
+
+      {/* Editorial illustration — data cosmos */}
+      <motion.div 
+        className="mb-8"
+        initial={{ opacity: 0, scale: 0.85 }}
+        whileInView={{ opacity: 0.85, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        <img
+          src={illustrationCosmos}
+          alt="Floating geometric shapes orbiting a data crystal"
+          className="w-full max-w-md h-auto mx-auto rounded-2xl"
+        />
+      </motion.div>
 
       {/* Scroll-linked word reveal */}
       <DarkScrollReveal highlightWords={["measurable"]}>
