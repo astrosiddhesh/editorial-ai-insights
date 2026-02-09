@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
 
-const MorphingSphere = lazy(() => import("@/components/3d/MorphingSphere"));
+const ShaderBlob = lazy(() => import("@/components/3d/ShaderBlob"));
 
 const ImmersiveIntro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,9 +68,9 @@ const ImmersiveIntro = () => {
         />
       </div>
 
-      {/* 3D Morphing Sphere */}
+      {/* 3D Shader Blob */}
       <Suspense fallback={null}>
-        <MorphingSphere />
+        <ShaderBlob />
       </Suspense>
 
       {/* Main content */}

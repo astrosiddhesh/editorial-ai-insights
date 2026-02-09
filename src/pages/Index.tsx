@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import WhatIDo from "@/components/sections/WhatIDo";
 import ImmersiveIntro from "@/components/sections/ImmersiveIntro";
+import TunnelSection from "@/components/sections/TunnelSection";
 import HorizontalShowcase from "@/components/sections/HorizontalShowcase";
 import ProjectsIntro from "@/components/sections/ProjectsIntro";
 import Projects from "@/components/sections/Projects";
@@ -53,6 +54,9 @@ const Index = () => {
 
           <WhatIDo />
           <ImmersiveIntro />
+          
+          {/* 3D Tunnel fly-through */}
+          <TunnelSection />
           
           {/* Horizontal scroll showcase — The Approach */}
           <HorizontalShowcase />
