@@ -152,8 +152,9 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-primary hover:text-bright-blue transition-colors font-body uppercase tracking-wider relative z-10 group/link"
+                  aria-label={`Explore ${project.title}`}
                 >
-                  <span className="link-underline">View Project</span>
+                  <span className="link-underline">Explore</span>
                   <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-1 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
                 </a>
               </article>
