@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import SectionNumber from "@/components/ui/SectionNumber";
+import ImageReveal from "@/components/ui/ImageReveal";
 
 const Contact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,19 +45,17 @@ const Contact = () => {
           <div className="w-8 h-px bg-primary/30" />
         </motion.div>
 
-        {/* Main headline — MASSIVE */}
-        <motion.h2 
-          className="font-display font-bold text-headline mb-8 leading-[0.95]"
-          style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          Let's create something{' '}
-          <span className="text-primary italic">extraordinary</span>{' '}
-          together.
-        </motion.h2>
+        {/* Main headline */}
+        <ImageReveal direction="up">
+          <motion.h2 
+            className="font-display font-bold text-headline mb-8 leading-[0.95]"
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
+          >
+            Let's create something{' '}
+            <span className="text-primary italic">extraordinary</span>{' '}
+            together.
+          </motion.h2>
+        </ImageReveal>
 
         {/* Subtitle */}
         <motion.p 
@@ -69,7 +68,7 @@ const Contact = () => {
           Open to data, BI, and GenAI projects, collaborations, or speaking opportunities.
         </motion.p>
 
-        {/* Contact links — larger */}
+        {/* Contact links with magnetic hover */}
         <motion.div 
           className="flex flex-wrap items-center justify-center gap-10 md:gap-14 mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -94,27 +93,29 @@ const Contact = () => {
           ))}
         </motion.div>
 
-        {/* CTA — prominent */}
+        {/* CTA */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <motion.a
-            href="mailto:siddhesh.phapale11@gmail.com"
-            className="group inline-flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-primary border-b border-primary/30 pb-2 hover:border-primary transition-colors"
-            whileHover={{ x: 5 }}
-          >
-            <span>Start a Conversation</span>
-            <motion.span 
-              className="text-xl"
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          <MagneticButton strength={0.4}>
+            <motion.a
+              href="mailto:siddhesh.phapale11@gmail.com"
+              className="group inline-flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-primary border-b border-primary/30 pb-2 hover:border-primary transition-colors"
+              whileHover={{ x: 5 }}
             >
-              →
-            </motion.span>
-          </motion.a>
+              <span>Start a Conversation</span>
+              <motion.span 
+                className="text-xl"
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                →
+              </motion.span>
+            </motion.a>
+          </MagneticButton>
         </motion.div>
       </motion.div>
     </section>
