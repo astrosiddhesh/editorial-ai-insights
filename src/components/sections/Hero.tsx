@@ -32,7 +32,7 @@ const Hero = () => {
       </Suspense>
       
       {/* Radial glow */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-primary/[0.07] to-transparent rounded-full blur-3xl" />
         <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-gradient-radial from-primary/[0.04] to-transparent rounded-full blur-3xl" />
       </div>
