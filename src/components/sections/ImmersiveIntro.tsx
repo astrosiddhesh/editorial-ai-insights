@@ -1,10 +1,8 @@
-import { useRef, lazy, Suspense } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
 import illustrationMoonwalker from '@/assets/illustration-moonwalker.png';
-
-const ShaderBlob = lazy(() => import("@/components/3d/ShaderBlob"));
 
 const ImmersiveIntro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,11 +72,6 @@ const ImmersiveIntro = () => {
           />
         ))}
       </div>
-
-      {/* 3D Shader Blob */}
-      <Suspense fallback={null}>
-        <ShaderBlob />
-      </Suspense>
 
       {/* Main content */}
       <motion.div 
