@@ -3,22 +3,16 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-/**
- * Neural-network-inspired 3D mesh — data nodes connected by edges,
- * with a morphing icosahedron core. Relevant to Data/AI identity.
- */
-
 // Glowing connection lines between nodes
 const ConnectionLines = ({ nodes }: { nodes: THREE.Vector3[] }) => {
   const linesRef = useRef<THREE.LineSegments>(null);
 
   const geometry = useMemo(() => {
     const positions: number[] = [];
-    // Connect nearby nodes
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const dist = nodes[i].distanceTo(nodes[j]);
-        if (dist < 1.8) {
+        if (dist < 2.2) {
           positions.push(nodes[i].x, nodes[i].y, nodes[i].z);
           positions.push(nodes[j].x, nodes[j].y, nodes[j].z);
         }
@@ -31,38 +25,36 @@ const ConnectionLines = ({ nodes }: { nodes: THREE.Vector3[] }) => {
 
   useFrame((state) => {
     if (linesRef.current) {
-      linesRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-      linesRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.03) * 0.1;
+      linesRef.current.rotation.y = state.clock.getElapsedTime() * 0.06;
+      linesRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.04) * 0.15;
     }
   });
 
   return (
     <lineSegments ref={linesRef} geometry={geometry}>
-      <lineBasicMaterial color="#4a7fff" transparent opacity={0.15} />
+      <lineBasicMaterial color="#6ba3ff" transparent opacity={0.25} />
     </lineSegments>
   );
 };
 
-// Floating data nodes
+// Floating data nodes — brighter
 const DataNodes = ({ nodes }: { nodes: THREE.Vector3[] }) => {
   const pointsRef = useRef<THREE.Points>(null);
 
-  const { positions, sizes } = useMemo(() => {
+  const positions = useMemo(() => {
     const pos = new Float32Array(nodes.length * 3);
-    const sz = new Float32Array(nodes.length);
     nodes.forEach((node, i) => {
       pos[i * 3] = node.x;
       pos[i * 3 + 1] = node.y;
       pos[i * 3 + 2] = node.z;
-      sz[i] = 2 + Math.random() * 4;
     });
-    return { positions: pos, sizes: sz };
+    return pos;
   }, [nodes]);
 
   useFrame((state) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
-      pointsRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.03) * 0.1;
+      pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.06;
+      pointsRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.04) * 0.15;
     }
   });
 
@@ -72,10 +64,10 @@ const DataNodes = ({ nodes }: { nodes: THREE.Vector3[] }) => {
         <bufferAttribute attach="attributes-position" count={nodes.length} array={positions} itemSize={3} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.04}
-        color="#4a7fff"
+        size={0.06}
+        color="#8fc0ff"
         transparent
-        opacity={0.7}
+        opacity={0.9}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}
@@ -84,19 +76,59 @@ const DataNodes = ({ nodes }: { nodes: THREE.Vector3[] }) => {
   );
 };
 
-// Core morphing shape — icosahedron with noise displacement
+// Orbiting ring of particles
+const OrbitalRing = () => {
+  const ref = useRef<THREE.Points>(null);
+  
+  const positions = useMemo(() => {
+    const count = 200;
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const angle = (i / count) * Math.PI * 2;
+      const r = 3.2 + (Math.random() - 0.5) * 0.3;
+      pos[i * 3] = Math.cos(angle) * r;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 0.15;
+      pos[i * 3 + 2] = Math.sin(angle) * r;
+    }
+    return pos;
+  }, []);
+
+  useFrame((state) => {
+    if (ref.current) {
+      ref.current.rotation.y = state.clock.getElapsedTime() * 0.08;
+      ref.current.rotation.x = 0.5;
+    }
+  });
+
+  return (
+    <points ref={ref}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={200} array={positions} itemSize={3} />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.03}
+        color="#a0c8ff"
+        transparent
+        opacity={0.6}
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+      />
+    </points>
+  );
+};
+
+// Core morphing shape — bigger, brighter, more dramatic
 const CoreMesh = () => {
   const meshRef = useRef<THREE.Mesh>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
-  const color = useMemo(() => new THREE.Color('hsl(220, 100%, 13%)'), []);
 
   const vertexShader = `
     uniform float uTime;
     varying vec3 vNormal;
     varying vec3 vPosition;
+    varying float vDisplacement;
     
-    // Simplex noise function
     vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
     vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
     vec4 permute(vec4 x) { return mod289(((x*34.0)+1.0)*x); }
@@ -149,7 +181,8 @@ const CoreMesh = () => {
       vNormal = normal;
       vPosition = position;
       
-      float noise = snoise(position * 1.5 + uTime * 0.3) * 0.25;
+      float noise = snoise(position * 1.2 + uTime * 0.25) * 0.35;
+      vDisplacement = noise;
       vec3 newPosition = position + normal * noise;
       
       gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
@@ -159,28 +192,37 @@ const CoreMesh = () => {
   const fragmentShader = `
     varying vec3 vNormal;
     varying vec3 vPosition;
+    varying float vDisplacement;
     uniform float uTime;
     
     void main() {
-      // Deep navy base
-      vec3 deepNavy = vec3(0.0, 0.08, 0.2);
-      vec3 royalBlue = vec3(0.0, 0.18, 0.47);
-      vec3 brightBlue = vec3(0.29, 0.47, 1.0);
+      // Rich blue palette — vibrant like Sleep Well
+      vec3 deepCore = vec3(0.0, 0.05, 0.18);
+      vec3 midBlue = vec3(0.05, 0.25, 0.65);
+      vec3 brightBlue = vec3(0.35, 0.55, 1.0);
+      vec3 glowWhite = vec3(0.6, 0.8, 1.0);
       
-      // Fresnel for edge glow
+      // Strong fresnel for dramatic edge glow
       vec3 viewDir = normalize(cameraPosition - vPosition);
-      float fresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 3.0);
+      float fresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 2.5);
       
-      // Mix colors based on normals and fresnel
-      vec3 baseColor = mix(deepNavy, royalBlue, fresnel * 0.6);
+      // Base: deep core transitioning to mid blue at edges
+      vec3 baseColor = mix(deepCore, midBlue, fresnel * 0.8);
       
-      // Specular glints — the blue highlights like Sleep Well
-      float specular = pow(max(dot(reflect(-viewDir, vNormal), vec3(0.5, 0.5, 1.0)), 0.0), 16.0);
-      baseColor += brightBlue * specular * 1.5;
+      // Bright specular highlights
+      float specular = pow(max(dot(reflect(-viewDir, vNormal), vec3(0.3, 0.6, 0.8)), 0.0), 12.0);
+      baseColor += brightBlue * specular * 2.5;
       
-      // Moving highlight bands
-      float band = sin(vPosition.y * 4.0 + uTime * 0.5) * 0.5 + 0.5;
-      baseColor += brightBlue * band * fresnel * 0.4;
+      // Moving energy bands
+      float band = sin(vPosition.y * 5.0 + uTime * 0.6) * 0.5 + 0.5;
+      baseColor += brightBlue * band * fresnel * 0.6;
+      
+      // Displacement-based glow — peaks glow brighter
+      float dispGlow = smoothstep(0.05, 0.3, vDisplacement);
+      baseColor += glowWhite * dispGlow * 0.3;
+      
+      // Strong edge glow (emissive rim)
+      baseColor += glowWhite * pow(fresnel, 4.0) * 0.5;
       
       gl_FragColor = vec4(baseColor, 0.95);
     }
@@ -194,24 +236,22 @@ const CoreMesh = () => {
     if (!meshRef.current) return;
     const t = state.clock.getElapsedTime();
     
-    meshRef.current.rotation.y += 0.002;
-    meshRef.current.rotation.x = Math.sin(t * 0.15) * 0.15;
+    meshRef.current.rotation.y += 0.003;
+    meshRef.current.rotation.x = Math.sin(t * 0.12) * 0.2;
 
-    // Mouse follow — subtle
     const pointer = state.pointer;
-    mouseRef.current.x += (pointer.x * viewport.width * 0.03 - mouseRef.current.x) * 0.015;
-    mouseRef.current.y += (pointer.y * viewport.height * 0.03 - mouseRef.current.y) * 0.015;
+    mouseRef.current.x += (pointer.x * viewport.width * 0.04 - mouseRef.current.x) * 0.02;
+    mouseRef.current.y += (pointer.y * viewport.height * 0.04 - mouseRef.current.y) * 0.02;
     meshRef.current.position.x = mouseRef.current.x;
     meshRef.current.position.y = mouseRef.current.y;
 
-    // Update shader time
     (meshRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = t;
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.4}>
-      <mesh ref={meshRef} scale={2.2}>
-        <icosahedronGeometry args={[1, 6]} />
+    <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.5}>
+      <mesh ref={meshRef} scale={3}>
+        <icosahedronGeometry args={[1, 8]} />
         <shaderMaterial
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
@@ -224,13 +264,12 @@ const CoreMesh = () => {
 };
 
 const HeroDataMesh = () => {
-  // Generate node positions in a spherical distribution
   const nodes = useMemo(() => {
     const pts: THREE.Vector3[] = [];
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 80; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      const r = 1.5 + Math.random() * 1.5;
+      const r = 2 + Math.random() * 1.8;
       pts.push(new THREE.Vector3(
         r * Math.sin(phi) * Math.cos(theta),
         r * Math.sin(phi) * Math.sin(theta),
@@ -243,15 +282,30 @@ const HeroDataMesh = () => {
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [0, 0, 5.5], fov: 50 }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.2 }}
         style={{ pointerEvents: 'auto' }}
       >
+        {/* Ambient + directional for base illumination */}
+        <ambientLight intensity={0.3} color="#4488ff" />
+        <directionalLight position={[5, 5, 5]} intensity={0.8} color="#88bbff" />
+        <directionalLight position={[-3, -2, 4]} intensity={0.4} color="#6699ff" />
+        <pointLight position={[0, 0, 3]} intensity={1.5} color="#4a7fff" distance={8} />
+        
         <CoreMesh />
         <DataNodes nodes={nodes} />
         <ConnectionLines nodes={nodes} />
+        <OrbitalRing />
       </Canvas>
+      
+      {/* CSS glow halo behind the mesh */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(74,127,255,0.2) 0%, rgba(74,127,255,0.08) 40%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
     </div>
   );
 };
