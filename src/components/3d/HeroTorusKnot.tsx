@@ -13,15 +13,13 @@ const TorusKnotMesh = () => {
     
     const t = state.clock.getElapsedTime();
     
-    // Gentle auto-rotation
     meshRef.current.rotation.x = Math.sin(t * 0.3) * 0.2;
     meshRef.current.rotation.y += 0.003;
     meshRef.current.rotation.z = Math.cos(t * 0.2) * 0.1;
 
-    // Mouse follow
     const pointer = state.pointer;
-    mouseRef.current.x += (pointer.x * viewport.width * 0.05 - mouseRef.current.x) * 0.02;
-    mouseRef.current.y += (pointer.y * viewport.height * 0.05 - mouseRef.current.y) * 0.02;
+    mouseRef.current.x += (pointer.x * viewport.width * 0.03 - mouseRef.current.x) * 0.02;
+    mouseRef.current.y += (pointer.y * viewport.height * 0.03 - mouseRef.current.y) * 0.02;
     meshRef.current.position.x = mouseRef.current.x;
     meshRef.current.position.y = mouseRef.current.y;
   });
@@ -30,7 +28,7 @@ const TorusKnotMesh = () => {
 
   return (
     <Float speed={2} rotationIntensity={0.3} floatIntensity={0.5}>
-      <mesh ref={meshRef} scale={1.2}>
+      <mesh ref={meshRef} scale={0.7}>
         <torusKnotGeometry args={[1, 0.35, 128, 16, 2, 3]} />
         <MeshDistortMaterial
           color={color}
@@ -39,6 +37,8 @@ const TorusKnotMesh = () => {
           distort={0.15}
           speed={2}
           envMapIntensity={1.2}
+          transparent
+          opacity={0.5}
         />
       </mesh>
     </Float>
