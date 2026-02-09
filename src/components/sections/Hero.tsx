@@ -120,7 +120,7 @@ const Hero = () => {
       >
         <div className="flex flex-col items-center gap-3">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50 group-hover:text-primary transition-colors duration-300">
-            Scroll
+            ↓
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

@@ -22,7 +22,7 @@ const WhatIDo = () => {
       
       {/* Hidden message Easter egg */}
       <div className="flex justify-center py-6">
-        <HiddenMessage message="hover to reveal a hidden thought" />
+        <HiddenMessage message="the best systems are invisible" />
       </div>
 
       {/* Decorative divider */}

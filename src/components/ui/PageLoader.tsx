@@ -173,7 +173,7 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
               animate={{ opacity: ready ? 1 : 0 }}
               transition={{ delay: 1.4, duration: 0.6 }}
             >
-              Click anywhere
+              ✦
             </motion.p>
           </div>
         </motion.div>
