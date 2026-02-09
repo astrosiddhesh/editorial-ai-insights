@@ -15,11 +15,13 @@ import CurrentlyOnDesk from "@/components/sections/CurrentlyOnDesk";
 import FAQ from "@/components/sections/FAQ";
 import ClosingStatement from "@/components/sections/ClosingStatement";
 import Contact from "@/components/sections/Contact";
+import StatsCounter from "@/components/sections/StatsCounter";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import CustomCursor from "@/components/ui/CustomCursor";
 import BackToTop from "@/components/ui/BackToTop";
 import PageLoader from "@/components/ui/PageLoader";
 import GrainOverlay from "@/components/ui/GrainOverlay";
+import MarqueeBand from "@/components/ui/MarqueeBand";
 import useLenis from "@/hooks/useLenis";
 
 const Index = () => {
@@ -41,6 +43,14 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
+          
+          {/* Marquee band — visual rhythm after hero */}
+          <MarqueeBand 
+            words={["DATA", "BI", "ML", "GENAI", "AUTOMATION", "ANALYTICS", "ENGINEERING"]}
+            variant="light"
+            speed={35}
+          />
+
           <WhatIDo />
           <ImmersiveIntro />
           
@@ -53,8 +63,21 @@ const Index = () => {
             subtext="Every system is designed to move the needle — not to impress."
           />
 
+          {/* Marquee band — dark variant before projects */}
+          <MarqueeBand
+            words={["REPOINTEL", "WELFY", "HUSTLR", "EPOQUEST", "ACESHEET"]}
+            separator="✦"
+            variant="dark"
+            direction="right"
+            speed={25}
+          />
+
           <ProjectsIntro />
           <Projects />
+          
+          {/* Stats counter section */}
+          <StatsCounter />
+
           <Technologies />
           <ExperienceIntro />
           <Experience />
@@ -70,6 +93,14 @@ const Index = () => {
           <FAQ />
           <ClosingStatement />
           <Contact />
+
+          {/* Final marquee */}
+          <MarqueeBand
+            words={["LET'S COLLABORATE", "START A CONVERSATION", "BUILD SOMETHING GREAT"]}
+            separator="→"
+            variant="accent"
+            speed={40}
+          />
         </main>
         <Footer />
         <BackToTop />
