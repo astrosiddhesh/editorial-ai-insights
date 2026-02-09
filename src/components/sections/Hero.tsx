@@ -1,7 +1,9 @@
 import { ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useRef, lazy, Suspense } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FloatingParticles from "@/components/ui/FloatingParticles";
+
+const HeroDataMesh = lazy(() => import("@/components/3d/HeroDataMesh"));
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,10 +23,13 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Subtle floating particles */}
       <FloatingParticles />
 
-      
+      {/* 3D Data Neural Mesh */}
+      <Suspense fallback={null}>
+        <HeroDataMesh />
+      </Suspense>
+
       {/* Radial glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-primary/[0.07] to-transparent rounded-full blur-3xl" />
