@@ -1,11 +1,9 @@
-import { useRef, useEffect, useState, lazy, Suspense } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ImmersiveTransition } from './ImmersiveTransition';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
 import illustrationCosmos from '@/assets/illustration-data-cosmos.png';
-
-const ScrollTransitionScene = lazy(() => import("@/components/3d/ScrollTransitionScene"));
 
 const ExperienceIntro = () => {
   const stats = [
@@ -14,34 +12,8 @@ const ExperienceIntro = () => {
     { value: '40K+', label: 'Daily Users' },
   ];
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef(0);
-  const [sceneProgress, setSceneProgress] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const scrollLinked = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
-
-  useEffect(() => {
-    const unsub = scrollLinked.on('change', (v) => {
-      progressRef.current = v;
-    });
-    const interval = setInterval(() => {
-      setSceneProgress(progressRef.current);
-    }, 16);
-    return () => { unsub(); clearInterval(interval); };
-  }, [scrollLinked]);
-
   return (
-    <div ref={containerRef}>
     <ImmersiveTransition variant="ink">
-      {/* 3D Scroll-linked transition */}
-      <Suspense fallback={null}>
-        <ScrollTransitionScene scrollProgress={sceneProgress} />
-      </Suspense>
       
       {/* Interactive insights */}
       <GlowingInsight 
@@ -137,7 +109,6 @@ const ExperienceIntro = () => {
         <div className="w-12 h-px bg-cream/30" />
       </motion.div>
     </ImmersiveTransition>
-    </div>
   );
 };
 
