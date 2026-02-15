@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ImmersiveTransition } from './ImmersiveTransition';
 import { DarkScrollReveal } from '@/components/ui/ScrollText';
 import { GlowingInsight } from '@/components/ui/DiscoverableElement';
-import illustrationCosmos from '@/assets/illustration-data-cosmos.png';
+import illustrationTrackRecord from '@/assets/illustration-track-record.png';
 
 const ExperienceIntro = () => {
   const stats = [
@@ -58,8 +58,8 @@ const ExperienceIntro = () => {
         transition={{ delay: 0.3, duration: 0.8 }}
       >
         <img
-          src={illustrationCosmos}
-          alt="Floating geometric shapes orbiting a data crystal"
+          src={illustrationTrackRecord}
+          alt="Data analytics dashboard with charts and neural network visualization"
           className="w-full max-w-md h-auto mx-auto rounded-2xl"
         />
       </motion.div>
