@@ -63,11 +63,9 @@ const Experience = () => {
           {highlights.map((item, index) => (
             <AnimatedSection key={index} animation="reveal" delay={index * 120}>
               <div 
-                className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-baseline"
-                style={{ 
-                  marginLeft: index === 0 ? '0' : index === 1 ? '20%' : '10%',
-                  maxWidth: index === 1 ? '70%' : '80%'
-                }}
+                className={`grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-baseline ${
+                  index === 1 ? 'md:ml-[20%] md:max-w-[70%]' : index === 2 ? 'md:ml-[10%] md:max-w-[80%]' : ''
+                }`}
               >
                 {/* Giant number */}
                 <div className="flex items-baseline gap-2" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>

@@ -44,9 +44,9 @@ const Technologies = () => {
 
         {/* Simple table */}
         <AnimatedSection animation="fade-up" delay={200}>
-          <div className="border border-border/40 overflow-hidden">
-            {/* Table header */}
-            <div className="grid grid-cols-[200px_1fr] md:grid-cols-[240px_1fr] bg-primary/[0.04]">
+           <div className="border border-border/40 overflow-hidden">
+            {/* Table header — hidden on mobile */}
+            <div className="hidden md:grid grid-cols-[240px_1fr] bg-primary/[0.04]">
               <div className="px-6 py-4 border-r border-border/30">
                 <span className="font-body text-[10px] uppercase tracking-[0.3em] text-primary/60">Category</span>
               </div>
@@ -55,25 +55,25 @@ const Technologies = () => {
               </div>
             </div>
 
-            {/* Table rows */}
+            {/* Table rows — stacked on mobile, side-by-side on desktop */}
             {techStack.map((row, index) => (
               <motion.div
                 key={index}
-                className="grid grid-cols-[200px_1fr] md:grid-cols-[240px_1fr] border-t border-border/30 hover:bg-primary/[0.02] transition-colors duration-300"
+                className="grid grid-cols-1 md:grid-cols-[240px_1fr] border-t border-border/30 hover:bg-primary/[0.02] transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
               >
                 {/* Category name */}
-                <div className="px-6 py-5 border-r border-border/30 flex items-center">
-                  <h3 className="font-display text-sm md:text-base font-semibold text-headline">
+                <div className="px-6 py-3 md:py-5 md:border-r border-border/30 flex items-center">
+                  <h3 className="font-display text-xs md:text-base font-semibold text-headline uppercase md:normal-case tracking-wider md:tracking-normal text-primary/60 md:text-headline">
                     {row.category}
                   </h3>
                 </div>
 
                 {/* Tech items */}
-                <div className="px-6 py-5 flex flex-wrap gap-2 items-center">
+                <div className="px-6 pb-5 pt-0 md:py-5 flex flex-wrap gap-2 items-center">
                   {row.items.map((tech, i) => (
                     <span
                       key={tech}
