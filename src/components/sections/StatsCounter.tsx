@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 interface Stat {
@@ -15,14 +16,22 @@ const stats: Stat[] = [
 ];
 
 const StatsCounter = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [60, -30]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.95, 1, 1, 0.98]);
+
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-radial from-primary/[0.04] to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container max-w-5xl mx-auto px-6">
+      <motion.div className="container max-w-5xl mx-auto px-6" style={{ y, scale }}>
         {/* Overline */}
         <motion.div
           className="text-center mb-16"
@@ -72,7 +81,7 @@ const StatsCounter = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

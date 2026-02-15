@@ -78,12 +78,12 @@ const HorizontalShowcase = () => {
               key={index}
               className="w-screen h-full flex-shrink-0 flex items-center justify-center px-8 md:px-16 lg:px-24"
             >
-              <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 md:gap-32 items-center">
+              <div className="max-w-6xl w-full grid md:grid-cols-2 gap-8 md:gap-32 items-center">
                 {/* Left — Number + Title */}
                 <div>
                   <motion.span 
                     className="font-display leading-none text-primary/[0.05] block"
-                    style={{ fontSize: 'clamp(8rem, 18vw, 16rem)', fontWeight: 700 }}
+                    style={{ fontSize: 'clamp(5rem, 18vw, 16rem)', fontWeight: 700 }}
                   >
                     {panel.number}
                   </motion.span>
