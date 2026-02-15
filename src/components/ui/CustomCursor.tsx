@@ -50,20 +50,19 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Emoji cursor */}
+      {/* Refined dot cursor */}
       <div
-        className={`fixed pointer-events-none z-[9999] transition-all duration-150 ease-out ${
+        className={`fixed pointer-events-none z-[9999] rounded-full border transition-all duration-200 ease-out ${
           isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        } ${isHovering ? "border-primary bg-primary/10" : "border-primary/40 bg-transparent"}`}
         style={{
           left: position.x,
           top: position.y,
           transform: "translate(-50%, -50%)",
-          fontSize: isHovering ? "28px" : "20px",
+          width: isHovering ? 40 : 12,
+          height: isHovering ? 40 : 12,
         }}
-      >
-        👾
-      </div>
+      />
     </>
   );
 };
