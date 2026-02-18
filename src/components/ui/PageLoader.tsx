@@ -153,28 +153,73 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
               />
             </motion.div>
 
-            {/* Enter Site text */}
-            <motion.p
-              className="font-display text-base tracking-[0.15em] cursor-pointer"
-              style={{ color: ready ? "hsl(220, 100%, 23%)" : "hsl(220, 100%, 23%, 0.3)" }}
+            {/* Enter Site CTA */}
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: ready ? 1 : 0.4, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              whileHover={ready ? { letterSpacing: "0.25em" } : undefined}
+              className="flex flex-col items-center gap-3 mt-2"
             >
-              {ready ? "Enter Site" : "Loading..."}
-            </motion.p>
+              {!ready ? (
+                <p
+                  className="font-body text-xs tracking-[0.3em] uppercase"
+                  style={{ color: "hsl(220, 100%, 23%, 0.45)" }}
+                >
+                  Loading...
+                </p>
+              ) : (
+                <>
+                  {/* Pulsing ring to draw attention */}
+                  <motion.div
+                    className="relative flex items-center justify-center cursor-pointer"
+                    onClick={handleEnter}
+                  >
+                    <motion.div
+                      className="absolute w-16 h-16 rounded-full border"
+                      style={{ borderColor: "hsl(220, 100%, 23%)" }}
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <motion.div
+                      className="absolute w-16 h-16 rounded-full border"
+                      style={{ borderColor: "hsl(220, 100%, 23%)" }}
+                      animate={{ scale: [1, 1.9, 1], opacity: [0.3, 0, 0.3] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                    />
+                    <motion.div
+                      className="w-16 h-16 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className="text-xl" style={{ color: "hsl(45, 70%, 91%)" }}>→</span>
+                    </motion.div>
+                  </motion.div>
 
-            {/* Subtle hint */}
-            <motion.p
-              className="font-body text-[10px] tracking-[0.2em] uppercase mt-4"
-              style={{ color: "hsl(220, 100%, 23%, 0.4)" }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: ready ? 1 : 0 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-            >
-              ✦
-            </motion.p>
+                  <motion.p
+                    className="font-display text-sm tracking-[0.2em] uppercase cursor-pointer"
+                    style={{ color: "hsl(220, 100%, 23%)" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    whileHover={{ letterSpacing: "0.3em" }}
+                    onClick={handleEnter}
+                  >
+                    Enter Site
+                  </motion.p>
+
+                  <motion.p
+                    className="font-body text-[10px] tracking-[0.25em] uppercase"
+                    style={{ color: "hsl(220, 100%, 23%, 0.4)" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                  >
+                    or click anywhere
+                  </motion.p>
+                </>
+              )}
+            </motion.div>
           </div>
         </motion.div>
       )}
