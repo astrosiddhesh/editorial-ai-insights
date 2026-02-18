@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import SectionNumber from "@/components/ui/SectionNumber";
 
 const Experience = () => {
@@ -69,11 +68,9 @@ const Experience = () => {
               >
                 {/* Giant number */}
                 <div className="flex items-baseline gap-2" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)' }}>
-                  <AnimatedCounter 
-                    end={item.metric} 
-                    suffix={item.suffix}
-                    className="font-display font-bold text-primary leading-none text-[inherit]"
-                  />
+                  <span className="font-display font-bold text-primary leading-none text-[inherit]">
+                    {item.metric}{item.suffix}
+                  </span>
                   <span className="text-sm text-muted-foreground/60 font-body">{item.label}</span>
                 </div>
 
