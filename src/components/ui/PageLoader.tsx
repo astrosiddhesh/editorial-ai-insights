@@ -208,15 +208,6 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
                     Enter Site
                   </motion.p>
 
-                  <motion.p
-                    className="font-body text-[10px] tracking-[0.25em] uppercase"
-                    style={{ color: "hsl(220, 100%, 23%, 0.4)" }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.5 }}
-                  >
-                    or click anywhere
-                  </motion.p>
                 </>
               )}
             </motion.div>
