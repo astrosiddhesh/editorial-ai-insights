@@ -49,22 +49,22 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Curtain panels — split on exit */}
+          {/* Curtain panels — sit BEHIND the content */}
           <motion.div
-            className="absolute inset-0 z-[101]"
+            className="absolute inset-0 z-[1]"
             style={{ backgroundColor: "hsl(45, 70%, 91%)" }}
             animate={isExiting ? { clipPath: "inset(0 0 100% 0)" } : { clipPath: "inset(0 0 0% 0)" }}
             transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           />
           <motion.div
-            className="absolute top-0 left-0 w-1/2 h-full z-[102]"
+            className="absolute top-0 left-0 w-1/2 h-full z-[2]"
             style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
             initial={{ y: "100%" }}
             animate={isExiting ? { y: "0%" } : { y: "100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
           />
           <motion.div
-            className="absolute top-0 right-0 w-1/2 h-full z-[102]"
+            className="absolute top-0 right-0 w-1/2 h-full z-[2]"
             style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
             initial={{ y: "-100%" }}
             animate={isExiting ? { y: "0%" } : { y: "-100%" }}
@@ -73,13 +73,13 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
 
           {/* Subtle noise texture */}
           <div
-            className="absolute inset-0 opacity-[0.02]"
+            className="absolute inset-0 opacity-[0.02] z-[3]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             }}
           />
 
-          <div className="text-center relative z-10">
+          <div className="text-center relative z-[10]">
             {/* Moon icon with oval border */}
             <motion.div
               className="relative mx-auto mb-8"
