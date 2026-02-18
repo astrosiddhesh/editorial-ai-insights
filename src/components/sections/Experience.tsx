@@ -9,21 +9,21 @@ const Experience = () => {
       suffix: "K+",
       label: "hits/day", 
       title: "Enterprise BI Systems",
-      description: "Designed revenue-focused BI systems used daily at scale."
+      description: "Revenue-focused BI systems built for scale, used daily across the org."
     },
     { 
       metric: 100,
       suffix: "s",
       label: "of hours saved", 
       title: "Process Automation",
-      description: "Automated processes saving manual effort monthly."
+      description: "Repetitive workflows automated, freeing up hundreds of hours every month."
     },
     { 
       metric: 60,
       suffix: "%+",
       label: "cost reduction", 
       title: "GenAI Optimization",
-      description: "Reduced GenAI deployment & token consumption costs."
+      description: "Cut GenAI deployment and token costs significantly through smarter architecture."
     },
   ];
 
@@ -31,12 +31,12 @@ const Experience = () => {
     { 
       title: "Multi-Agent GenAI",
       label: "LLM Orchestration", 
-      description: "Created applications using LangChain & LLM orchestration."
+      description: "Built production apps using LangChain and multi-agent orchestration pipelines."
     },
     { 
       title: "Use Case Expert",
       label: "Strategic Consulting", 
-      description: "Proven ability to identify automation scope & high-value opportunities."
+      description: "Sharp at spotting where automation actually moves the needle for a business."
     },
   ];
 
