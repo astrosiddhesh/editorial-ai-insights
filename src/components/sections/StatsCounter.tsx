@@ -58,11 +58,7 @@ const StatsCounter = () => {
             >
               {/* Number */}
               <div className="font-display font-bold text-headline leading-none mb-3" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
-                <AnimatedCounter
-                  end={stat.value}
-                  suffix={stat.suffix}
-                  duration={2000}
-                />
+                {stat.value}{stat.suffix}
               </div>
 
               {/* Decorative line */}
