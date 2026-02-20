@@ -71,19 +71,9 @@ const Hero = () => {
           Building production-grade analytics and GenAI systems that turn data into automation and business impact.
         </motion.p>
 
-        {/* Secondary tagline */}
-        <motion.p 
-          className="font-body text-sm md:text-base text-muted-foreground mb-20 max-w-xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          Engineer focused on converting data, BI, and GenAI into reliable automation, insights, and scale.
-        </motion.p>
-
         {/* CTAs */}
         <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-center gap-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-14"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}

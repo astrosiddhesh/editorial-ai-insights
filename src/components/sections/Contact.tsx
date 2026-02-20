@@ -106,13 +106,13 @@ const Contact = () => {
               className="group inline-flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-primary border-b border-primary/30 pb-2 hover:border-primary transition-colors"
               whileHover={{ x: 5 }}
             >
-              <span>Start a Conversation</span>
+              <span>siddhesh.phapale11@gmail.com</span>
               <motion.span 
                 className="text-xl"
                 animate={{ x: [0, 6, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                →
+                ↗
               </motion.span>
             </motion.a>
           </MagneticButton>
