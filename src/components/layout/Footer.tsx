@@ -24,9 +24,6 @@ const Footer = () => {
           <p className="font-display text-2xl md:text-3xl font-bold text-headline">
             <span className="text-primary">Siddhesh</span> Phapale
           </p>
-          <p className="font-editorial text-base md:text-lg text-foreground/60">
-            Data | BI | ML | GenAI | Enthu
-          </p>
           <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mt-2">
             <span className="px-3 py-1 bg-primary/[0.06] border border-primary/15 text-primary/70 text-xs tracking-wider">BFSI</span>
             <span className="text-primary/30">·</span>

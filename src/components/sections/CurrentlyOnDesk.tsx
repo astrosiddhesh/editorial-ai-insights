@@ -1,6 +1,6 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { BookOpen, FileText, Lightbulb, ExternalLink, MessageSquare } from "lucide-react";
-import SectionNumber from "@/components/ui/SectionNumber";
+
 
 const CurrentlyOnDesk = () => {
   const readings = [
@@ -39,7 +39,6 @@ const CurrentlyOnDesk = () => {
 
   return (
     <section id="currently-on-desk" className="py-28 px-6 relative bg-ivory/30">
-      <SectionNumber current={5} total={6} />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container max-w-5xl mx-auto">
