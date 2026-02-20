@@ -169,21 +169,21 @@ const PageLoader = ({ isLoading, onEnter }: PageLoaderProps) => {
                 </p>
               ) : (
                 <>
-                  {/* Pulsing ring to draw attention */}
+                  {/* Pulsing ring — capped scale to prevent mobile clipping */}
                   <motion.div
-                    className="relative flex items-center justify-center cursor-pointer"
+                    className="relative flex items-center justify-center cursor-pointer overflow-visible"
                     onClick={handleEnter}
                   >
                     <motion.div
                       className="absolute w-16 h-16 rounded-full border"
                       style={{ borderColor: "hsl(220, 100%, 23%)" }}
-                      animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
+                      animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0, 0.5] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.div
                       className="absolute w-16 h-16 rounded-full border"
                       style={{ borderColor: "hsl(220, 100%, 23%)" }}
-                      animate={{ scale: [1, 1.9, 1], opacity: [0.3, 0, 0.3] }}
+                      animate={{ scale: [1, 1.7, 1], opacity: [0.25, 0, 0.25] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                     />
                     <motion.div

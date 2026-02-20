@@ -50,17 +50,17 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Refined dot cursor */}
+      {/* Refined dot cursor — scale-based transition for GPU smoothness */}
       <div
-        className={`fixed pointer-events-none z-[9999] rounded-full border transition-all duration-200 ease-out ${
+        className={`fixed pointer-events-none z-[9999] rounded-full border transition-[transform,opacity,background-color,border-color] duration-300 ease-out ${
           isVisible ? "opacity-100" : "opacity-0"
         } ${isHovering ? "border-primary bg-primary/10" : "border-primary/40 bg-transparent"}`}
         style={{
           left: position.x,
           top: position.y,
-          transform: "translate(-50%, -50%)",
-          width: isHovering ? 40 : 12,
-          height: isHovering ? 40 : 12,
+          width: 40,
+          height: 40,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1 : 0.3})`,
         }}
       />
     </>
