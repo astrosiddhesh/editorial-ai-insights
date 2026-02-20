@@ -57,8 +57,8 @@ const ProjectsIntro = () => {
       </motion.div>
 
       {/* Scroll-linked word reveal */}
-      <DarkScrollReveal highlightWords={["production-grade"]}>
-        Building production-grade systems that create real impact.
+      <DarkScrollReveal highlightWords={["shipped", "side"]}>
+        Five things built on the side. All shipped. All public.
       </DarkScrollReveal>
 
       {/* Supporting text */}
@@ -69,7 +69,7 @@ const ProjectsIntro = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.6 }}
       >
-        From AI-powered code tutorials to financial assistants — each project solves real problems.
+        From repo explainers to fitness coaches — GenAI applied to problems worth solving.
       </motion.p>
 
       {/* Scroll hint */}

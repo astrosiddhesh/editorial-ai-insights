@@ -68,7 +68,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          Building production-grade analytics and GenAI systems that turn data into automation and business impact.
+          Data engineer and GenAI builder. Works in BFSI. Builds things that run quietly and reliably in the background.
         </motion.p>
 
         {/* CTAs */}

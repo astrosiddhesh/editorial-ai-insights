@@ -28,22 +28,22 @@ const WhatIDo = () => {
             </h2>
             <div className="w-16 h-px bg-primary/30 mb-6" />
             <p className="font-body text-xs uppercase tracking-[0.4em] text-muted-foreground/60">
-              Data · BI · ML · GenAI
+              Mumbai, India
             </p>
           </motion.div>
 
           {/* Right — scroll-reveal content */}
           <div className="space-y-0">
             <ScrollParagraph>
-              Siddhesh is a Data and BI Analyst and GenAI Engineer with experience building enterprise-grade analytics, automation, and AI systems in regulated, high-volume environments.
+              Siddhesh builds data and AI systems for BFSI — the kind that actually run in production, under audit pressure, at scale. Three years in, mostly Python, SQL, and a growing obsession with where LLMs genuinely belong in an enterprise stack.
             </ScrollParagraph>
             
             <div className="flex justify-start py-6 pl-6">
-              <HiddenMessage message="the best systems are invisible" />
+              <HiddenMessage message="complexity is easy; restraint is the craft" />
             </div>
 
             <ScrollParagraph>
-              His work sits at the intersection of business intelligence, data engineering, and GenAI — designing reconciliation engines, analytics platforms, and LLM-assisted workflows.
+              He's built reconciliation engines that process 40K+ transactions daily, BI platforms used across entire revenue orgs, and GenAI workflows that actually cut costs rather than just look impressive in demos.
             </ScrollParagraph>
           </div>
         </div>
@@ -62,7 +62,7 @@ const WhatIDo = () => {
             >
               <div className="w-12 h-px bg-gold/50 mb-8" />
               <p className="font-editorial text-2xl md:text-3xl lg:text-4xl text-headline italic leading-relaxed">
-                "If it doesn't improve decisions, reduce effort, or create measurable impact — it doesn't belong in production."
+                "If it doesn't improve a decision, reduce someone's effort, or survive a production incident — it doesn't belong in the stack."
               </p>
               <motion.div 
                 className="mt-8 flex items-center gap-3"
