@@ -137,7 +137,7 @@ const ImmersiveIntro = () => {
         <motion.img
           src={illustrationMoonwalker}
           alt="Figure standing on crescent moon gazing at data constellations"
-          className="w-72 md:w-96 h-auto rounded-full opacity-80"
+          className="w-72 md:w-72 aspect-square object-cover rounded-full opacity-90"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 0.8, scale: 1 }}
           viewport={{ once: true }}

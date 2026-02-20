@@ -60,7 +60,7 @@ const ExperienceIntro = () => {
         <img
           src={illustrationTrackRecord}
           alt="Data analytics dashboard with charts and neural network visualization"
-          className="w-full max-w-md h-auto mx-auto rounded-2xl"
+          className="w-56 md:w-72 aspect-square object-cover mx-auto rounded-full"
         />
       </motion.div>
 

@@ -52,7 +52,7 @@ const ProjectsIntro = () => {
         <img
           src={illustrationStargazer}
           alt="Figure gazing through telescope at data constellation"
-          className="w-56 md:w-72 h-auto mx-auto rounded-2xl"
+          className="w-56 md:w-72 aspect-square object-cover mx-auto rounded-full"
         />
       </motion.div>
 
