@@ -1,30 +1,8 @@
-import { useState } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { BookOpen, FileText, Lightbulb, ExternalLink, MessageSquare, Send } from "lucide-react";
+import { BookOpen, FileText, Lightbulb, ExternalLink, MessageSquare } from "lucide-react";
 import SectionNumber from "@/components/ui/SectionNumber";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 const CurrentlyOnDesk = () => {
-  const { toast } = useToast();
-  const [reviewForm, setReviewForm] = useState({ name: "", review: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmitReview = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!reviewForm.name.trim() || !reviewForm.review.trim()) {
-      toast({ title: "Please fill in all fields", variant: "destructive" });
-      return;
-    }
-    setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 800));
-    toast({ title: "Review submitted!", description: "Thank you for sharing your thoughts." });
-    setReviewForm({ name: "", review: "" });
-    setIsSubmitting(false);
-  };
-
   const readings = [
     {
       title: "Bulls, Bears and Other Beasts",
@@ -195,42 +173,41 @@ const CurrentlyOnDesk = () => {
               </div>
             </AnimatedSection>
 
-            {/* Drop Your Review */}
+            {/* Connect CTA — replaces the fake review form */}
             <AnimatedSection animation="fade-up" delay={400}>
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <MessageSquare className="w-5 h-5 text-primary/70" />
                   <h3 className="font-display text-xl md:text-2xl font-semibold text-headline">
-                    Drop Your Review
+                    Have a Thought?
                   </h3>
                 </div>
-                <form onSubmit={handleSubmitReview} className="p-6 border border-border/40 bg-card/60 rounded-sm space-y-4">
-                  <p className="text-sm text-muted-foreground font-body">
-                    Share your thoughts, feedback, or just say hello!
+                <div className="p-8 border border-border/40 bg-card/60 rounded-sm hover:border-primary/20 transition-all duration-300">
+                  <p className="font-editorial text-lg md:text-xl text-headline italic leading-relaxed mb-2">
+                    "The best collaborations start with a simple hello."
                   </p>
-                  <Input
-                    placeholder="Your name"
-                    value={reviewForm.name}
-                    onChange={(e) => setReviewForm(prev => ({ ...prev, name: e.target.value }))}
-                    className="bg-background/50 border-border/40 focus:border-primary/40"
-                    maxLength={100}
-                  />
-                  <Textarea
-                    placeholder="Write your review or message..."
-                    value={reviewForm.review}
-                    onChange={(e) => setReviewForm(prev => ({ ...prev, review: e.target.value }))}
-                    className="bg-background/50 border-border/40 focus:border-primary/40 min-h-[120px] resize-none"
-                    maxLength={1000}
-                  />
-                  <Button type="submit" disabled={isSubmitting} className="w-full">
-                    {isSubmitting ? "Submitting..." : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Submit Review
-                      </>
-                    )}
-                  </Button>
-                </form>
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed mb-8">
+                    If you've read something interesting, have a recommendation, or just want to connect — reach out directly.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a
+                      href="mailto:siddhesh.phapale11@gmail.com"
+                      className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-primary hover:text-primary/70 transition-colors border-b border-primary/30 hover:border-primary pb-1 w-fit"
+                    >
+                      Send an Email
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/siddhesh-phapale1106/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors border-b border-border/40 hover:border-primary pb-1 w-fit"
+                    >
+                      Connect on LinkedIn
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
