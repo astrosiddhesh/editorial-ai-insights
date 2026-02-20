@@ -19,6 +19,7 @@ import Contact from "@/components/sections/Contact";
 import StatsCounter from "@/components/sections/StatsCounter";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import CustomCursor from "@/components/ui/CustomCursor";
+import CursorTrail from "@/components/ui/CursorTrail";
 import BackToTop from "@/components/ui/BackToTop";
 import PageLoader from "@/components/ui/PageLoader";
 import GrainOverlay from "@/components/ui/GrainOverlay";
@@ -41,6 +42,7 @@ const Index = () => {
       <div className={`min-h-screen bg-background transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <ScrollProgress />
         <CustomCursor />
+        <CursorTrail />
         <Header />
         <main>
           <Hero />

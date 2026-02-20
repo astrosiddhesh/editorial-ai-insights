@@ -40,6 +40,7 @@ const StatementReveal = ({
         className
       )}
       style={bgStyles}
+      {...(variant === 'dark' ? { 'data-section-theme': 'dark' } : {})}
     >
       {/* Decorative elements */}
       {variant === 'dark' && (
