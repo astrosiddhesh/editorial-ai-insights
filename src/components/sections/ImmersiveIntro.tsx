@@ -23,6 +23,7 @@ const ImmersiveIntro = () => {
       ref={containerRef}
       className="relative min-h-[140vh] overflow-hidden"
       style={{ backgroundColor: "hsl(220, 100%, 23%)" }}
+      data-section-theme="dark"
     >
       {/* Curved top transition */}
       <div className="absolute top-0 left-0 w-full h-32 overflow-hidden">

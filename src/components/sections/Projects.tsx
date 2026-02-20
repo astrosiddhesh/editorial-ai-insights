@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { StackingCards, StackingCardItem } from "@/components/ui/StackingCards";
@@ -5,45 +6,189 @@ import { cn } from "@/lib/utils";
 import SectionNumber from "@/components/ui/SectionNumber";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import ImageReveal from "@/components/ui/ImageReveal";
+import { ProjectCaseStudy, CaseStudyData } from "./ProjectCaseStudy";
+
+const projects: (CaseStudyData & { accent: string })[] = [
+  {
+    title: "RepoIntel",
+    tagline: "AI-Powered Developer Tooling",
+    link: "https://siddheshphapale.live/nova/p1/repointel/",
+    accent: "from-primary/10 to-primary/[0.02]",
+    problem: {
+      headline: "Codebases are black boxes to newcomers.",
+      body: "Developers joining new projects or switching tech stacks spend days or weeks just understanding the codebase before writing a single line of useful code. Documentation is often stale, and reading raw code without context is exhausting.",
+    },
+    approach: {
+      headline: "Dual-LLM orchestration to explain and translate code.",
+      steps: [
+        { label: "Codebase Ingestion", detail: "FastAPI backend recursively parses repos, chunking files into semantically meaningful units for LLM context windows." },
+        { label: "Tutorial Generation", detail: "Gemini 2.0 synthesises beginner-friendly narratives with code highlights, diagrams, and step-by-step walkthroughs." },
+        { label: "Cross-Framework Migration", detail: "OpenAI handles framework-to-framework translation (e.g. React → Vue), preserving business logic while adapting idioms." },
+        { label: "Containerised Deployment", detail: "Docker + Cloud Run ensure zero-cold-start latency for production usage." },
+      ],
+    },
+    outcome: {
+      headline: "Onboarding time cut by 60%.",
+      metrics: [
+        { value: "60%", label: "Faster Onboarding" },
+        { value: "2 LLMs", label: "Orchestrated" },
+        { value: "5 min", label: "Avg. Tutorial Gen" },
+      ],
+      body: "Teams using RepoIntel report dramatically faster onboarding cycles. The dual-LLM approach keeps generation costs low while maximising output quality for both tutorial and migration tasks.",
+    },
+    technologies: [
+      { name: "Python", role: "Core backend logic" },
+      { name: "FastAPI", role: "REST API layer" },
+      { name: "React", role: "Web interface" },
+      { name: "Gemini 2.0", role: "Tutorial generation" },
+      { name: "OpenAI", role: "Code migration" },
+      { name: "Docker", role: "Containerisation" },
+      { name: "Cloud Run", role: "Serverless deployment" },
+    ],
+  },
+  {
+    title: "Welfy",
+    tagline: "AI Financial Intelligence",
+    link: "https://siddheshphapale.live/nova/p2/welfy/",
+    accent: "from-accent/10 to-accent/[0.02]",
+    problem: {
+      headline: "Personal financial data sits siloed and unread.",
+      body: "Most people have their financial data locked inside banking apps with no way to ask natural-language questions about their spending, portfolio health, or savings trajectory. Insights require manual spreadsheet work.",
+    },
+    approach: {
+      headline: "MCP-secured AI layer over real financial data.",
+      steps: [
+        { label: "Secure MCP Integration", detail: "Model Context Protocol connects to Fi Money's data APIs with end-to-end encryption and zero data retention on our servers." },
+        { label: "Real-Time Portfolio Analysis", detail: "Gemini AI processes transaction history, investments, and spending patterns in context to surface actionable trends." },
+        { label: "Conversational Interface", detail: "React + TypeScript chat UI lets users ask questions in plain English — 'How much did I spend on dining last quarter?'" },
+        { label: "Personalised Recommendations", detail: "LLM generates tailored advice grounded in the user's actual financial data, not generic templates." },
+      ],
+    },
+    outcome: {
+      headline: "Financial clarity in seconds, not hours.",
+      metrics: [
+        { value: "< 3s", label: "Insight Response" },
+        { value: "0 KB", label: "Data Retained" },
+        { value: "∞", label: "Questions Supported" },
+      ],
+      body: "Welfy makes personal finance genuinely conversational. Users can query months of financial history in seconds with MCP ensuring their data never leaves their control.",
+    },
+    technologies: [
+      { name: "Google Gemini AI", role: "Intelligence layer" },
+      { name: "MCP", role: "Secure data protocol" },
+      { name: "Python", role: "Backend orchestration" },
+      { name: "FastAPI", role: "API gateway" },
+      { name: "React", role: "Chat interface" },
+      { name: "TypeScript", role: "Type-safe frontend" },
+    ],
+  },
+  {
+    title: "Hustlr",
+    tagline: "AI Fitness Intelligence",
+    link: "https://siddheshphapale.live/nova/p3/hustlr/",
+    accent: "from-primary/10 to-primary/[0.02]",
+    problem: {
+      headline: "Strava shows metrics. It doesn't tell you what to do next.",
+      body: "Athletes accumulate weeks of training data in Strava with no intelligent layer to synthesise it into actionable coaching advice. Most fitness apps give generic plans disconnected from your actual performance history.",
+    },
+    approach: {
+      headline: "AI coaching layer grounded in your real training data.",
+      steps: [
+        { label: "Strava OAuth Integration", detail: "Secure OAuth 2.0 flow fetches the athlete's activity history, heart rate zones, pace trends, and segment PRs." },
+        { label: "MCP-Powered Context", detail: "Training history is structured via MCP and handed to Gemini 2.0 as rich, queryable context." },
+        { label: "Personalised Analysis", detail: "AI identifies overtraining signals, optimal recovery windows, and breakthrough opportunities specific to the user's data." },
+        { label: "Containerised API", detail: "FastAPI + Docker for a production-ready, scalable backend that handles concurrent athlete sessions." },
+      ],
+    },
+    outcome: {
+      headline: "Training advice grounded in your own data.",
+      metrics: [
+        { value: "100%", label: "Personal Data" },
+        { value: "Real-time", label: "Insight Gen" },
+        { value: "OAuth 2.0", label: "Secured" },
+      ],
+      body: "Hustlr closes the gap between data collection and actionable coaching. Unlike generic AI fitness tools, every insight is rooted in the athlete's own Strava history.",
+    },
+    technologies: [
+      { name: "Strava API", role: "Activity data source" },
+      { name: "Gemini 2.0", role: "AI coaching engine" },
+      { name: "MCP", role: "Context protocol" },
+      { name: "FastAPI", role: "Backend API" },
+      { name: "OAuth 2.0", role: "Secure auth" },
+      { name: "Docker", role: "Containerisation" },
+    ],
+  },
+  {
+    title: "Epoquest",
+    tagline: "AI Timeline Explorer",
+    link: "https://siddheshphapale.live/nova/p4/epoquest/",
+    accent: "from-accent/10 to-accent/[0.02]",
+    problem: {
+      headline: "The evolution of ideas has no good visual format online.",
+      body: "Want to understand how machine learning evolved from the 1950s to today? You'd spend hours reading scattered Wikipedia articles and blog posts. There's no single tool that builds an intelligent, visual timeline of any topic's history.",
+    },
+    approach: {
+      headline: "Search-grounded AI generates rich interactive timelines.",
+      steps: [
+        { label: "Topic Decomposition", detail: "Gemini Flash decomposes the user's topic into key historical epochs and inflection points." },
+        { label: "Grounded Research", detail: "Google Search API grounds each timeline event in real, up-to-date sources — preventing hallucinations." },
+        { label: "Visual Narrative Assembly", detail: "Events are synthesised into an interactive, scrollable timeline with descriptions, dates, and contextual connections." },
+        { label: "Lightweight Deployment", detail: "Vanilla JS frontend keeps the experience fast and accessible without heavy framework overhead." },
+      ],
+    },
+    outcome: {
+      headline: "Any topic's history in under 30 seconds.",
+      metrics: [
+        { value: "< 30s", label: "Timeline Generated" },
+        { value: "100%", label: "Search-Grounded" },
+        { value: "Any Topic", label: "Supported" },
+      ],
+      body: "Epoquest transforms hours of research into a 30-second interactive experience. Grounding with live search ensures accuracy while Gemini Flash handles narrative coherence.",
+    },
+    technologies: [
+      { name: "FastAPI", role: "Backend API" },
+      { name: "Gemini Flash", role: "Narrative generation" },
+      { name: "Google Search", role: "Fact grounding" },
+      { name: "Vanilla JS", role: "Lightweight frontend" },
+      { name: "Docker", role: "Containerisation" },
+    ],
+  },
+  {
+    title: "AceSheet",
+    tagline: "AI Cheat Sheet Engine",
+    link: "https://siddheshphapale.live/nova/p5/acesheet/",
+    accent: "from-primary/10 to-primary/[0.02]",
+    problem: {
+      headline: "Information overload kills recall before it starts.",
+      body: "Learners are drowning in long-form content — lectures, docs, tutorials — with no efficient way to distil it into high-density, scannable reference material. Traditional note-taking is slow and inconsistent.",
+    },
+    approach: {
+      headline: "Gemini 2.5 Flash compresses knowledge into visual density.",
+      steps: [
+        { label: "Content Ingestion", detail: "User pastes any text, paste a URL, or uploads content. The system strips noise and extracts core concepts." },
+        { label: "Density Optimisation", detail: "Gemini 2.5 Flash applies information-theoretic compression: maximum signal, minimum words, zero filler." },
+        { label: "Visual Layout Engine", detail: "p5.js renders the cheat sheet in a Swiss-minimal grid layout optimised for print and screen scanning." },
+        { label: "Instant Export", detail: "One-click PDF export for physical reference cards or digital archiving." },
+      ],
+    },
+    outcome: {
+      headline: "Hours of content distilled into one page.",
+      metrics: [
+        { value: "1 Page", label: "Output" },
+        { value: "10×", label: "Faster Review" },
+        { value: "2.5 Flash", label: "Gemini Model" },
+      ],
+      body: "AceSheet makes learning ruthlessly efficient. Students and professionals use it to convert overwhelming information into sharp, memorable reference sheets they actually revisit.",
+    },
+    technologies: [
+      { name: "Gemini 2.5 Flash", role: "Compression engine" },
+      { name: "p5.js", role: "Visual layout rendering" },
+    ],
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "RepoIntel",
-      description: "AI-powered tool that transforms codebases into beginner-friendly tutorials and migrates code between different technologies/frameworks. Features dual-LLM integration, workflow orchestration, and a React-based web interface.",
-      technologies: ["Python", "FastAPI", "React", "Gemini 2.0", "OpenAI", "Docker", "Cloud Run"],
-      link: "https://siddheshphapale.live/nova/p1/repointel/",
-      accent: "from-primary/10 to-primary/[0.02]",
-    },
-    {
-      title: "Welfy",
-      description: "AI Financial Assistant that analyzes personal financial data from Fi Money and provides intelligent insights through a beautiful chat interface. Features secure MCP integration, real-time portfolio analysis, and personalized financial recommendations.",
-      technologies: ["Google Gemini AI", "MCP", "Python", "FastAPI", "React", "TypeScript"],
-      link: "https://siddheshphapale.live/nova/p2/welfy/",
-      accent: "from-accent/10 to-accent/[0.02]",
-    },
-    {
-      title: "Hustlr",
-      description: "Your Strava Sidekick. An AI-powered fitness companion that connects to your Strava account to provide personalized training insights and performance analysis.",
-      technologies: ["Strava API", "Gemini 2.0", "MCP", "FastAPI", "OAuth 2.0", "Docker"],
-      link: "https://siddheshphapale.live/nova/p3/hustlr/",
-      accent: "from-primary/10 to-primary/[0.02]",
-    },
-    {
-      title: "Epoquest",
-      description: "An interactive web experience that lets you explore the evolution of any topic through beautifully crafted, AI-powered timelines. From ancient innovations to modern trends.",
-      technologies: ["FastAPI", "Gemini Flash", "Google Search", "Vanilla JS", "Docker"],
-      link: "https://siddheshphapale.live/nova/p4/epoquest/",
-      accent: "from-accent/10 to-accent/[0.02]",
-    },
-    {
-      title: "AceSheet",
-      description: "AceSheet transforms overwhelming information into sleek, high-density cheat sheets powered by Google Gemini 2.5 Flash. Engineered for rapid learning and sharp recall.",
-      technologies: ["Gemini 2.5 Flash", "p5.js"],
-      link: "https://siddheshphapale.live/nova/p5/acesheet/",
-      accent: "from-primary/10 to-primary/[0.02]",
-    },
-  ];
+  const [activeCase, setActiveCase] = useState<CaseStudyData | null>(null);
 
   return (
     <section id="projects" className="relative pt-8 pb-16">
@@ -63,7 +208,7 @@ const Projects = () => {
         </ImageReveal>
       </div>
 
-      {/* Stacking cards with magnetic hover */}
+      {/* Stacking cards */}
       <StackingCards
         totalCards={projects.length}
         scaleMultiplier={0.04}
@@ -90,7 +235,13 @@ const Projects = () => {
                   "group transition-all duration-500",
                   "hover:shadow-[0_30px_80px_-15px_rgba(0,46,119,0.25)]",
                   "hover:border-primary/30",
+                  "cursor-pointer",
                 )}
+                onClick={() => setActiveCase(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setActiveCase(project)}
+                aria-label={`Open ${project.title} case study`}
               >
                 {/* Hover gradient overlay */}
                 <div className={cn(
@@ -98,7 +249,7 @@ const Projects = () => {
                   project.accent
                 )} />
 
-                {/* Card number — staggered position based on index */}
+                {/* Card number */}
                 <motion.div
                   className="absolute font-display font-bold text-primary/[0.04] leading-none"
                   style={{
@@ -126,17 +277,17 @@ const Projects = () => {
 
                 {/* Description */}
                 <p className="text-sm md:text-base text-muted-foreground font-body leading-relaxed mb-8 max-w-prose relative z-10">
-                  {project.description}
+                  {project.problem.body.slice(0, 180)}…
                 </p>
 
                 {/* Technologies */}
                 <ul className="flex flex-wrap gap-2 mb-8 relative z-10" aria-label="Technologies">
                   {project.technologies.slice(0, 5).map((tech) => (
                     <li
-                      key={tech}
+                      key={tech.name}
                       className="text-xs px-3 py-1.5 bg-primary/[0.06] text-primary/80 border border-primary/10 rounded-sm font-body tracking-wide group-hover:border-primary/20 transition-colors duration-300"
                     >
-                      {tech}
+                      {tech.name}
                     </li>
                   ))}
                   {project.technologies.length > 5 && (
@@ -146,22 +297,36 @@ const Projects = () => {
                   )}
                 </ul>
 
-                {/* Link */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:text-bright-blue transition-colors font-body uppercase tracking-wider relative z-10 group/link"
-                  aria-label={`Explore ${project.title}`}
-                >
-                  <span className="link-underline">Explore</span>
-                  <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-1 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
-                </a>
+                {/* CTA row */}
+                <div className="flex items-center justify-between relative z-10">
+                  <button
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors font-body uppercase tracking-wider group/cs"
+                    onClick={(e) => { e.stopPropagation(); setActiveCase(project); }}
+                  >
+                    <span className="link-underline">Case Study</span>
+                    <span className="text-primary/40 group-hover/cs:text-primary transition-colors">→</span>
+                  </button>
+
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-primary/50 hover:text-primary transition-colors font-body uppercase tracking-wider"
+                    aria-label={`Visit ${project.title}`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span>Live</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </article>
             </MagneticButton>
           </StackingCardItem>
         ))}
       </StackingCards>
+
+      {/* Case Study Modal */}
+      <ProjectCaseStudy data={activeCase} onClose={() => setActiveCase(null)} />
     </section>
   );
 };
