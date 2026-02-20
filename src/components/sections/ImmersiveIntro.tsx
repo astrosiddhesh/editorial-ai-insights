@@ -38,16 +38,12 @@ const ImmersiveIntro = () => {
 
       {/* Interactive glowing insights */}
       <GlowingInsight 
-        text="Sleep is where ideas consolidate" 
-        position={{ top: '25%', left: '12%' }}
-      />
-      <GlowingInsight 
         text="Deterministic meets probabilistic" 
-        position={{ top: '35%', right: '10%' }}
+        position={{ top: '28%', left: '10%' }}
       />
       <GlowingInsight 
         text="Accuracy over novelty" 
-        position={{ bottom: '30%', left: '18%' }}
+        position={{ top: '35%', right: '10%' }}
       />
 
       {/* Scattered star dots — like the reference */}
