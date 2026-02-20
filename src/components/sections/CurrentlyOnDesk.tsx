@@ -172,7 +172,7 @@ const CurrentlyOnDesk = () => {
               </div>
             </AnimatedSection>
 
-            {/* Connect CTA — replaces the fake review form */}
+            {/* Thought prompt */}
             <AnimatedSection animation="fade-up" delay={400}>
               <div>
                 <div className="flex items-center gap-3 mb-6">
@@ -181,31 +181,13 @@ const CurrentlyOnDesk = () => {
                     Have a Thought?
                   </h3>
                 </div>
-                <div className="p-8 border border-border/40 bg-card/60 rounded-sm hover:border-primary/20 transition-all duration-300">
+                <div className="p-8 border border-border/40 bg-card/60 rounded-sm">
                   <p className="font-editorial text-lg md:text-xl text-headline italic leading-relaxed mb-2">
                     "The best collaborations start with a simple hello."
                   </p>
-                  <p className="text-sm text-muted-foreground font-body leading-relaxed mb-8">
-                    If you've read something interesting, have a recommendation, or just want to connect — reach out directly.
+                  <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                    If you've read something interesting, have a recommendation, or just want to connect — the Contact section is right below.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="mailto:siddhesh.phapale11@gmail.com"
-                      className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-primary hover:text-primary/70 transition-colors border-b border-primary/30 hover:border-primary pb-1 w-fit"
-                    >
-                      Send an Email
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/siddhesh-phapale1106/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors border-b border-border/40 hover:border-primary pb-1 w-fit"
-                    >
-                      Connect on LinkedIn
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
                 </div>
               </div>
             </AnimatedSection>

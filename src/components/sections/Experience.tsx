@@ -9,21 +9,21 @@ const Experience = () => {
       suffix: "K+",
       label: "hits/day", 
       title: "Enterprise BI Systems",
-      description: "Revenue-focused BI systems built for scale, used daily across the org."
+      description: "Built BI platforms handling 40K+ daily transactions for revenue teams — dashboards that replaced weekly Excel reviews with real-time decisions."
     },
     { 
       metric: 100,
       suffix: "s",
       label: "of hours saved", 
       title: "Process Automation",
-      description: "Repetitive workflows automated, freeing up hundreds of hours every month."
+      description: "Automated reconciliation and reporting workflows that were eating 3–4 hours per analyst per day. Now they run overnight without anyone touching them."
     },
     { 
       metric: 60,
       suffix: "%+",
       label: "cost reduction", 
       title: "GenAI Optimization",
-      description: "Cut GenAI deployment and token costs significantly through smarter architecture."
+      description: "Redesigned an LLM pipeline's prompting and routing logic — cut token spend by 60%+ without touching output quality. Context windows were the culprit."
     },
   ];
 
@@ -31,12 +31,12 @@ const Experience = () => {
     { 
       title: "Multi-Agent GenAI",
       label: "LLM Orchestration", 
-      description: "Built production apps using LangChain and multi-agent orchestration pipelines."
+      description: "Designed multi-agent systems using LangChain where specialized agents hand off tasks — each scoped tightly to avoid the chaos of one-agent-does-everything."
     },
     { 
-      title: "Use Case Expert",
+      title: "Use Case Identification",
       label: "Strategic Consulting", 
-      description: "Sharp at spotting where automation actually moves the needle for a business."
+      description: "Good at the part most teams skip: figuring out which problems are actually worth automating before writing a single line of code."
     },
   ];
 

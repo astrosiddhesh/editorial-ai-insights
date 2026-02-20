@@ -112,7 +112,7 @@ const ImmersiveIntro = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          Combining deterministic BI pipelines with LLM reasoning to maintain accuracy, explainability, and cost control.
+          Deterministic pipelines where precision matters. LLM reasoning where it genuinely adds value. Not the other way around.
         </motion.p>
 
         {/* Decorative line */}

@@ -51,9 +51,8 @@ const Contact = () => {
             className="font-display font-bold text-headline mb-8 leading-[0.95]"
             style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
           >
-            Let's create something{' '}
-            <span className="text-primary italic">extraordinary</span>{' '}
-            together.
+            Got a problem worth{' '}
+            <span className="text-primary italic">solving?</span>
           </motion.h2>
         </ImageReveal>
 
@@ -65,7 +64,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          Open to data, BI, and GenAI projects, collaborations, or speaking opportunities.
+          Data, BI, GenAI — open to projects, collaborations, or a good conversation about either.
         </motion.p>
 
         {/* Contact links with magnetic hover */}

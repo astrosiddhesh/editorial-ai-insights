@@ -16,19 +16,19 @@ const HorizontalShowcase = () => {
       number: '01',
       title: 'Analyze',
       subtitle: 'Data Engineering & BI',
-      detail: 'Building reconciliation engines and analytics platforms that process millions of records daily with sub-second response times.',
+      detail: 'Reconciliation engines and BI platforms that handle 40K+ daily hits. Built for revenue teams that need answers before the standup, not after.',
     },
     {
       number: '02',
       title: 'Automate',
       subtitle: 'Process Intelligence',
-      detail: 'Replacing manual, error-prone workflows with deterministic automation — saving hundreds of hours monthly across enterprise teams.',
+      detail: 'Turns 4-hour manual workflows into overnight batch jobs. The goal is always: nobody should be doing this by hand.',
     },
     {
       number: '03',
       title: 'Augment',
       subtitle: 'GenAI & LLM Systems',
-      detail: 'Designing production-grade LLM workflows that combine reasoning with reliability — not demos, but systems that run in production.',
+      detail: 'LLM workflows with deterministic guardrails — so they\'re trustworthy enough to actually deploy, not just demo.',
     },
   ];
 

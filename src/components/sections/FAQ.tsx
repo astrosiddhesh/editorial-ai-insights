@@ -12,22 +12,22 @@ const FAQ = () => {
     {
       question: "So, what does Siddhesh actually do?",
       answer:
-        "Siddhesh builds production-grade data and GenAI systems used by real enterprise teams. His work spans reconciliation engines, business intelligence platforms, and LLM-assisted workflows that replace manual, error-prone processes with reliable automation.",
+        "He builds data and AI systems — mostly for BFSI, mostly things that run in the background and process a lot of transactions. Reconciliation engines, BI platforms, LLM workflows. Not demos. Systems that teams actually depend on daily.",
     },
     {
       question: "What tech does Siddhesh work with day-to-day?",
       answer:
-        "Mostly Python and SQL at the core, layered with FastAPI, Streamlit, and cloud data platforms. On the GenAI side, he works with LLMs, RAG architectures, vector databases, and NL2SQL systems, along with Power BI and Tableau for decision-ready analytics.",
+        "Python and SQL are the core. FastAPI for APIs, Streamlit for internal tools. On the AI side: LangChain, RAG pipelines, vector databases, NL2SQL. Power BI and Tableau for the BI layer. GCP for cloud infrastructure, BigQuery for scale.",
     },
     {
       question: "Which industries has Siddhesh worked in?",
       answer:
-        "Primarily BFSI (Banking, Financial Services, and Insurance) — environments where data accuracy, explainability, and scale actually matter. Most systems he's built run in regulated, high-volume enterprise setups.",
+        "Primarily BFSI. The kind of environment where a wrong number in a report has regulatory consequences, not just an awkward meeting. That pressure shapes how the systems are built.",
     },
     {
       question: "Does Siddhesh really work with GenAI and LLMs, or just demos?",
       answer:
-        "Yes — in production, not just prototypes. Siddhesh has designed LLM-powered enterprise assistants, AI-driven reconciliation workflows, and decision-support systems, combining deterministic pipelines with LLM reasoning to keep things trustworthy and auditable.",
+        "In production. He's shipped LLM-powered assistants for enterprise use, built audit-safe AI reconciliation workflows, and cut token costs 60%+ by rethinking prompting architecture — not by switching models.",
     },
   ];
 
