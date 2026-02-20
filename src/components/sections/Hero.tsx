@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FloatingParticles from "@/components/ui/FloatingParticles";
@@ -111,26 +111,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.a 
-        href="#about" 
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 group cursor-pointer"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-      >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/50 group-hover:text-primary transition-colors duration-300">
-            ↓
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-4 h-4 text-muted-foreground/30 group-hover:text-primary transition-colors duration-300" />
-          </motion.div>
-        </div>
-      </motion.a>
     </section>
   );
 };
