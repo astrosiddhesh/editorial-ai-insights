@@ -110,7 +110,7 @@ const ClosingStatement = () => {
           <img
             src={illustrationRelease}
             alt="Hands releasing glowing lanterns into the night sky"
-            className="w-full max-w-lg h-auto rounded-2xl"
+            className="w-56 md:w-72 aspect-square object-cover mx-auto rounded-full"
           />
         </motion.div>
 
