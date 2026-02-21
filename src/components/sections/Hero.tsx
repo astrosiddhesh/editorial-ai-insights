@@ -68,7 +68,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          Product-minded data and AI engineer. Turns business problems into systems that run in production, under audit pressure, at scale. Two-time innovation award winner.
+          Builds data systems and AI products for industries where getting it wrong isn't an option. Product instinct meets engineering rigour.
         </motion.p>
 
         {/* CTAs */}

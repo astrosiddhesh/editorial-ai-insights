@@ -12,22 +12,22 @@ const FAQ = () => {
     {
       question: "So, what does Siddhesh actually do?",
       answer:
-        "He builds data and AI systems for regulated industries. Multi-agent chatbots that let executives query databases in plain English. OCR pipelines that read handwritten customer letters and auto-generate policy updates. BI dashboards used by 5,000+ people daily. Things that run in production, not in a pitch deck.",
+        "He builds data and AI systems for industries where mistakes have real consequences. The kind of work where a chatbot needs to give the right answer every time, a dashboard needs to be trusted by leadership, and an automation pipeline can't quietly break at 2am.",
     },
     {
-      question: "How does Siddhesh approach a new problem?",
+      question: "How does he approach a new problem?",
       answer:
-        "Starts with 'should we build this?' before 'how do we build this?' Talks to stakeholders, maps the decision the system needs to improve, then picks the simplest architecture that survives production. Most of the value comes from scoping correctly, not from choosing the fanciest model.",
+        "He starts by figuring out whether the problem is worth solving at all. Talks to the people who'll use the thing, understands what decision it needs to improve, then picks the simplest path that actually survives contact with production. No over-engineering, no shiny-tool syndrome.",
     },
     {
-      question: "What kind of results has Siddhesh delivered?",
+      question: "What kind of impact does his work have?",
       answer:
-        "Concrete ones. 90% reduction in LLM API costs through dual-model orchestration. 85% less time spent on manual reporting. 75% faster policy servicing turnaround. 70% cut in inference costs through prompt and result caching. Two consecutive innovation awards for process automation and real-time analytics.",
+        "The measurable kind. Processes that used to take hours now take seconds. Teams that relied on analysts for every query can now get answers directly. Manual workflows that burned out good people are now fully automated. He optimises for outcomes, not activity.",
     },
     {
-      question: "Does Siddhesh only do technical work, or does he think about product too?",
+      question: "Is he just a technical person, or does he think about product too?",
       answer:
-        "Both. He's certified in product prioritisation and roadmap development. He identifies which problems are worth solving before writing code, runs stakeholder alignment, and thinks in terms of user impact, not just technical elegance. The product thinking is what separates useful systems from impressive-but-unused ones.",
+        "Both. He has a strong product sense — thinks about who uses the system, what they actually need, and whether the thing being built will matter in six months. The product thinking is what separates a system people use daily from one that collects dust after launch.",
     },
   ];
 

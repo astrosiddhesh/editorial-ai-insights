@@ -9,10 +9,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 3, suffix: "+", label: "Years of Experience" },
-  { value: 10, suffix: "+", label: "Projects Delivered" },
-  { value: 15, suffix: "+", label: "Technologies Used" },
-  { value: 8, suffix: "+", label: "GenAI Apps in Production" },
+  { value: 3, suffix: "+", label: "Years in the Field" },
+  { value: 10, suffix: "+", label: "Systems Shipped" },
+  { value: 5, suffix: "K+", label: "Daily Active Users" },
+  { value: 2, suffix: "x", label: "Innovation Awards" },
 ];
 
 const StatsCounter = () => {

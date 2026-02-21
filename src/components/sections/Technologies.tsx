@@ -8,20 +8,20 @@ const ParticleField = lazy(() => import("@/components/3d/ParticleField"));
 const Technologies = () => {
   const techStack = [
     { 
-      category: "Languages & Frameworks", 
-      items: ["Python", "SQL (Oracle, PostgreSQL, BigQuery)", "FastAPI", "Streamlit"],
+      category: "Core Engineering", 
+      items: ["Python", "SQL", "API Development", "Backend Services"],
     },
     { 
-      category: "GenAI & NLP", 
-      items: ["LangChain", "RAG", "Agentic Workflows", "MCP", "PyTorch", "HuggingFace", "Ollama", "OCR", "Vector DBs"],
+      category: "AI & Machine Learning", 
+      items: ["LLM Orchestration", "Agentic Systems", "RAG Pipelines", "NLP", "Computer Vision"],
     },
     { 
-      category: "Cloud & Infrastructure", 
-      items: ["GCP", "Vertex AI", "BigQuery", "AWS Lambda", "AWS Bedrock", "Docker", "Docker Swarm"],
+      category: "Cloud & DevOps", 
+      items: ["Cloud Platforms", "Serverless", "Containerisation", "CI/CD"],
     },
     { 
-      category: "Data & Visualization", 
-      items: ["Pandas", "NumPy", "Scikit-learn", "Tableau", "Power BI", "Looker Studio", "ETL/ELT Pipelines", "A/B Testing"],
+      category: "Data & Analytics", 
+      items: ["BI Dashboards", "ETL Pipelines", "Statistical Analysis", "Data Visualisation", "A/B Testing"],
     },
   ];
 
