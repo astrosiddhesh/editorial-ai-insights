@@ -16,19 +16,19 @@ const HorizontalShowcase = () => {
       number: '01',
       title: 'Analyze',
       subtitle: 'Data Engineering & BI',
-      detail: 'Real-time dashboards serving 5,000+ users, XIRR engines processing 40M+ transactions, and geospatial intelligence mapping millions of addresses. The kind of analytics that changes how leadership makes decisions.',
+      detail: 'Dashboards that leadership checks before their morning coffee. Analytics that surface what matters, hide what doesn\'t, and hold up under scrutiny. Built to inform decisions, not just display numbers.',
     },
     {
       number: '02',
       title: 'Automate',
       subtitle: 'Process Intelligence',
-      detail: 'OCR pipelines that read handwritten letters, event-driven upsell systems that turn routine policy changes into sales opportunities, and XML processors that compress 4-hour workflows into 10 seconds.',
+      detail: 'Takes the workflows that eat up entire teams\' afternoons and compresses them into seconds. Document processing, report generation, compliance checks — the repetitive stuff that humans shouldn\'t be doing.',
     },
     {
       number: '03',
       title: 'Augment',
       subtitle: 'GenAI & LLM Systems',
-      detail: 'Multi-agent architectures where specialised agents handle intent, schema discovery, query generation, validation, and summarisation. Not one model doing everything. Each agent scoped tightly, with guardrails.',
+      detail: 'AI systems where each component has a clear job and clear boundaries. Not one model doing everything poorly, but specialised agents collaborating with guardrails. Production-grade, not demo-grade.',
     },
   ];
 

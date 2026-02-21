@@ -8,35 +8,35 @@ const Experience = () => {
       metric: 90,
       suffix: "%",
       label: "cost cut", 
-      title: "Multi-Agent NL2SQL Engine",
-      description: "Designed a multi-agent chatbot that lets C-suite query databases in plain English. Dual-LLM architecture slashed API costs by 90%, eliminated 20+ hours of weekly SQL developer workload, and cut manual report generation time by 85%."
+      title: "Conversational Data Access",
+      description: "Built a system that lets non-technical leaders query complex databases in plain English. No SQL knowledge required, no analyst bottleneck. Designed the architecture to keep costs manageable at scale."
     },
     { 
       metric: 75,
       suffix: "%",
       label: "faster TAT", 
       title: "Intelligent Document Processing",
-      description: "Built an OCR pipeline with GenAI that reads customer requests from handwritten letters and CRM forms, identifies policy changes, and generates validated database updates. Processes 5,000+ requests monthly with 90%+ fewer data entry errors."
+      description: "Automated the reading of messy, handwritten customer documents — extracting intent, validating data, and pushing clean updates downstream. Replaced manual data entry with something that actually scales."
     },
     { 
       metric: 99,
       suffix: "%",
       label: "efficiency gain", 
-      title: "Regulatory Automation",
-      description: "Took an XML generation process that consumed 4 hours per 30-policy batch and compressed it to 10 seconds. Handles 800+ policies monthly with zero human error and full regulatory compliance."
+      title: "Compliance Automation",
+      description: "Took a painfully manual regulatory process and compressed it from hours to seconds. Full compliance, zero human error. The kind of boring-but-critical work that compounds over time."
     },
   ];
 
   const textHighlights = [
     { 
       title: "Enterprise Knowledge Systems",
-      label: "RAG & Vector Search", 
-      description: "Architected an HR knowledge assistant spanning 10+ associate companies. Prompt caching and Q&A result caching cut LLM inference costs by 70%, serving 5,000+ employees with instant policy answers."
+      label: "Search & Retrieval", 
+      description: "Built internal knowledge tools that give employees instant, accurate answers from sprawling policy documents — instead of waiting days for someone to dig through a shared drive."
     },
     { 
-      title: "Geospatial & Customer Intelligence",
+      title: "Geospatial Intelligence",
       label: "Data-Driven Strategy", 
-      description: "Mapped 5M+ customer addresses for geolocation analysis. Identified 120+ underserved regions across 350+ districts, directly informing agent allocation and sales force redistribution."
+      description: "Turned raw address data into strategic insights — identifying underserved regions, informing resource allocation, and helping leadership see gaps they didn't know existed."
     },
   ];
 

@@ -35,7 +35,7 @@ const WhatIDo = () => {
           {/* Right — scroll-reveal content */}
           <div className="space-y-0">
             <ScrollParagraph>
-              Data analyst and GenAI engineer with 3 years building production-scale AI systems and advanced analytics for regulated environments. Strong product management instincts: roadmap thinking, feature prioritisation, and a habit of asking "should we build this?" before "how do we build this?"
+              Data and AI engineer who thinks like a product person. Before writing a line of code, he asks whether the thing should exist at all. If it should, he builds it to last — in regulated environments where accuracy isn't optional and downtime has consequences.
             </ScrollParagraph>
             
             <div className="flex justify-start py-6 pl-6">
@@ -43,7 +43,7 @@ const WhatIDo = () => {
             </div>
 
             <ScrollParagraph>
-              He's pioneered LLM-powered applications, built multi-agent NL2SQL engines that eliminated 20+ hours of weekly developer workload, and shipped OCR-driven automation processing 5,000+ customer requests monthly. The kind of work where a wrong number has regulatory consequences, not just an awkward meeting.
+              His work sits at the intersection of applied AI and business operations. Chatbots that talk to databases. Pipelines that read messy documents and turn them into clean data. Dashboards that people actually use every morning. The kind of systems where a wrong number means regulatory trouble, not just an awkward meeting.
             </ScrollParagraph>
           </div>
         </div>

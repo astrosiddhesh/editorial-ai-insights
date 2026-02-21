@@ -7,9 +7,9 @@ import illustrationTrackRecord from '@/assets/illustration-track-record.png';
 
 const ExperienceIntro = () => {
   const stats = [
-    { value: '3+', label: 'Years Experience' },
-    { value: '10+', label: 'Enterprise Systems' },
-    { value: '40K+', label: 'Daily Users' },
+    { value: '—', label: 'Enterprise Scale' },
+    { value: '—', label: 'Production Grade' },
+    { value: '—', label: 'Regulated Industries' },
   ];
 
   return (
@@ -65,8 +65,8 @@ const ExperienceIntro = () => {
       </motion.div>
 
       {/* Scroll-linked word reveal */}
-      <DarkScrollReveal highlightWords={["measurable"]}>
-        Delivering measurable results at enterprise scale.
+      <DarkScrollReveal highlightWords={["built", "lasted"]}>
+        Systems built to be used. Results that lasted.
       </DarkScrollReveal>
 
       {/* Stats row */}
