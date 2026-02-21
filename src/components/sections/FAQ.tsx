@@ -15,9 +15,9 @@ const FAQ = () => {
         "He builds data and AI systems for regulated industries. Multi-agent chatbots that let executives query databases in plain English. OCR pipelines that read handwritten customer letters and auto-generate policy updates. BI dashboards used by 5,000+ people daily. Things that run in production, not in a pitch deck.",
     },
     {
-      question: "What tech does Siddhesh work with day-to-day?",
+      question: "How does Siddhesh approach a new problem?",
       answer:
-        "Python and SQL are the foundation. FastAPI for backend services, LangChain for agentic workflows, RAG pipelines with vector databases for knowledge retrieval. On the data side: Pandas, Scikit-learn, Tableau, Power BI. Cloud-wise: GCP, Vertex AI, BigQuery, AWS Lambda and Bedrock. Docker for containerisation.",
+        "Starts with 'should we build this?' before 'how do we build this?' Talks to stakeholders, maps the decision the system needs to improve, then picks the simplest architecture that survives production. Most of the value comes from scoping correctly, not from choosing the fanciest model.",
     },
     {
       question: "What kind of results has Siddhesh delivered?",
