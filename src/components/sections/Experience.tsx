@@ -5,38 +5,38 @@ import SectionNumber from "@/components/ui/SectionNumber";
 const Experience = () => {
   const highlights = [
     { 
-      metric: 40,
-      suffix: "K+",
-      label: "hits/day", 
-      title: "Enterprise BI Systems",
-      description: "Built BI platforms handling 40K+ daily transactions for revenue teams — dashboards that replaced weekly Excel reviews with real-time decisions."
+      metric: 90,
+      suffix: "%",
+      label: "cost cut", 
+      title: "Multi-Agent NL2SQL Engine",
+      description: "Designed a multi-agent chatbot that lets C-suite query databases in plain English. Dual-LLM architecture slashed API costs by 90%, eliminated 20+ hours of weekly SQL developer workload, and cut manual report generation time by 85%."
     },
     { 
-      metric: 100,
-      suffix: "s",
-      label: "of hours saved", 
-      title: "Process Automation",
-      description: "Automated reconciliation and reporting workflows that were eating 3–4 hours per analyst per day. Now they run overnight without anyone touching them."
+      metric: 75,
+      suffix: "%",
+      label: "faster TAT", 
+      title: "Intelligent Document Processing",
+      description: "Built an OCR pipeline with GenAI that reads customer requests from handwritten letters and CRM forms, identifies policy changes, and generates validated database updates. Processes 5,000+ requests monthly with 90%+ fewer data entry errors."
     },
     { 
-      metric: 60,
-      suffix: "%+",
-      label: "cost reduction", 
-      title: "GenAI Optimization",
-      description: "Redesigned an LLM pipeline's prompting and routing logic — cut token spend by 60%+ without touching output quality. Context windows were the culprit."
+      metric: 99,
+      suffix: "%",
+      label: "efficiency gain", 
+      title: "Regulatory Automation",
+      description: "Took an XML generation process that consumed 4 hours per 30-policy batch and compressed it to 10 seconds. Handles 800+ policies monthly with zero human error and full regulatory compliance."
     },
   ];
 
   const textHighlights = [
     { 
-      title: "Multi-Agent GenAI",
-      label: "LLM Orchestration", 
-      description: "Designed multi-agent systems using LangChain where specialized agents hand off tasks — each scoped tightly to avoid the chaos of one-agent-does-everything."
+      title: "Enterprise Knowledge Systems",
+      label: "RAG & Vector Search", 
+      description: "Architected an HR knowledge assistant spanning 10+ associate companies. Prompt caching and Q&A result caching cut LLM inference costs by 70%, serving 5,000+ employees with instant policy answers."
     },
     { 
-      title: "Use Case Identification",
-      label: "Strategic Consulting", 
-      description: "Good at the part most teams skip: figuring out which problems are actually worth automating before writing a single line of code."
+      title: "Geospatial & Customer Intelligence",
+      label: "Data-Driven Strategy", 
+      description: "Mapped 5M+ customer addresses for geolocation analysis. Identified 120+ underserved regions across 350+ districts, directly informing agent allocation and sales force redistribution."
     },
   ];
 

@@ -9,15 +9,19 @@ const Technologies = () => {
   const techStack = [
     { 
       category: "Languages & Frameworks", 
-      items: ["Python", "SQL", "FastAPI", "Streamlit"],
+      items: ["Python", "SQL (Oracle, PostgreSQL, BigQuery)", "FastAPI", "Streamlit"],
     },
     { 
-      category: "AI/ML & Cloud", 
-      items: ["LangChain", "RAG", "NLP", "Vector DBs", "Vertex AI", "GCP", "Docker", "BigQuery", "AWS Lambda", "AWS Bedrock"],
+      category: "GenAI & NLP", 
+      items: ["LangChain", "RAG", "Agentic Workflows", "MCP", "PyTorch", "HuggingFace", "Ollama", "OCR", "Vector DBs"],
+    },
+    { 
+      category: "Cloud & Infrastructure", 
+      items: ["GCP", "Vertex AI", "BigQuery", "AWS Lambda", "AWS Bedrock", "Docker", "Docker Swarm"],
     },
     { 
       category: "Data & Visualization", 
-      items: ["ETL/ELT Pipelines", "Tableau", "Power BI", "MCP"],
+      items: ["Pandas", "NumPy", "Scikit-learn", "Tableau", "Power BI", "Looker Studio", "ETL/ELT Pipelines", "A/B Testing"],
     },
   ];
 
