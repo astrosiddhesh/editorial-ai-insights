@@ -12,22 +12,22 @@ const FAQ = () => {
     {
       question: "So, what does Siddhesh actually do?",
       answer:
-        "He builds data and AI systems — mostly for BFSI, mostly things that run in the background and process a lot of transactions. Reconciliation engines, BI platforms, LLM workflows. Not demos. Systems that teams actually depend on daily.",
+        "He builds data and AI systems for regulated industries. Multi-agent chatbots that let executives query databases in plain English. OCR pipelines that read handwritten customer letters and auto-generate policy updates. BI dashboards used by 5,000+ people daily. Things that run in production, not in a pitch deck.",
     },
     {
       question: "What tech does Siddhesh work with day-to-day?",
       answer:
-        "Python and SQL are the core. FastAPI for APIs, Streamlit for internal tools. On the AI side: LangChain, RAG pipelines, vector databases, NL2SQL. Power BI and Tableau for the BI layer. GCP for cloud infrastructure, BigQuery for scale.",
+        "Python and SQL are the foundation. FastAPI for backend services, LangChain for agentic workflows, RAG pipelines with vector databases for knowledge retrieval. On the data side: Pandas, Scikit-learn, Tableau, Power BI. Cloud-wise: GCP, Vertex AI, BigQuery, AWS Lambda and Bedrock. Docker for containerisation.",
     },
     {
-      question: "Which industries has Siddhesh worked in?",
+      question: "What kind of results has Siddhesh delivered?",
       answer:
-        "Primarily BFSI. The kind of environment where a wrong number in a report has regulatory consequences, not just an awkward meeting. That pressure shapes how the systems are built.",
+        "Concrete ones. 90% reduction in LLM API costs through dual-model orchestration. 85% less time spent on manual reporting. 75% faster policy servicing turnaround. 70% cut in inference costs through prompt and result caching. Two consecutive innovation awards for process automation and real-time analytics.",
     },
     {
-      question: "Does Siddhesh really work with GenAI and LLMs, or just demos?",
+      question: "Does Siddhesh only do technical work, or does he think about product too?",
       answer:
-        "In production. He's shipped LLM-powered assistants for enterprise use, built audit-safe AI reconciliation workflows, and cut token costs 60%+ by rethinking prompting architecture — not by switching models.",
+        "Both. He's certified in product prioritisation and roadmap development. He identifies which problems are worth solving before writing code, runs stakeholder alignment, and thinks in terms of user impact, not just technical elegance. The product thinking is what separates useful systems from impressive-but-unused ones.",
     },
   ];
 

@@ -16,19 +16,19 @@ const HorizontalShowcase = () => {
       number: '01',
       title: 'Analyze',
       subtitle: 'Data Engineering & BI',
-      detail: 'Reconciliation engines and BI platforms that handle 40K+ daily hits. Built for revenue teams that need answers before the standup, not after.',
+      detail: 'Real-time dashboards serving 5,000+ users, XIRR engines processing 40M+ transactions, and geospatial intelligence mapping millions of addresses. The kind of analytics that changes how leadership makes decisions.',
     },
     {
       number: '02',
       title: 'Automate',
       subtitle: 'Process Intelligence',
-      detail: 'Turns 4-hour manual workflows into overnight batch jobs. The goal is always: nobody should be doing this by hand.',
+      detail: 'OCR pipelines that read handwritten letters, event-driven upsell systems that turn routine policy changes into sales opportunities, and XML processors that compress 4-hour workflows into 10 seconds.',
     },
     {
       number: '03',
       title: 'Augment',
       subtitle: 'GenAI & LLM Systems',
-      detail: 'LLM workflows with deterministic guardrails — so they\'re trustworthy enough to actually deploy, not just demo.',
+      detail: 'Multi-agent architectures where specialised agents handle intent, schema discovery, query generation, validation, and summarisation. Not one model doing everything. Each agent scoped tightly, with guardrails.',
     },
   ];
 

@@ -35,7 +35,7 @@ const WhatIDo = () => {
           {/* Right — scroll-reveal content */}
           <div className="space-y-0">
             <ScrollParagraph>
-              Siddhesh builds data and AI systems for BFSI — the kind that actually run in production, under audit pressure, at scale. Three years in, mostly Python, SQL, and a growing obsession with where LLMs genuinely belong in an enterprise stack.
+              Data analyst and GenAI engineer with 3 years building production-scale AI systems and advanced analytics for regulated environments. Strong product management instincts: roadmap thinking, feature prioritisation, and a habit of asking "should we build this?" before "how do we build this?"
             </ScrollParagraph>
             
             <div className="flex justify-start py-6 pl-6">
@@ -43,7 +43,7 @@ const WhatIDo = () => {
             </div>
 
             <ScrollParagraph>
-              He's built reconciliation engines that process 40K+ transactions daily, BI platforms used across entire revenue orgs, and GenAI workflows that actually cut costs rather than just look impressive in demos.
+              He's pioneered LLM-powered applications, built multi-agent NL2SQL engines that eliminated 20+ hours of weekly developer workload, and shipped OCR-driven automation processing 5,000+ customer requests monthly. The kind of work where a wrong number has regulatory consequences, not just an awkward meeting.
             </ScrollParagraph>
           </div>
         </div>
